@@ -1,0 +1,26 @@
+From admin at berlios.de  Tue Jun  9 00:04:05 2009
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 9 Jun 2009 00:04:05 +0200 (CEST)
+Subject: [Lazybones-devel] [Task #4448] Lazy Bones mit verschiedenen LaFs
+	testen
+Message-ID: <200906082204.n58M45H0010456@unicorn.berlios.de>
+
+Task #4448 has been updated. 
+
+Project: Lazy Bones
+Subproject: Lazy Bones
+Summary: Lazy Bones mit verschiedenen LaFs testen
+Priority: 5
+Percent Complete: 0%
+Status: Open
+Authority  : hampelratte
+Assigned to: none
+
+Description: Lazy Bones mit verschiedenen LaFs testen
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/pm/task.php?func=detailtask&project_task_id=4448&group_id=4483&group_project_id=1814
+
+

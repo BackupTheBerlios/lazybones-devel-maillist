@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Feature #4471] Unterst&#252;tzung von Episodentitel
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/lazybones-devel/2009-February/index.html" >
+   <LINK REL="made" HREF="mailto:lazybones-devel%40lists.berlios.de?Subject=Re%3A%20%5BFeature%20%234471%5D%20Unterst%FCtzung%20von%20Episodentitel&In-Reply-To=%3C200902041255.n14Ct1wX028138%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000061.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Feature #4471] Unterst&#252;tzung von Episodentitel</H1>
+    <B>admin at berlios.de</B> 
+    <A HREF="mailto:lazybones-devel%40lists.berlios.de?Subject=Re%3A%20%5BFeature%20%234471%5D%20Unterst%FCtzung%20von%20Episodentitel&In-Reply-To=%3C200902041255.n14Ct1wX028138%40unicorn.berlios.de%3E"
+       TITLE="[Feature #4471] Unterst&#252;tzung von Episodentitel">admin at berlios.de
+       </A><BR>
+    <I>Wed Feb  4 13:55:01 CET 2009</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000061.html">[Feature #4471] Unterst&#252;tzung von Episodentitel
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#60">[ date ]</a>
+              <a href="thread.html#60">[ thread ]</a>
+              <a href="subject.html#60">[ subject ]</a>
+              <a href="author.html#60">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Feature Request #4471, was updated on 2009-Feb-04 13:55
+You can respond by visiting: 
+<A HREF="http://developer.berlios.de/feature/?func=detailfeature&amp;feature_id=4471&amp;group_id=4483">http://developer.berlios.de/feature/?func=detailfeature&amp;feature_id=4471&amp;group_id=4483</A>
+
+Category: LazyBones
+Status: Open
+Priority: 5
+Summary: Unterst&#252;tzung von Episodentitel
+
+By: larsv
+Date: 2009-Feb-04 13:55
+
+Message:
+Logged In: YES 
+user_id=50182
+Browser: Mozilla/5.0 (compatible; Konqueror/4.2; Linux) KHTML/4.2.0 (like Gecko)
+
+Manchmal m&#246;chte ich beim Anlegen eines neuen Timers
+direkt den Episodentitel hinzuf&#252;gen, also statt z.B.:
+Mit Schirm, Charme und Melone
+m&#246;chte ich als Titel:
+Mit Schirm, Charme und Melone~84. Club der Hirne
+
+Dann wird beim Vergleich zwischen Programmtitel und Timer-
+lautet nur &quot;84. Club der Hirne&quot;, w&#228;hrend der Pfad des Timers
+&quot;Mit Schirm, Charme und Melone&quot; ist.
+Folglich pr&#228;sentiert mir LazyBones die Anzeige zum
+Zuordnung von VDR-Programm und Timer, was auf Dauer
+ziemlich nervt.
+
+Folgender Patch bezieht den Pfad in den Titel-Vergleich mit
+ein, falls ein Pfad im Timer angegeben wurde:
+
+
+Index: src/lazybones/TimerManager.java
+===========================================
+RCS file:
+/cvsroot/lazybones/lazybones/src/lazybones/TimerManager.j
+retrieving revision 1.35
+diff -u -r1.35 TimerManager.java
+--- src/lazybones/TimerManager.java     21 Oct 2008
+19:41:35 -0000      1.35
++++ src/lazybones/TimerManager.java     4 Feb 2009
+12:53:00 -0000
+@@ -711,8 +711,14 @@
+             mta.enqueue();
+         } else {
+             if (timer.getTitle() != null) {
+-                int percentage = Utilities.percentageOfEquality(
++                int percentage;
++                if (timer.getPath() != null &amp;&amp; timer.getPath() != &quot;&quot;)
+{
++                    percentage = Utilities.percentageOfEquality(
++                        prog.getTitle(), timer.getPath() +
+timer.getTitle());
++                } else {
++                    percentage = Utilities.percentageOfEquality(
+                         prog.getTitle(), timer.getTitle());
++                }
+                 if (timer.getFile().indexOf(&quot;EPISODE&quot;) &gt;= 0
+                         || timer.getFile().indexOf(&quot;TITLE&quot;) &gt;= 0
+                         || timer.isRepeating()
+
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+<A HREF="http://developer.berlios.de/feature/?func=detailfeature&amp;feature_id=4471&amp;group_id=4483">http://developer.berlios.de/feature/?func=detailfeature&amp;feature_id=4471&amp;group_id=4483</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000061.html">[Feature #4471] Unterst&#252;tzung von Episodentitel
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#60">[ date ]</a>
+              <a href="thread.html#60">[ thread ]</a>
+              <a href="subject.html#60">[ subject ]</a>
+              <a href="author.html#60">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/lazybones-devel">More information about the Lazybones-devel
+mailing list</a><br>
+</body></html>

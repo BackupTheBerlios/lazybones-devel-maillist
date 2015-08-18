@@ -1,0 +1,383 @@
+From admin at berlios.de  Sat Feb  6 13:15:47 2010
+From: admin at berlios.de (admin at berlios.de)
+Date: Sat, 6 Feb 2010 13:15:47 +0100 (CET)
+Subject: [Lazybones-devel] [Bug #16695] Problem mit channels.conf von
+	pvrinput
+Message-ID: <201002061215.o16CFltm024083@unicorn.berlios.de>
+
+Bug #16695, was updated on 2010-Jan-22 13:55
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: svdrp4j
+Status: Closed
+Resolution: Fixed
+Bug Group: None
+Priority: 5
+Submitted by: hampelratte
+Assigned to : hampelratte
+Summary: Problem mit channels.conf von pvrinput
+
+Details: --- Aus Email -----
+ich habe mir ein Ubuntu VDR 1.7.10 aufgesetzt. Ich bin ein gro?er Fan von Lazy Bones. Leider brauche ich auch pvrinput. Und da ist der Knackpunkt. Lazy Bones 0.5.4.0 kennt den neuen channels.conf syntax des pvrinputs plugin nicht. Sie erscheinen einfach nicht. Kannst du da mal schauen oder mir einen Hinweis geben wo ich schauen kann?
+
+Alter syntax:      DMAX;w_pvrscan:343250:C0:C:0:301:300:305:A1:5492:0:0:0
+
+Neuer Syntax:  DMAX;w_pvrscan:343250:PVRINPUT|TV|PAL:P:0:301=2:300:305:0:5492:0:0:0
+--------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=16695&group_id=4483
+
+
+From admin at berlios.de  Mon Feb 22 14:42:44 2010
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 22 Feb 2010 14:42:44 +0100 (CET)
+Subject: [Support #103103] Probleme mit mehrtägigen Timern
+Message-ID: <201002221342.o1MDgio7012541@unicorn.berlios.de>
+
+Support Request #103103, was updated on 2010-Feb-22 14:42
+You can respond by visiting: 
+http://developer.berlios.de/support/?func=detailsupport&support_id=103103&group_id=4483
+
+Category: None
+Status: Open
+Priority: 5
+Summary: Probleme mit mehrt?gigen Timern
+
+By: mario-nette
+Date: 2010-Feb-22 14:42
+
+Message:
+Logged In: YES 
+user_id=55319
+Browser: Mozilla/5.0 (Windows; U; Windows NT 5.1; de; rv:1.9.2) Gecko/20100115 Firefox/3.6
+
+An dieser Stelle muss ich erst einmal ein Lob los
+werden. Wirklich gute Arbeit die dort geleistet wurde!
+
+Nun zum Thema: Client ist ein 
+REEL-Multimedia NetClient 
+(Nette kleine IP-Streamingbox) mit REEL-NetCeiver
+(IP-Kopfstation mit 2 DVB-S2 Dualtunern).
+Die Streamingboxen haben die M?glichkeit zum Nachr?sten
+einer Festplatte mit der man dann Aufnahmen speichern
+kann oder man speichert die Aufnahmen auf einem
+Netzwerklaufwerk (Entwicklungsstadium).
+
+Lazy Bones funktioniert auch ohne probleme, solange ich
+keine Timer  mehrfach ausf?hren lasse.
+D.H.: Nehme ich eine Sendung jeden Tag auf und setzte
+den Timer T?glich neu ist alles IO.
+ABER: Ist es mir zu m?hsam den Timer jeden Tag wieder
+zu setzen, gehe ich an den Client und setzte den Timer
+auf Mo-Fr oder Mo-So ... 
+
+Versuche ich dann die Timerliste im Lazy Bones zu
+aktualisieren, h?ngt das Programm...
+
+Ich vermute das es keine vorbereitung f?r diese
+"Wochentimer" gibt?!? 
+Vielleicht liegt der Fehler auch zwischen Tastatur und
+Stuhllehne ?! =)
+
+Nicht desto trotz ist das tool wirklich hilfreich, und
+steigert den Nutzungskomfort deutlich.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/support/?func=detailsupport&support_id=103103&group_id=4483
+
+
+From admin at berlios.de  Mon Feb 22 20:43:38 2010
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 22 Feb 2010 20:43:38 +0100 (CET)
+Subject: [Support #103103] Probleme mit mehrtägigen Timern
+Message-ID: <201002221943.o1MJhceK012101@unicorn.berlios.de>
+
+Support Request #103103, was updated on 2010-Feb-22 14:42
+You can respond by visiting: 
+http://developer.berlios.de/support/?func=detailsupport&support_id=103103&group_id=4483
+
+Category: None
+Status: Open
+Priority: 5
+Summary: Probleme mit mehrt?gigen Timern
+
+By: hampelratte
+Date: 2010-Feb-22 20:43
+
+Message:
+Logged In: YES 
+user_id=18663
+Browser: Mozilla/5.0 (X11; U; Linux i686; de; rv:1.9.2) Gecko/20100207 Gentoo Firefox/3.6
+
+>Ich vermute das es keine vorbereitung f?r diese
+>"Wochentimer" gibt?!? 
+
+Falsch vermutet :) . Lazy Bones hat Unterst?tzung f?r
+Wochentag basierte Timer. Allerdings scheint da etwas nicht
+zu klappen. Ich pers?nlich benutze solche Timer nicht.
+Deshalb ist das Feature eher schlecht getestet.
+
+Ich schaue mir das mal an. Zus?tzlich k?nntest Du mir noch
+verraten, welche Sendung Du aufnehmen m?chtest und wie der
+Timer eingestellt ist.
+
+
+----------------------------------------------------------------------
+
+By: mario-nette
+Date: 2010-Feb-22 14:42
+
+Message:
+Logged In: YES 
+user_id=55319
+Browser: Mozilla/5.0 (Windows; U; Windows NT 5.1; de; rv:1.9.2) Gecko/20100115 Firefox/3.6
+
+An dieser Stelle muss ich erst einmal ein Lob los
+werden. Wirklich gute Arbeit die dort geleistet wurde!
+
+Nun zum Thema: Client ist ein 
+REEL-Multimedia NetClient 
+(Nette kleine IP-Streamingbox) mit REEL-NetCeiver
+(IP-Kopfstation mit 2 DVB-S2 Dualtunern).
+Die Streamingboxen haben die M?glichkeit zum Nachr?sten
+einer Festplatte mit der man dann Aufnahmen speichern
+kann oder man speichert die Aufnahmen auf einem
+Netzwerklaufwerk (Entwicklungsstadium).
+
+Lazy Bones funktioniert auch ohne probleme, solange ich
+keine Timer  mehrfach ausf?hren lasse.
+D.H.: Nehme ich eine Sendung jeden Tag auf und setzte
+den Timer T?glich neu ist alles IO.
+ABER: Ist es mir zu m?hsam den Timer jeden Tag wieder
+zu setzen, gehe ich an den Client und setzte den Timer
+auf Mo-Fr oder Mo-So ... 
+
+Versuche ich dann die Timerliste im Lazy Bones zu
+aktualisieren, h?ngt das Programm...
+
+Ich vermute das es keine vorbereitung f?r diese
+"Wochentimer" gibt?!? 
+Vielleicht liegt der Fehler auch zwischen Tastatur und
+Stuhllehne ?! =)
+
+Nicht desto trotz ist das tool wirklich hilfreich, und
+steigert den Nutzungskomfort deutlich.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/support/?func=detailsupport&support_id=103103&group_id=4483
+
+
+From admin at berlios.de  Wed Feb 24 23:40:19 2010
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 24 Feb 2010 23:40:19 +0100 (CET)
+Subject: [Lazybones-devel] [Bug #16881] Doppelte Timer werden nicht mehr
+	erkannt
+Message-ID: <201002242240.o1OMeJg5002103@unicorn.berlios.de>
+
+Bug #16881, was updated on 2010-Feb-24 23:40
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: reelmicha
+Assigned to : none
+Summary: Doppelte Timer werden nicht mehr erkannt
+
+Details: Seit einiger Zeit werden bei mir die Timer in der Reelbox nicht mehr als Dublette erkannt, wenn versucht wird den Timer neu zu senden sondern als weiterer Timer angelegt. Gibt es daf?r eine Einstellung oder ist das so gewollt?
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=16881&group_id=4483
+
+
+From admin at berlios.de  Thu Feb 25 20:52:56 2010
+From: admin at berlios.de (admin at berlios.de)
+Date: Thu, 25 Feb 2010 20:52:56 +0100 (CET)
+Subject: [Lazybones-devel] [Bug #16881] Doppelte Timer werden nicht mehr
+	erkannt
+Message-ID: <201002251952.o1PJquvU007554@unicorn.berlios.de>
+
+Bug #16881, was updated on 2010-Feb-24 23:40
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: reelmicha
+Assigned to : hampelratte
+Summary: Doppelte Timer werden nicht mehr erkannt
+
+Details: Seit einiger Zeit werden bei mir die Timer in der Reelbox nicht mehr als Dublette erkannt, wenn versucht wird den Timer neu zu senden sondern als weiterer Timer angelegt. Gibt es daf?r eine Einstellung oder ist das so gewollt?
+
+Follow-Ups:
+
+Date: 2010-Feb-25 20:52
+By: hampelratte
+
+Comment:
+Kannst Du mal einen Anwendungsfall beschreiben? Ich habe noch nicht ganz verstanden, was Du machst und was schief l?uft.
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=16881&group_id=4483
+
+
+From admin at berlios.de  Thu Feb 25 20:57:11 2010
+From: admin at berlios.de (admin at berlios.de)
+Date: Thu, 25 Feb 2010 20:57:11 +0100 (CET)
+Subject: [Lazybones-devel] [Bug #16881] Doppelte Timer werden nicht mehr
+	erkannt
+Message-ID: <201002251957.o1PJvBgt017794@unicorn.berlios.de>
+
+Bug #16881, was updated on 2010-Feb-24 23:40
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: reelmicha
+Assigned to : hampelratte
+Summary: Doppelte Timer werden nicht mehr erkannt
+
+Details: Seit einiger Zeit werden bei mir die Timer in der Reelbox nicht mehr als Dublette erkannt, wenn versucht wird den Timer neu zu senden sondern als weiterer Timer angelegt. Gibt es daf?r eine Einstellung oder ist das so gewollt?
+
+Follow-Ups:
+
+Date: 2010-Feb-25 20:57
+By: reelmicha
+
+Comment:
+Ein Timer f?r eine Serie ist in der Reelbox schon programmiert. Wenn die Timer neu aus dem TV-Browser gesendet werden, wird der bestehende Timer in der Reelbox nicht erkannt (ich erinnere mich an Meldungen wie "Timer already defined"), sondern einfach nochmal angelegt. 
+
+Hintergrund ist der: Manchmal werden im ersten Durchlauf nicht alle Timer aus Lieblingssendungen erstellt. Wenn ich dann Bearbeiten ... OK dr?cke werden diese nochmal an die Reelbox gesendet. Fr?her wurden dabei doppelte Timer erkannt und nicht als Dublette angelegt. 
+-------------------------------------------------------
+
+Date: 2010-Feb-25 20:52
+By: hampelratte
+
+Comment:
+Kannst Du mal einen Anwendungsfall beschreiben? Ich habe noch nicht ganz verstanden, was Du machst und was schief l?uft.
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=16881&group_id=4483
+
+
+From admin at berlios.de  Thu Feb 25 21:00:12 2010
+From: admin at berlios.de (admin at berlios.de)
+Date: Thu, 25 Feb 2010 21:00:12 +0100 (CET)
+Subject: [Lazybones-devel] [Bug #16881] Doppelte Timer werden nicht mehr
+	erkannt
+Message-ID: <201002252000.o1PK0CIs025388@unicorn.berlios.de>
+
+Bug #16881, was updated on 2010-Feb-24 23:40
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: reelmicha
+Assigned to : hampelratte
+Summary: Doppelte Timer werden nicht mehr erkannt
+
+Details: Seit einiger Zeit werden bei mir die Timer in der Reelbox nicht mehr als Dublette erkannt, wenn versucht wird den Timer neu zu senden sondern als weiterer Timer angelegt. Gibt es daf?r eine Einstellung oder ist das so gewollt?
+
+Follow-Ups:
+
+Date: 2010-Feb-25 21:00
+By: hampelratte
+
+Comment:
+Ok, damit kann ich etwas anfangen. Ich schau mir das mal an.
+-------------------------------------------------------
+
+Date: 2010-Feb-25 20:57
+By: reelmicha
+
+Comment:
+Ein Timer f?r eine Serie ist in der Reelbox schon programmiert. Wenn die Timer neu aus dem TV-Browser gesendet werden, wird der bestehende Timer in der Reelbox nicht erkannt (ich erinnere mich an Meldungen wie "Timer already defined"), sondern einfach nochmal angelegt. 
+
+Hintergrund ist der: Manchmal werden im ersten Durchlauf nicht alle Timer aus Lieblingssendungen erstellt. Wenn ich dann Bearbeiten ... OK dr?cke werden diese nochmal an die Reelbox gesendet. Fr?her wurden dabei doppelte Timer erkannt und nicht als Dublette angelegt. 
+-------------------------------------------------------
+
+Date: 2010-Feb-25 20:52
+By: hampelratte
+
+Comment:
+Kannst Du mal einen Anwendungsfall beschreiben? Ich habe noch nicht ganz verstanden, was Du machst und was schief l?uft.
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=16881&group_id=4483
+
+
+From admin at berlios.de  Thu Feb 25 21:01:30 2010
+From: admin at berlios.de (admin at berlios.de)
+Date: Thu, 25 Feb 2010 21:01:30 +0100 (CET)
+Subject: [Support #103103] Probleme mit mehrtägigen Timern
+Message-ID: <201002252001.o1PK1Uqf028313@unicorn.berlios.de>
+
+Support Request #103103, was updated on 2010-Feb-22 14:42
+You can respond by visiting: 
+http://developer.berlios.de/support/?func=detailsupport&support_id=103103&group_id=4483
+
+Category: None
+Status: Open
+Priority: 5
+Summary: Probleme mit mehrt?gigen Timern
+
+By: hampelratte
+Date: 2010-Feb-25 21:01
+
+Message:
+Logged In: YES 
+user_id=18663
+Browser: Mozilla/5.0 (X11; U; Linux i686; de; rv:1.9.2) Gecko/20100207 Gentoo Firefox/3.6
+
+Also ich kann das Problem nicht reproduzieren. Um welche
+Sendung handelt es sich und wie ist der Timer eingestellt?
+
+----------------------------------------------------------------------
+
+By: hampelratte
+Date: 2010-Feb-22 20:43
+
+Message:
+Logged In: YES 
+user_id=18663
+Browser: Mozilla/5.0 (X11; U; Linux i686; de; rv:1.9.2) Gecko/20100207 Gentoo Firefox/3.6
+
+>Ich vermute das es keine vorbereitung f?r diese
+>"Wochentimer" gibt?!? 
+
+Falsch vermutet :) . Lazy Bones hat Unterst?tzung f?r
+Wochentag basierte Timer. Allerdings scheint da etwas nicht
+zu klappen. Ich pers?nlich benutze solche Timer nicht.
+Deshalb ist das Feature eher schlecht getestet.
+
+Ich schaue mir das mal an. Zus?tzlich k?nntest Du mir noch
+verraten, welche Sendung Du aufnehmen m?chtest und wie der
+Timer eingestellt ist.
+
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/support/?func=detailsupport&support_id=103103&group_id=4483
+
+

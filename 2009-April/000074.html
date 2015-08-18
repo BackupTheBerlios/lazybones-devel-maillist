@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Bug #15488] &#196;nderung des Tages beim Timer-Editieren
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/lazybones-devel/2009-April/index.html" >
+   <LINK REL="made" HREF="mailto:lazybones-devel%40lists.berlios.de?Subject=Re%3A%20%5BBug%20%2315488%5D%20%C4nderung%20des%20Tages%20beim%20Timer-Editieren&In-Reply-To=%3C200904081640.n38Gev9Z016160%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000073.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Bug #15488] &#196;nderung des Tages beim Timer-Editieren</H1>
+    <B>admin at berlios.de</B> 
+    <A HREF="mailto:lazybones-devel%40lists.berlios.de?Subject=Re%3A%20%5BBug%20%2315488%5D%20%C4nderung%20des%20Tages%20beim%20Timer-Editieren&In-Reply-To=%3C200904081640.n38Gev9Z016160%40unicorn.berlios.de%3E"
+       TITLE="[Bug #15488] &#196;nderung des Tages beim Timer-Editieren">admin at berlios.de
+       </A><BR>
+    <I>Wed Apr  8 18:40:57 CEST 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000073.html">[Bug #15488] &#196;nderung des Tages beim Timer-Editieren
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#74">[ date ]</a>
+              <a href="thread.html#74">[ thread ]</a>
+              <a href="subject.html#74">[ subject ]</a>
+              <a href="author.html#74">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bug #15488, was updated on 2009-Apr-08 12:42
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Closed
+Resolution: Fixed
+Bug Group: None
+Priority: 5
+Submitted by: larsv
+Assigned to : hampelratte
+Summary: &#196;nderung des Tages beim Timer-Editieren
+
+Details: &#196;ndert man die End-Zeit eines Timers &#252;ber 00:00 hinaus, sollte der Tag des Timers nicht ge&#228;ndert werden.
+
+Beispiel:
+Eine Sendung am Abend von 22:45 - 23:45.
+Neuen Timer anlegen, Voreinstellung f&#252;r die Zeiten des Timers sind: 22:40 - 23:55.
+&#196;ndere ich nun die Endzeit (da bei der ARD immer chronisch &#252;berzogen wird) von 23:55 z.B. auf 00:05, so wird die Angabe im Tag-Feld ums eins erh&#246;ht.
+Der Timer wird zwar trotzdem korrekt angelegt (am Abend des gleichen Tags und nicht am n&#228;chsten Tag), aber die falsche Angabe im Tag-Feld irritiert zumindest.
+
+Der Fehler d&#252;rfte in den Zeilen 524 und 529 der TimerOptionsPanel.java liegen...
+
+Follow-Ups:
+
+Date: 2009-Apr-08 18:40
+By: hampelratte
+
+Comment:
+Du hast recht. Genau die Zeilen m&#252;ssen wohl raus. Ist wohl ein Copy &amp; Paste-Fehler.
+-------------------------------------------------------
+
+For detailed info, follow this link:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=15488&amp;group_id=4483">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=15488&amp;group_id=4483</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000073.html">[Bug #15488] &#196;nderung des Tages beim Timer-Editieren
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#74">[ date ]</a>
+              <a href="thread.html#74">[ thread ]</a>
+              <a href="subject.html#74">[ subject ]</a>
+              <a href="author.html#74">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/lazybones-devel">More information about the Lazybones-devel
+mailing list</a><br>
+</body></html>

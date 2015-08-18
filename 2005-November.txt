@@ -1,0 +1,18 @@
+From henrik.niehaus at gmx.de  Sat Nov 19 17:10:00 2005
+From: henrik.niehaus at gmx.de (Henrik Niehaus)
+Date: Sat, 19 Nov 2005 17:10:00 +0100
+Subject: [Lazybones-devel] Test Tracker
+Message-ID: <437F4E58.9010106@gmx.de>
+
+ich habe mal einen tracker gebaut, mit dem man testf?lle definieren kann
+und dann f?r jede version neu durchspielen kann. so hat man etwas
+ordnung bei der ganzen testerei und vergisst einzelne testf?lle nicht so
+schnell. ist allerdings alles sehr einfach und simpel gemacht, erf?llt
+aber hoffentlich seinen zweck
+
+zu finden unter: http://lazybones.berlios.de/tests/index.php
+
+gru?,
+henrik
+
+

@@ -1,0 +1,656 @@
+From admin at berlios.de  Tue Mar  2 16:14:36 2010
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 2 Mar 2010 16:14:36 +0100 (CET)
+Subject: [Lazybones-devel] [Bug #16881] Doppelte Timer werden nicht mehr
+	erkannt
+Message-ID: <201003021514.o22FEawE025963@unicorn.berlios.de>
+
+Bug #16881, was updated on 2010-Feb-24 23:40
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: reelmicha
+Assigned to : hampelratte
+Summary: Doppelte Timer werden nicht mehr erkannt
+
+Details: Seit einiger Zeit werden bei mir die Timer in der Reelbox nicht mehr als Dublette erkannt, wenn versucht wird den Timer neu zu senden sondern als weiterer Timer angelegt. Gibt es daf?r eine Einstellung oder ist das so gewollt?
+
+Follow-Ups:
+
+Date: 2010-Mar-02 16:14
+By: hampelratte
+
+Comment:
+Bei mir kommt die Meldung "Timer already defined". Allerdings nur, wenn der Timer auch die gleiche Start- und Endzeit hat. Soweit ich wei? identifiziert VDR Timer auch ?ber das 4-Tupel (Kanal,Datum,Startzeit,Endzeit). Wenn die nicht alle gleich sind, wird ein neuer Timer angelegt. ?berpr?f mal bitte, ob das bei Dir so ist. Wenn nicht, schau Dir mal die eingestellten Aufnahmepuffer (Reelbox und Lazy Bones Einstellungen) an. Das k?nnte das Problem sein. Sonst m?ssen wir noch mal tiefer graben ;)
+-------------------------------------------------------
+
+Date: 2010-Feb-25 21:00
+By: hampelratte
+
+Comment:
+Ok, damit kann ich etwas anfangen. Ich schau mir das mal an.
+-------------------------------------------------------
+
+Date: 2010-Feb-25 20:57
+By: reelmicha
+
+Comment:
+Ein Timer f?r eine Serie ist in der Reelbox schon programmiert. Wenn die Timer neu aus dem TV-Browser gesendet werden, wird der bestehende Timer in der Reelbox nicht erkannt (ich erinnere mich an Meldungen wie "Timer already defined"), sondern einfach nochmal angelegt. 
+
+Hintergrund ist der: Manchmal werden im ersten Durchlauf nicht alle Timer aus Lieblingssendungen erstellt. Wenn ich dann Bearbeiten ... OK dr?cke werden diese nochmal an die Reelbox gesendet. Fr?her wurden dabei doppelte Timer erkannt und nicht als Dublette angelegt. 
+-------------------------------------------------------
+
+Date: 2010-Feb-25 20:52
+By: hampelratte
+
+Comment:
+Kannst Du mal einen Anwendungsfall beschreiben? Ich habe noch nicht ganz verstanden, was Du machst und was schief l?uft.
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=16881&group_id=4483
+
+
+From admin at berlios.de  Thu Mar  4 19:54:39 2010
+From: admin at berlios.de (admin at berlios.de)
+Date: Thu, 4 Mar 2010 19:54:39 +0100 (CET)
+Subject: [Lazybones-devel] [Bug #16881] Doppelte Timer werden nicht mehr
+	erkannt
+Message-ID: <201003041854.o24Isdpw000897@unicorn.berlios.de>
+
+Bug #16881, was updated on 2010-Feb-24 23:40
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: reelmicha
+Assigned to : hampelratte
+Summary: Doppelte Timer werden nicht mehr erkannt
+
+Details: Seit einiger Zeit werden bei mir die Timer in der Reelbox nicht mehr als Dublette erkannt, wenn versucht wird den Timer neu zu senden sondern als weiterer Timer angelegt. Gibt es daf?r eine Einstellung oder ist das so gewollt?
+
+Follow-Ups:
+
+Date: 2010-Mar-04 19:54
+By: hampelratte
+
+Comment:
+Um ganz sicher zu gehen: Du k?nntest mir mal die Logdatei von Lazy Bones schicken. Die liegt im Einstellungsverzeichnis von TV-Browser und hei?t lazybones.log. 
+-------------------------------------------------------
+
+Date: 2010-Mar-04 00:51
+By: reelmicha
+
+Comment:
+Also das Pufferproblem war es leider nicht.
+-------------------------------------------------------
+
+Date: 2010-Mar-04 00:17
+By: reelmicha
+
+Comment:
+Bei mir werden auch Timer mit identischem 4-Tupel Kanal, Datum, Start- und Endzeit angelegt. Die Pufferzeiten waren unterschiedlich. Ich habe die jetzt mal umgestellt, mal sehen ob das schon das Problem war.
+-------------------------------------------------------
+
+Date: 2010-Mar-02 16:14
+By: hampelratte
+
+Comment:
+Bei mir kommt die Meldung "Timer already defined". Allerdings nur, wenn der Timer auch die gleiche Start- und Endzeit hat. Soweit ich wei? identifiziert VDR Timer auch ?ber das 4-Tupel (Kanal,Datum,Startzeit,Endzeit). Wenn die nicht alle gleich sind, wird ein neuer Timer angelegt. ?berpr?f mal bitte, ob das bei Dir so ist. Wenn nicht, schau Dir mal die eingestellten Aufnahmepuffer (Reelbox und Lazy Bones Einstellungen) an. Das k?nnte das Problem sein. Sonst m?ssen wir noch mal tiefer graben ;)
+-------------------------------------------------------
+
+Date: 2010-Feb-25 21:00
+By: hampelratte
+
+Comment:
+Ok, damit kann ich etwas anfangen. Ich schau mir das mal an.
+-------------------------------------------------------
+
+Date: 2010-Feb-25 20:57
+By: reelmicha
+
+Comment:
+Ein Timer f?r eine Serie ist in der Reelbox schon programmiert. Wenn die Timer neu aus dem TV-Browser gesendet werden, wird der bestehende Timer in der Reelbox nicht erkannt (ich erinnere mich an Meldungen wie "Timer already defined"), sondern einfach nochmal angelegt. 
+
+Hintergrund ist der: Manchmal werden im ersten Durchlauf nicht alle Timer aus Lieblingssendungen erstellt. Wenn ich dann Bearbeiten ... OK dr?cke werden diese nochmal an die Reelbox gesendet. Fr?her wurden dabei doppelte Timer erkannt und nicht als Dublette angelegt. 
+-------------------------------------------------------
+
+Date: 2010-Feb-25 20:52
+By: hampelratte
+
+Comment:
+Kannst Du mal einen Anwendungsfall beschreiben? Ich habe noch nicht ganz verstanden, was Du machst und was schief l?uft.
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=16881&group_id=4483
+
+
+From admin at berlios.de  Thu Mar  4 20:12:42 2010
+From: admin at berlios.de (admin at berlios.de)
+Date: Thu, 4 Mar 2010 20:12:42 +0100 (CET)
+Subject: [Lazybones-devel] [Bug #16881] Doppelte Timer werden nicht mehr
+	erkannt
+Message-ID: <201003041912.o24JCgwQ010904@unicorn.berlios.de>
+
+Bug #16881, was updated on 2010-Feb-24 23:40
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: reelmicha
+Assigned to : hampelratte
+Summary: Doppelte Timer werden nicht mehr erkannt
+
+Details: Seit einiger Zeit werden bei mir die Timer in der Reelbox nicht mehr als Dublette erkannt, wenn versucht wird den Timer neu zu senden sondern als weiterer Timer angelegt. Gibt es daf?r eine Einstellung oder ist das so gewollt?
+
+Follow-Ups:
+
+Date: 2010-Mar-04 20:12
+By: reelmicha
+
+Comment:
+OK, habe ich Dir gemailt!
+-------------------------------------------------------
+
+Date: 2010-Mar-04 19:54
+By: hampelratte
+
+Comment:
+Um ganz sicher zu gehen: Du k?nntest mir mal die Logdatei von Lazy Bones schicken. Die liegt im Einstellungsverzeichnis von TV-Browser und hei?t lazybones.log. 
+-------------------------------------------------------
+
+Date: 2010-Mar-04 00:51
+By: reelmicha
+
+Comment:
+Also das Pufferproblem war es leider nicht.
+-------------------------------------------------------
+
+Date: 2010-Mar-04 00:17
+By: reelmicha
+
+Comment:
+Bei mir werden auch Timer mit identischem 4-Tupel Kanal, Datum, Start- und Endzeit angelegt. Die Pufferzeiten waren unterschiedlich. Ich habe die jetzt mal umgestellt, mal sehen ob das schon das Problem war.
+-------------------------------------------------------
+
+Date: 2010-Mar-02 16:14
+By: hampelratte
+
+Comment:
+Bei mir kommt die Meldung "Timer already defined". Allerdings nur, wenn der Timer auch die gleiche Start- und Endzeit hat. Soweit ich wei? identifiziert VDR Timer auch ?ber das 4-Tupel (Kanal,Datum,Startzeit,Endzeit). Wenn die nicht alle gleich sind, wird ein neuer Timer angelegt. ?berpr?f mal bitte, ob das bei Dir so ist. Wenn nicht, schau Dir mal die eingestellten Aufnahmepuffer (Reelbox und Lazy Bones Einstellungen) an. Das k?nnte das Problem sein. Sonst m?ssen wir noch mal tiefer graben ;)
+-------------------------------------------------------
+
+Date: 2010-Feb-25 21:00
+By: hampelratte
+
+Comment:
+Ok, damit kann ich etwas anfangen. Ich schau mir das mal an.
+-------------------------------------------------------
+
+Date: 2010-Feb-25 20:57
+By: reelmicha
+
+Comment:
+Ein Timer f?r eine Serie ist in der Reelbox schon programmiert. Wenn die Timer neu aus dem TV-Browser gesendet werden, wird der bestehende Timer in der Reelbox nicht erkannt (ich erinnere mich an Meldungen wie "Timer already defined"), sondern einfach nochmal angelegt. 
+
+Hintergrund ist der: Manchmal werden im ersten Durchlauf nicht alle Timer aus Lieblingssendungen erstellt. Wenn ich dann Bearbeiten ... OK dr?cke werden diese nochmal an die Reelbox gesendet. Fr?her wurden dabei doppelte Timer erkannt und nicht als Dublette angelegt. 
+-------------------------------------------------------
+
+Date: 2010-Feb-25 20:52
+By: hampelratte
+
+Comment:
+Kannst Du mal einen Anwendungsfall beschreiben? Ich habe noch nicht ganz verstanden, was Du machst und was schief l?uft.
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=16881&group_id=4483
+
+
+From admin at berlios.de  Fri Mar  5 13:43:53 2010
+From: admin at berlios.de (admin at berlios.de)
+Date: Fri, 5 Mar 2010 13:43:53 +0100 (CET)
+Subject: [Lazybones-devel] [Bug #16881] Doppelte Timer werden nicht mehr
+	erkannt
+Message-ID: <201003051243.o25ChrXM006611@unicorn.berlios.de>
+
+Bug #16881, was updated on 2010-Feb-24 23:40
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: reelmicha
+Assigned to : hampelratte
+Summary: Doppelte Timer werden nicht mehr erkannt
+
+Details: Seit einiger Zeit werden bei mir die Timer in der Reelbox nicht mehr als Dublette erkannt, wenn versucht wird den Timer neu zu senden sondern als weiterer Timer angelegt. Gibt es daf?r eine Einstellung oder ist das so gewollt?
+
+Follow-Ups:
+
+Date: 2010-Mar-05 13:43
+By: hampelratte
+
+Comment:
+Knapp 100 Timer, Respekt :)
+
+Also, so wie mir das aussieht, erkennt VDR die doppelten Timer nicht mehr. Lazy Bones selbst f?ngt das nicht ab, weil sonst immer diese "already defined"-Meldung vom VDR kam. Welche VDR Version benutzt Du? Ich habe noch die 1.6er am laufen.
+
+Ich probiere mal eine aktuelle zu kompilieren. Mal sehen, was da passiert.
+-------------------------------------------------------
+
+Date: 2010-Mar-04 20:12
+By: reelmicha
+
+Comment:
+OK, habe ich Dir gemailt!
+-------------------------------------------------------
+
+Date: 2010-Mar-04 19:54
+By: hampelratte
+
+Comment:
+Um ganz sicher zu gehen: Du k?nntest mir mal die Logdatei von Lazy Bones schicken. Die liegt im Einstellungsverzeichnis von TV-Browser und hei?t lazybones.log. 
+-------------------------------------------------------
+
+Date: 2010-Mar-04 00:51
+By: reelmicha
+
+Comment:
+Also das Pufferproblem war es leider nicht.
+-------------------------------------------------------
+
+Date: 2010-Mar-04 00:17
+By: reelmicha
+
+Comment:
+Bei mir werden auch Timer mit identischem 4-Tupel Kanal, Datum, Start- und Endzeit angelegt. Die Pufferzeiten waren unterschiedlich. Ich habe die jetzt mal umgestellt, mal sehen ob das schon das Problem war.
+-------------------------------------------------------
+
+Date: 2010-Mar-02 16:14
+By: hampelratte
+
+Comment:
+Bei mir kommt die Meldung "Timer already defined". Allerdings nur, wenn der Timer auch die gleiche Start- und Endzeit hat. Soweit ich wei? identifiziert VDR Timer auch ?ber das 4-Tupel (Kanal,Datum,Startzeit,Endzeit). Wenn die nicht alle gleich sind, wird ein neuer Timer angelegt. ?berpr?f mal bitte, ob das bei Dir so ist. Wenn nicht, schau Dir mal die eingestellten Aufnahmepuffer (Reelbox und Lazy Bones Einstellungen) an. Das k?nnte das Problem sein. Sonst m?ssen wir noch mal tiefer graben ;)
+-------------------------------------------------------
+
+Date: 2010-Feb-25 21:00
+By: hampelratte
+
+Comment:
+Ok, damit kann ich etwas anfangen. Ich schau mir das mal an.
+-------------------------------------------------------
+
+Date: 2010-Feb-25 20:57
+By: reelmicha
+
+Comment:
+Ein Timer f?r eine Serie ist in der Reelbox schon programmiert. Wenn die Timer neu aus dem TV-Browser gesendet werden, wird der bestehende Timer in der Reelbox nicht erkannt (ich erinnere mich an Meldungen wie "Timer already defined"), sondern einfach nochmal angelegt. 
+
+Hintergrund ist der: Manchmal werden im ersten Durchlauf nicht alle Timer aus Lieblingssendungen erstellt. Wenn ich dann Bearbeiten ... OK dr?cke werden diese nochmal an die Reelbox gesendet. Fr?her wurden dabei doppelte Timer erkannt und nicht als Dublette angelegt. 
+-------------------------------------------------------
+
+Date: 2010-Feb-25 20:52
+By: hampelratte
+
+Comment:
+Kannst Du mal einen Anwendungsfall beschreiben? Ich habe noch nicht ganz verstanden, was Du machst und was schief l?uft.
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=16881&group_id=4483
+
+
+From admin at berlios.de  Fri Mar  5 14:21:43 2010
+From: admin at berlios.de (admin at berlios.de)
+Date: Fri, 5 Mar 2010 14:21:43 +0100 (CET)
+Subject: [Lazybones-devel] [Bug #16881] Doppelte Timer werden nicht mehr
+	erkannt
+Message-ID: <201003051321.o25DLhsY007262@unicorn.berlios.de>
+
+Bug #16881, was updated on 2010-Feb-24 23:40
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: reelmicha
+Assigned to : hampelratte
+Summary: Doppelte Timer werden nicht mehr erkannt
+
+Details: Seit einiger Zeit werden bei mir die Timer in der Reelbox nicht mehr als Dublette erkannt, wenn versucht wird den Timer neu zu senden sondern als weiterer Timer angelegt. Gibt es daf?r eine Einstellung oder ist das so gewollt?
+
+Follow-Ups:
+
+Date: 2010-Mar-05 14:21
+By: hampelratte
+
+Comment:
+So, ich habe jetzt auch mal die 1.7.13 ausprobiert. Da habe ich allerdings das gleiche Verhalten wie mit 1.6. Ich bekomme die "already defined"-Meldung, wenn das 4-Tupel identisch ist. Es gibt eine Ausnahme: Wenn ich bei einem Timer die Startzeit etwas ver?ndere, dann die Lieblingssendung editiere, so dass die Timer angelegt werden und dann den zuvor angelegten Timer editiere, dann bekomme ich es hin, dass zwei identische Timer existieren. Sonst nicht.
+Bleibt die Frage, was bei Dir schief l?uft, bzw. was sich ge?ndert hat, seit dem letzten Funktionieren.
+-------------------------------------------------------
+
+Date: 2010-Mar-05 13:43
+By: hampelratte
+
+Comment:
+Knapp 100 Timer, Respekt :)
+
+Also, so wie mir das aussieht, erkennt VDR die doppelten Timer nicht mehr. Lazy Bones selbst f?ngt das nicht ab, weil sonst immer diese "already defined"-Meldung vom VDR kam. Welche VDR Version benutzt Du? Ich habe noch die 1.6er am laufen.
+
+Ich probiere mal eine aktuelle zu kompilieren. Mal sehen, was da passiert.
+-------------------------------------------------------
+
+Date: 2010-Mar-04 20:12
+By: reelmicha
+
+Comment:
+OK, habe ich Dir gemailt!
+-------------------------------------------------------
+
+Date: 2010-Mar-04 19:54
+By: hampelratte
+
+Comment:
+Um ganz sicher zu gehen: Du k?nntest mir mal die Logdatei von Lazy Bones schicken. Die liegt im Einstellungsverzeichnis von TV-Browser und hei?t lazybones.log. 
+-------------------------------------------------------
+
+Date: 2010-Mar-04 00:51
+By: reelmicha
+
+Comment:
+Also das Pufferproblem war es leider nicht.
+-------------------------------------------------------
+
+Date: 2010-Mar-04 00:17
+By: reelmicha
+
+Comment:
+Bei mir werden auch Timer mit identischem 4-Tupel Kanal, Datum, Start- und Endzeit angelegt. Die Pufferzeiten waren unterschiedlich. Ich habe die jetzt mal umgestellt, mal sehen ob das schon das Problem war.
+-------------------------------------------------------
+
+Date: 2010-Mar-02 16:14
+By: hampelratte
+
+Comment:
+Bei mir kommt die Meldung "Timer already defined". Allerdings nur, wenn der Timer auch die gleiche Start- und Endzeit hat. Soweit ich wei? identifiziert VDR Timer auch ?ber das 4-Tupel (Kanal,Datum,Startzeit,Endzeit). Wenn die nicht alle gleich sind, wird ein neuer Timer angelegt. ?berpr?f mal bitte, ob das bei Dir so ist. Wenn nicht, schau Dir mal die eingestellten Aufnahmepuffer (Reelbox und Lazy Bones Einstellungen) an. Das k?nnte das Problem sein. Sonst m?ssen wir noch mal tiefer graben ;)
+-------------------------------------------------------
+
+Date: 2010-Feb-25 21:00
+By: hampelratte
+
+Comment:
+Ok, damit kann ich etwas anfangen. Ich schau mir das mal an.
+-------------------------------------------------------
+
+Date: 2010-Feb-25 20:57
+By: reelmicha
+
+Comment:
+Ein Timer f?r eine Serie ist in der Reelbox schon programmiert. Wenn die Timer neu aus dem TV-Browser gesendet werden, wird der bestehende Timer in der Reelbox nicht erkannt (ich erinnere mich an Meldungen wie "Timer already defined"), sondern einfach nochmal angelegt. 
+
+Hintergrund ist der: Manchmal werden im ersten Durchlauf nicht alle Timer aus Lieblingssendungen erstellt. Wenn ich dann Bearbeiten ... OK dr?cke werden diese nochmal an die Reelbox gesendet. Fr?her wurden dabei doppelte Timer erkannt und nicht als Dublette angelegt. 
+-------------------------------------------------------
+
+Date: 2010-Feb-25 20:52
+By: hampelratte
+
+Comment:
+Kannst Du mal einen Anwendungsfall beschreiben? Ich habe noch nicht ganz verstanden, was Du machst und was schief l?uft.
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=16881&group_id=4483
+
+
+From admin at berlios.de  Fri Mar  5 22:41:32 2010
+From: admin at berlios.de (admin at berlios.de)
+Date: Fri, 5 Mar 2010 22:41:32 +0100 (CET)
+Subject: [Lazybones-devel] [Bug #16881] Doppelte Timer werden nicht mehr
+	erkannt
+Message-ID: <201003052141.o25LfWwR000936@unicorn.berlios.de>
+
+Bug #16881, was updated on 2010-Feb-24 23:40
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: reelmicha
+Assigned to : hampelratte
+Summary: Doppelte Timer werden nicht mehr erkannt
+
+Details: Seit einiger Zeit werden bei mir die Timer in der Reelbox nicht mehr als Dublette erkannt, wenn versucht wird den Timer neu zu senden sondern als weiterer Timer angelegt. Gibt es daf?r eine Einstellung oder ist das so gewollt?
+
+Follow-Ups:
+
+Date: 2010-Mar-05 22:41
+By: reelmicha
+
+Comment:
+Ich nutze halt die Reelbox, habe gerade mal versucht herauszufinden, welche VDR-Version das ist, in /var/log/messages habe ich dazu nix gefunden. Vielleicht haben die das Verhalten absichtlich deaktiviert? Oder gibt es im VDR vielleicht eine Einstellung dazu?
+-------------------------------------------------------
+
+Date: 2010-Mar-05 14:21
+By: hampelratte
+
+Comment:
+So, ich habe jetzt auch mal die 1.7.13 ausprobiert. Da habe ich allerdings das gleiche Verhalten wie mit 1.6. Ich bekomme die "already defined"-Meldung, wenn das 4-Tupel identisch ist. Es gibt eine Ausnahme: Wenn ich bei einem Timer die Startzeit etwas ver?ndere, dann die Lieblingssendung editiere, so dass die Timer angelegt werden und dann den zuvor angelegten Timer editiere, dann bekomme ich es hin, dass zwei identische Timer existieren. Sonst nicht.
+Bleibt die Frage, was bei Dir schief l?uft, bzw. was sich ge?ndert hat, seit dem letzten Funktionieren.
+-------------------------------------------------------
+
+Date: 2010-Mar-05 13:43
+By: hampelratte
+
+Comment:
+Knapp 100 Timer, Respekt :)
+
+Also, so wie mir das aussieht, erkennt VDR die doppelten Timer nicht mehr. Lazy Bones selbst f?ngt das nicht ab, weil sonst immer diese "already defined"-Meldung vom VDR kam. Welche VDR Version benutzt Du? Ich habe noch die 1.6er am laufen.
+
+Ich probiere mal eine aktuelle zu kompilieren. Mal sehen, was da passiert.
+-------------------------------------------------------
+
+Date: 2010-Mar-04 20:12
+By: reelmicha
+
+Comment:
+OK, habe ich Dir gemailt!
+-------------------------------------------------------
+
+Date: 2010-Mar-04 19:54
+By: hampelratte
+
+Comment:
+Um ganz sicher zu gehen: Du k?nntest mir mal die Logdatei von Lazy Bones schicken. Die liegt im Einstellungsverzeichnis von TV-Browser und hei?t lazybones.log. 
+-------------------------------------------------------
+
+Date: 2010-Mar-04 00:51
+By: reelmicha
+
+Comment:
+Also das Pufferproblem war es leider nicht.
+-------------------------------------------------------
+
+Date: 2010-Mar-04 00:17
+By: reelmicha
+
+Comment:
+Bei mir werden auch Timer mit identischem 4-Tupel Kanal, Datum, Start- und Endzeit angelegt. Die Pufferzeiten waren unterschiedlich. Ich habe die jetzt mal umgestellt, mal sehen ob das schon das Problem war.
+-------------------------------------------------------
+
+Date: 2010-Mar-02 16:14
+By: hampelratte
+
+Comment:
+Bei mir kommt die Meldung "Timer already defined". Allerdings nur, wenn der Timer auch die gleiche Start- und Endzeit hat. Soweit ich wei? identifiziert VDR Timer auch ?ber das 4-Tupel (Kanal,Datum,Startzeit,Endzeit). Wenn die nicht alle gleich sind, wird ein neuer Timer angelegt. ?berpr?f mal bitte, ob das bei Dir so ist. Wenn nicht, schau Dir mal die eingestellten Aufnahmepuffer (Reelbox und Lazy Bones Einstellungen) an. Das k?nnte das Problem sein. Sonst m?ssen wir noch mal tiefer graben ;)
+-------------------------------------------------------
+
+Date: 2010-Feb-25 21:00
+By: hampelratte
+
+Comment:
+Ok, damit kann ich etwas anfangen. Ich schau mir das mal an.
+-------------------------------------------------------
+
+Date: 2010-Feb-25 20:57
+By: reelmicha
+
+Comment:
+Ein Timer f?r eine Serie ist in der Reelbox schon programmiert. Wenn die Timer neu aus dem TV-Browser gesendet werden, wird der bestehende Timer in der Reelbox nicht erkannt (ich erinnere mich an Meldungen wie "Timer already defined"), sondern einfach nochmal angelegt. 
+
+Hintergrund ist der: Manchmal werden im ersten Durchlauf nicht alle Timer aus Lieblingssendungen erstellt. Wenn ich dann Bearbeiten ... OK dr?cke werden diese nochmal an die Reelbox gesendet. Fr?her wurden dabei doppelte Timer erkannt und nicht als Dublette angelegt. 
+-------------------------------------------------------
+
+Date: 2010-Feb-25 20:52
+By: hampelratte
+
+Comment:
+Kannst Du mal einen Anwendungsfall beschreiben? Ich habe noch nicht ganz verstanden, was Du machst und was schief l?uft.
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=16881&group_id=4483
+
+
+From admin at berlios.de  Thu Mar 11 19:23:24 2010
+From: admin at berlios.de (admin at berlios.de)
+Date: Thu, 11 Mar 2010 19:23:24 +0100 (CET)
+Subject: [Lazybones-devel] [Bug #16881] Doppelte Timer werden nicht mehr
+	erkannt
+Message-ID: <201003111823.o2BINOMY009715@unicorn.berlios.de>
+
+Bug #16881, was updated on 2010-Feb-24 23:40
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: reelmicha
+Assigned to : hampelratte
+Summary: Doppelte Timer werden nicht mehr erkannt
+
+Details: Seit einiger Zeit werden bei mir die Timer in der Reelbox nicht mehr als Dublette erkannt, wenn versucht wird den Timer neu zu senden sondern als weiterer Timer angelegt. Gibt es daf?r eine Einstellung oder ist das so gewollt?
+
+Follow-Ups:
+
+Date: 2010-Mar-11 19:23
+By: hampelratte
+
+Comment:
+Du k?nntest mal ausprobieren, ob Du im VDR auch zwei gleiche Timer anlegen kannst. Vll einmal ?ber das Programm-Menu und einmal manuell.
+-------------------------------------------------------
+
+Date: 2010-Mar-05 22:41
+By: reelmicha
+
+Comment:
+Ich nutze halt die Reelbox, habe gerade mal versucht herauszufinden, welche VDR-Version das ist, in /var/log/messages habe ich dazu nix gefunden. Vielleicht haben die das Verhalten absichtlich deaktiviert? Oder gibt es im VDR vielleicht eine Einstellung dazu?
+-------------------------------------------------------
+
+Date: 2010-Mar-05 14:21
+By: hampelratte
+
+Comment:
+So, ich habe jetzt auch mal die 1.7.13 ausprobiert. Da habe ich allerdings das gleiche Verhalten wie mit 1.6. Ich bekomme die "already defined"-Meldung, wenn das 4-Tupel identisch ist. Es gibt eine Ausnahme: Wenn ich bei einem Timer die Startzeit etwas ver?ndere, dann die Lieblingssendung editiere, so dass die Timer angelegt werden und dann den zuvor angelegten Timer editiere, dann bekomme ich es hin, dass zwei identische Timer existieren. Sonst nicht.
+Bleibt die Frage, was bei Dir schief l?uft, bzw. was sich ge?ndert hat, seit dem letzten Funktionieren.
+-------------------------------------------------------
+
+Date: 2010-Mar-05 13:43
+By: hampelratte
+
+Comment:
+Knapp 100 Timer, Respekt :)
+
+Also, so wie mir das aussieht, erkennt VDR die doppelten Timer nicht mehr. Lazy Bones selbst f?ngt das nicht ab, weil sonst immer diese "already defined"-Meldung vom VDR kam. Welche VDR Version benutzt Du? Ich habe noch die 1.6er am laufen.
+
+Ich probiere mal eine aktuelle zu kompilieren. Mal sehen, was da passiert.
+-------------------------------------------------------
+
+Date: 2010-Mar-04 20:12
+By: reelmicha
+
+Comment:
+OK, habe ich Dir gemailt!
+-------------------------------------------------------
+
+Date: 2010-Mar-04 19:54
+By: hampelratte
+
+Comment:
+Um ganz sicher zu gehen: Du k?nntest mir mal die Logdatei von Lazy Bones schicken. Die liegt im Einstellungsverzeichnis von TV-Browser und hei?t lazybones.log. 
+-------------------------------------------------------
+
+Date: 2010-Mar-04 00:51
+By: reelmicha
+
+Comment:
+Also das Pufferproblem war es leider nicht.
+-------------------------------------------------------
+
+Date: 2010-Mar-04 00:17
+By: reelmicha
+
+Comment:
+Bei mir werden auch Timer mit identischem 4-Tupel Kanal, Datum, Start- und Endzeit angelegt. Die Pufferzeiten waren unterschiedlich. Ich habe die jetzt mal umgestellt, mal sehen ob das schon das Problem war.
+-------------------------------------------------------
+
+Date: 2010-Mar-02 16:14
+By: hampelratte
+
+Comment:
+Bei mir kommt die Meldung "Timer already defined". Allerdings nur, wenn der Timer auch die gleiche Start- und Endzeit hat. Soweit ich wei? identifiziert VDR Timer auch ?ber das 4-Tupel (Kanal,Datum,Startzeit,Endzeit). Wenn die nicht alle gleich sind, wird ein neuer Timer angelegt. ?berpr?f mal bitte, ob das bei Dir so ist. Wenn nicht, schau Dir mal die eingestellten Aufnahmepuffer (Reelbox und Lazy Bones Einstellungen) an. Das k?nnte das Problem sein. Sonst m?ssen wir noch mal tiefer graben ;)
+-------------------------------------------------------
+
+Date: 2010-Feb-25 21:00
+By: hampelratte
+
+Comment:
+Ok, damit kann ich etwas anfangen. Ich schau mir das mal an.
+-------------------------------------------------------
+
+Date: 2010-Feb-25 20:57
+By: reelmicha
+
+Comment:
+Ein Timer f?r eine Serie ist in der Reelbox schon programmiert. Wenn die Timer neu aus dem TV-Browser gesendet werden, wird der bestehende Timer in der Reelbox nicht erkannt (ich erinnere mich an Meldungen wie "Timer already defined"), sondern einfach nochmal angelegt. 
+
+Hintergrund ist der: Manchmal werden im ersten Durchlauf nicht alle Timer aus Lieblingssendungen erstellt. Wenn ich dann Bearbeiten ... OK dr?cke werden diese nochmal an die Reelbox gesendet. Fr?her wurden dabei doppelte Timer erkannt und nicht als Dublette angelegt. 
+-------------------------------------------------------
+
+Date: 2010-Feb-25 20:52
+By: hampelratte
+
+Comment:
+Kannst Du mal einen Anwendungsfall beschreiben? Ich habe noch nicht ganz verstanden, was Du machst und was schief l?uft.
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=16881&group_id=4483
+
+

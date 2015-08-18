@@ -1,0 +1,26 @@
+From admin at berlios.de  Sun Jul 26 20:20:37 2009
+From: admin at berlios.de (admin at berlios.de)
+Date: Sun, 26 Jul 2009 20:20:37 +0200 (CEST)
+Subject: [Lazybones-devel] [Bug #14667] Geschnitte Episode wird nicht als
+	geschnitten erkannt
+Message-ID: <200907261820.n6QIKbZE006805@unicorn.berlios.de>
+
+Bug #14667, was updated on 2008-Oct-11 22:36
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Closed
+Resolution: Fixed
+Bug Group: None
+Priority: 1
+Submitted by: hampelratte
+Assigned to : hampelratte
+Summary: Geschnitte Episode wird nicht als geschnitten erkannt
+
+Details: Geschnittene Episoden z.B. Serie~%Episode wird nicht als geschnitten erkannt.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=14667&group_id=4483
+
+

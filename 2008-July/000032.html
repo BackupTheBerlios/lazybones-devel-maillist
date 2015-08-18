@@ -1,0 +1,2009 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Lazybones-devel] [Bug #14192] Fehler beim Laden des Plugins
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/lazybones-devel/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:lazybones-devel%40lists.berlios.de?Subject=Re%3A%20%5BLazybones-devel%5D%20%5BBug%20%2314192%5D%20Fehler%20beim%20Laden%20des%20Plugins&In-Reply-To=%3C200807141732.m6EHWSAk014594%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000031.html">
+   <LINK REL="Next"  HREF="000033.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Lazybones-devel] [Bug #14192] Fehler beim Laden des Plugins</H1>
+    <B>admin at berlios.de</B> 
+    <A HREF="mailto:lazybones-devel%40lists.berlios.de?Subject=Re%3A%20%5BLazybones-devel%5D%20%5BBug%20%2314192%5D%20Fehler%20beim%20Laden%20des%20Plugins&In-Reply-To=%3C200807141732.m6EHWSAk014594%40unicorn.berlios.de%3E"
+       TITLE="[Lazybones-devel] [Bug #14192] Fehler beim Laden des Plugins">admin at berlios.de
+       </A><BR>
+    <I>Mon Jul 14 19:32:29 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000031.html">[Lazybones-devel] [Bug #14192] Fehler beim Laden des Plugins
+</A></li>
+        <LI>Next message: <A HREF="000033.html">[Lazybones-devel] [Bug #14192] Fehler beim Laden des Plugins
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#32">[ date ]</a>
+              <a href="thread.html#32">[ thread ]</a>
+              <a href="subject.html#32">[ subject ]</a>
+              <a href="author.html#32">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bug #14192, was updated on 2008-Jul-13 17:21
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: reelmicha
+Assigned to : hampelratte
+Summary: Fehler beim Laden des Plugins
+
+Details: Hallo, 
+
+seit einigen Tagen bekomme ich folgende Fehlermeldung beim Starten des TV-Browsers: 
+
+Das Plugin &quot;Lazy Bones&quot; hat einen Fehler verursacht. Soll es deaktiviert werden?
+
+----- Start of stacktrace -----
+java.lang.NullPointerException
+  at lazybones.ConflictFinder.increaseTransponderUse(ConflictFinder.java:174)
+  at lazybones.ConflictFinder.findConflicts(ConflictFinder.java:102)
+  at lazybones.ConflictFinder.&lt;init&gt;(ConflictFinder.java:62)
+  at lazybones.ConflictFinder.getInstance(ConflictFinder.java:67)
+  at lazybones.TimerManager.synchronize(TimerManager.java:429)
+  at lazybones.LazyBones.synchronize(LazyBones.java:486)
+  at lazybones.LazyBones.handleTvBrowserStartFinished(LazyBones.java:335)
+  at tvbrowser.core.plugin.JavaPluginProxy.doHandleTvBrowserStartFinished(JavaPluginProxy.java:464)
+  at tvbrowser.core.plugin.AbstractPluginProxy.handleTvBrowserStartFinished(AbstractPluginProxy.java:607)
+  at tvbrowser.core.plugin.PluginProxyManager.fireTvBrowserStartFinished(PluginProxyManager.java:1036)
+  at tvbrowser.core.plugin.PluginProxyManager.fireTvBrowserStartFinished(PluginProxyManager.java:1014)
+  at tvbrowser.TVBrowser$1$1$1.run(TVBrowser.java:387)
+----- End of stacktrace -----
+
+
+Follow-Ups:
+
+Date: 2008-Jul-14 19:32
+By: hampelratte
+
+Comment:
+Ich habe gerade einen neuen cvs snapshot hochgeladen. Probier den doch bitte mal aus.
+-------------------------------------------------------
+
+Date: 2008-Jul-14 14:01
+By: hampelratte
+
+Comment:
+Klaus Schmidinger meint dazu, dass E als Parameter nicht definiert w&#228;re und 42 als Wert f&#252;r M auch nicht. Da ich also nicht absch&#228;tzen kann, welche Werte da noch so kommen k&#246;nnen, werde ich die Validierung in eine extra Methode stecken, die bei Bedarf aufgerufen werden kann, so dass dann auch &quot;krumme&quot; Werte erlaubt werden.
+-------------------------------------------------------
+
+Date: 2008-Jul-13 22:02
+By: reelmicha
+
+Comment:
+Wie Du wahrscheinlich gesehen hast, nutze ich die ReelVDR-Variante des VDR. Ich versuche mal mehr &#252;ber die Parameter im Reel-Forum herauszufinden.
+-------------------------------------------------------
+
+Date: 2008-Jul-13 21:43
+By: hampelratte
+
+Comment:
+Ich habe jetzt alle neuen Parameter und Werte aus der VDR manpage umgesetzt. Es sind jetzt allerdings noch 4 Sender, die trotzdem noch Probleme machen, weil sie noch weitere Parameter enthalten. Ich diesbez&#252;glich mal Klaus Schmidinger angeschrieben. Mal schauen, was er so meint.
+-------------------------------------------------------
+
+Date: 2008-Jul-13 20:47
+By: hampelratte
+
+Comment:
+Ich hab Infos in der manpage von vdr 1.7 gefunden und werde das mal entsprechend umsetzen...
+-------------------------------------------------------
+
+Date: 2008-Jul-13 19:53
+By: hampelratte
+
+Comment:
+Ganz klare Kiste. Es liegt an den beiden HD-Sendern auf Platz 29 und 30. Die haben laut &quot;man 5 vdr&quot; ung&#252;ltige Parameter. Da sich der Parser an diese manpage h&#228;lt, kommt es da zu einem Fehler. Das Exception-Handling ist an der Stelle etwas ungl&#252;cklich, so dass der wahre Grund verborgen bleibt. Das werde ich erstmal verbessern.
+
+Der n&#228;chste Schritt w&#228;re dann, herauszufinden, welche Parameter die HD-Sender haben k&#246;nnen, damit ich den Parser anpassen kann. Du hast nicht zuf&#228;llig eine Quelle daf&#252;r, oder?
+-------------------------------------------------------
+
+Date: 2008-Jul-13 19:03
+By: reelmicha
+
+Comment:
+Die channels &#228;ndern sich nur wenn neue hinzugef&#252;gt werden. Ich glaube als der Fehler das erste Mail auftrat, hatte ich nicht gerade was an der Liste ge&#228;ndert. Ist denn herauszufinden, welcher Timer es ist? Ich k&#246;nnte auch die Zuordnung der Kan&#228;le im Plugin neu machen, wenn das was hilft. 
+
+Hier noch das log. Ich habe jetzt mal die channelliste weggelassen:
+
+18:45:58 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTT
+18:45:58 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--1 1:29:2008-07-13:2010:2205:99:99:Born to be Wild - Saum&#228;&#223;ig unterwegs:&lt;epgsearch&gt;&lt;eventid&gt;13695&lt;/eventid&gt;&lt;update&gt;0&lt;/update&gt;&lt;bstart&gt;5&lt;/bstart&gt;&lt;bstop&gt;10&lt;/bstop&gt;&lt;/epgsearch&gt;
+2 1:7:2008-07-14:2009:2123:50:50:Moonlight:Mick und Beth erlebten einen gemeinsamen, intimen Moment in der W&#252;ste - jetzt versuchen sie alles, um sich aus dem Weg zu gehen, nicht zuletzt deswegen, weil die Reporterin liiert ist. Mick ist derweil mit einem neuen Fall besch&#228;ftigt und hat alle H&#228;nde voll zu tun. Der Detektiv ist auf der Suche nach einem Vampirteenager, dessen Beute meist junge Frauen eines Escort-Services sind, die er zuvor im Internet ausfindig macht.
+
+18:45:58 LAZYBONES INFO lazybones.TimerManager.synchronize: Timers retrieved from VDR
+18:45:58 LAZYBONES FEIN lazybones.ProgramManager.markSingularTimer: Percentage: 100 1:7:14:2009:2123:50:50:Moonlight:Mick und Beth e...
+18:45:58 LAZYBONES FEIN lazybones.ConflictFinder.findConflicts: Looking for conflicts
+18:45:58 LAZYBONES FEIN lazybones.ConflictFinder.findConflicts: Number of cards: 3
+18:46:18 LAZYBONES FEIN lazybones.LazyBones.receivePrograms: Program received for target [capture]
+18:46:19 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1216102038
+18:46:19 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+E 13476 1216101302 1685 50 14
+T Two and a Half Men
+D Alan leidet unter Schlafst&#246;rungen. Als er versucht, durch Joggen m&#252;de zu werden, wird er auch noch f&#228;lschlicherweise f&#252;r einen Bankr&#228;uber gehalten und verhaftet. Bei einer Therapeutin findet er schlie&#223;lich heraus, dass Charlie der Ausl&#246;ser seiner Probleme ist. Der gr&#228;bt indes die Mutter von Jakes Freundin an, was dem gar nicht passt. Jake glaubt n&#228;mlich, dass die Sache kein gutes Ende f&#252;r ihn nehmen wird. Charlie trifft sich heimlich mit der attraktiven Mutter.
+X 1 01 deu Video
+X 2 03 deu deutsch
+X 2 05 deu Dolby Digital 2.0
+e
+c
+End of EPG data
+
+18:46:19 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:15:0750:0833:50:50:Two and a Half Men:Alan leidet unt...
+18:46:19 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1216188439
+18:46:19 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+E 13514 1216187542 1643 50 14
+T Two and a Half Men
+D Alan zeigt bemerkenswerten Einfallsreichtum, wenn es darum geht, sich vor dem Bezahlen zu dr&#252;cken. Charlie ist es jedoch langsam leid, st&#228;ndig f&#252;r seinen Bruder mitbezahlen zu m&#252;ssen und will ihm die Schnorrerei vergelten. Doch das Ganze artet aus, als Alan sich in einem Restaurant auf die Toilette verdr&#252;ckt, um Charlie wieder einmal die Rechnung zu &#252;berlassen. Als dieser in Alans Zimmer auch noch ein dickes B&#252;ndel Geldscheine findet, muss Alan bitter b&#252;&#223;en ...
+X 1 01 deu Video
+X 2 03 deu deutsch
+X 2 05 deu Dolby Digital 2.0
+e
+c
+End of EPG data
+
+18:46:19 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:16:0747:0829:50:50:Two and a Half Men:Alan zeigt beme...
+18:46:20 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;NEWT 1:7:15:0750:0833:50:50:Two and a Half Men:Alan leidet unter Schlafst&#246;rungen. Als er versucht, durch Joggen m&#252;de zu werden, wird er auch noch f&#228;lschlicherweise f&#252;r einen Bankr&#228;uber gehalten und verhaftet. Bei einer Therapeutin findet er schlie&#223;lich heraus, dass Charlie der Ausl&#246;ser seiner Probleme ist. Der gr&#228;bt indes die Mutter von Jakes Freundin an, was dem gar nicht passt. Jake glaubt n&#228;mlich, dass die Sache kein gutes Ende f&#252;r ihn nehmen wird. Charlie trifft sich heimlich mit der attraktiven Mutter.
+18:46:20 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--3 1:7:2008-07-15:0750:0833:50:50:Two and a Half Men:Alan leidet unter Schlafst&#246;rungen. Als er versucht, durch Joggen m&#252;de zu werden, wird er auch noch f&#228;lschlicherweise f&#252;r einen Bankr&#228;uber gehalten und verhaftet. Bei einer Therapeutin findet er schlie&#223;lich heraus, dass Charlie der Ausl&#246;ser seiner Probleme ist. Der gr&#228;bt indes die Mutter von Jakes Freundin an, was dem gar nicht passt. Jake glaubt n&#228;mlich, dass die Sache kein gutes Ende f&#252;r ihn nehmen wird. Charlie trifft sich heimlich mit der attraktiven Mutter.
+
+18:46:20 LAZYBONES FEIN lazybones.ConflictFinder.findConflicts: Looking for conflicts
+18:46:20 LAZYBONES FEIN lazybones.ConflictFinder.findConflicts: Number of cards: 3
+18:46:20 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1216274839
+18:46:20 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:46:20 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:17:0750:0830:50:50:Two and a Half Men:
+18:46:21 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTT
+18:46:21 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--1 1:29:2008-07-13:2010:2205:99:99:Born to be Wild - Saum&#228;&#223;ig unterwegs:&lt;epgsearch&gt;&lt;eventid&gt;13695&lt;/eventid&gt;&lt;update&gt;0&lt;/update&gt;&lt;bstart&gt;5&lt;/bstart&gt;&lt;bstop&gt;10&lt;/bstop&gt;&lt;/epgsearch&gt;
+2 1:7:2008-07-14:2009:2123:50:50:Moonlight:Mick und Beth erlebten einen gemeinsamen, intimen Moment in der W&#252;ste - jetzt versuchen sie alles, um sich aus dem Weg zu gehen, nicht zuletzt deswegen, weil die Reporterin liiert ist. Mick ist derweil mit einem neuen Fall besch&#228;ftigt und hat alle H&#228;nde voll zu tun. Der Detektiv ist auf der Suche nach einem Vampirteenager, dessen Beute meist junge Frauen eines Escort-Services sind, die er zuvor im Internet ausfindig macht.
+3 1:7:2008-07-15:0750:0833:50:50:Two and a Half Men:Alan leidet unter Schlafst&#246;rungen. Als er versucht, durch Joggen m&#252;de zu werden, wird er auch noch f&#228;lschlicherweise f&#252;r einen Bankr&#228;uber gehalten und verhaftet. Bei einer Therapeutin findet er schlie&#223;lich heraus, dass Charlie der Ausl&#246;ser seiner Probleme ist. Der gr&#228;bt indes die Mutter von Jakes Freundin an, was dem gar nicht passt. Jake glaubt n&#228;mlich, dass die Sache kein gutes Ende f&#252;r ihn nehmen wird. Charlie trifft sich heimlich mit der attraktiven Mutter.
+
+18:46:21 LAZYBONES INFO lazybones.TimerManager.synchronize: Timers retrieved from VDR
+18:46:21 LAZYBONES FEIN lazybones.ConflictFinder.findConflicts: Looking for conflicts
+18:46:21 LAZYBONES FEIN lazybones.ConflictFinder.findConflicts: Number of cards: 3
+18:46:21 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1216361240
+18:46:21 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:46:21 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:18:0750:0830:50:50:Two and a Half Men:
+18:46:22 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1216706841
+18:46:22 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:46:22 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:22:0750:0830:50:50:Two and a Half Men:
+18:46:22 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1216793242
+18:46:22 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:46:22 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:23:0750:0830:50:50:Two and a Half Men:
+18:46:22 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1216879642
+18:46:23 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:46:23 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:24:0750:0830:50:50:Two and a Half Men:
+18:46:23 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1216966043
+18:46:23 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:46:23 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:25:0750:0830:50:50:Two and a Half Men:
+18:46:23 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1217311643
+18:46:24 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:46:24 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:29:0750:0830:50:50:Two and a Half Men:
+18:46:24 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1217398044
+18:46:24 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:46:24 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:30:0750:0830:50:50:Two and a Half Men:
+18:46:24 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1217484444
+18:46:24 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:46:24 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:31:0750:0830:50:50:Two and a Half Men:
+18:46:25 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1217570844
+18:46:25 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:46:25 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:1:0750:0830:50:50:Two and a Half Men:
+18:46:25 LAZYBONES FEIN lazybones.LazyBones.receivePrograms: Program received for target [capture]
+18:46:26 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1216102045
+18:46:26 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+E 13476 1216101302 1685 50 14
+T Two and a Half Men
+D Alan leidet unter Schlafst&#246;rungen. Als er versucht, durch Joggen m&#252;de zu werden, wird er auch noch f&#228;lschlicherweise f&#252;r einen Bankr&#228;uber gehalten und verhaftet. Bei einer Therapeutin findet er schlie&#223;lich heraus, dass Charlie der Ausl&#246;ser seiner Probleme ist. Der gr&#228;bt indes die Mutter von Jakes Freundin an, was dem gar nicht passt. Jake glaubt n&#228;mlich, dass die Sache kein gutes Ende f&#252;r ihn nehmen wird. Charlie trifft sich heimlich mit der attraktiven Mutter.
+X 1 01 deu Video
+X 2 03 deu deutsch
+X 2 05 deu Dolby Digital 2.0
+e
+c
+End of EPG data
+
+18:46:26 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:15:0750:0833:50:50:Two and a Half Men:Alan leidet unt...
+18:46:27 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1216188446
+18:46:27 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+E 13514 1216187542 1643 50 14
+T Two and a Half Men
+D Alan zeigt bemerkenswerten Einfallsreichtum, wenn es darum geht, sich vor dem Bezahlen zu dr&#252;cken. Charlie ist es jedoch langsam leid, st&#228;ndig f&#252;r seinen Bruder mitbezahlen zu m&#252;ssen und will ihm die Schnorrerei vergelten. Doch das Ganze artet aus, als Alan sich in einem Restaurant auf die Toilette verdr&#252;ckt, um Charlie wieder einmal die Rechnung zu &#252;berlassen. Als dieser in Alans Zimmer auch noch ein dickes B&#252;ndel Geldscheine findet, muss Alan bitter b&#252;&#223;en ...
+X 1 01 deu Video
+X 2 03 deu deutsch
+X 2 05 deu Dolby Digital 2.0
+e
+c
+End of EPG data
+
+18:46:27 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:16:0747:0829:50:50:Two and a Half Men:Alan zeigt beme...
+18:46:27 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1216274847
+18:46:27 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:46:27 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:17:0750:0830:50:50:Two and a Half Men:
+18:46:27 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1216361247
+18:46:28 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:46:28 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:18:0750:0830:50:50:Two and a Half Men:
+18:46:28 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1216706848
+18:46:28 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:46:28 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:22:0750:0830:50:50:Two and a Half Men:
+18:46:28 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1216793248
+18:46:29 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:46:29 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:23:0750:0830:50:50:Two and a Half Men:
+18:46:29 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1216879649
+18:46:29 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:46:29 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:24:0750:0830:50:50:Two and a Half Men:
+18:46:29 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1216966049
+18:46:30 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:46:30 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:25:0750:0830:50:50:Two and a Half Men:
+18:46:30 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1217311650
+18:46:30 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:46:30 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:29:0750:0830:50:50:Two and a Half Men:
+18:46:30 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1217398050
+18:46:30 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:46:30 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:30:0750:0830:50:50:Two and a Half Men:
+18:46:31 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1217484450
+18:46:31 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:46:31 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:31:0750:0830:50:50:Two and a Half Men:
+18:46:31 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1217570851
+18:46:31 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:46:31 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:1:0750:0830:50:50:Two and a Half Men:
+18:46:42 LAZYBONES FEIN lazybones.LazyBones.receivePrograms: Program received for target [capture]
+18:46:43 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1216241142
+18:46:43 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+E 13532 1216239176 3287 50 14
+T Emergency Room - Die Notaufnahme
+D Ein &#228;lterer Herr und ein Junge werden mit einer Unterk&#252;hlung in die Notaufnahme eingeliefert. W&#228;hrend der Untersuchung finden die &#196;rzte in der gesamten Lunge des Mannes Metastasen. Es stellt sich heraus, dass der Patient ein pensionierter Arzt ist, der in einem Gef&#228;ngnis die Giftspritze verabreichte. Er hat auch den Vater des eingelieferten Jungen hingerichtet ... W&#228;hrenddessen spielen die Chirurgen gegen die Orthop&#228;den Eishockey - alle kommen verletzt ins Krankenhaus zur&#252;ck.
+X 1 01 deu Video
+X 2 03 deu deutsch
+X 2 05 deu Dolby Digital 2.0
+e
+c
+End of EPG data
+
+18:46:43 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:16:2207:2317:50:50:Emergency Room - Die Notaufnahme:Ein &#228;lterer Her...
+18:46:43 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1216845943
+18:46:43 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:46:43 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:23:2210:2325:50:50:Emergency Room - Die Notaufnahme:
+18:46:43 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1217450743
+18:46:44 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:46:44 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:30:2210:2325:50:50:Emergency Room - Die Notaufnahme:
+18:47:41 LAZYBONES FEIN lazybones.LazyBones.receivePrograms: Program received for target [capture]
+18:47:42 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 23 at 1216532741
+18:47:42 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1051-28724 arte
+c
+End of EPG data
+
+18:47:42 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:23:20:0725:0810:50:50:Best of Chic:
+18:47:42 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 23 at 1217137542
+18:47:43 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1051-28724 arte
+c
+End of EPG data
+
+18:47:43 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:23:27:0725:0810:50:50:Best of Chic:
+18:47:43 LAZYBONES FEIN lazybones.LazyBones.receivePrograms: Program received for target [capture]
+18:47:44 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 23 at 1216532743
+18:47:44 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1051-28724 arte
+c
+End of EPG data
+
+18:47:44 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:23:20:0725:0810:50:50:Best of Chic:
+18:47:44 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 23 at 1217137544
+18:47:45 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1051-28724 arte
+c
+End of EPG data
+
+18:47:45 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:23:27:0725:0810:50:50:Best of Chic:
+18:49:48 LAZYBONES FEIN lazybones.LazyBones.receivePrograms: Program received for target [capture]
+18:49:49 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1216157448
+18:49:49 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+E 13495 1216156960 1882 50 14
+T Kalkofes Mattscheibe
+D Kalkofe is back! Der liebevolle &quot;Medienterminator&quot; und sadistische Grimme-Preistr&#228;ger pr&#228;sentiert die TV-Peinlichkeiten der 70er, 80er und 90er und verschont nat&#252;rlich auch die Kollegen der Gegenwart nicht. Kalkofe sieht ganz genau hin, steigt ins Geschehen ein, kommentiert und interpretiert jeden Clip und liefert ein breites Spektrum vielschichtiger Attacken gegen den t&#228;glich produzierten TV-Wahnsinn.
+X 1 01 deu Video
+X 2 03 deu deutsch
+X 2 05 deu Dolby Digital 2.0
+e
+c
+End of EPG data
+
+18:49:49 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:15:2317:0004:50:50:Kalkofes Mattscheibe:Kalkofe is back...
+18:49:49 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1216762249
+18:49:49 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:49:49 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:22:2310:2355:50:50:Kalkofes Mattscheibe:
+18:49:50 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1217367049
+18:49:50 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:49:50 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:29:2310:2355:50:50:Kalkofes Mattscheibe:
+18:49:50 LAZYBONES FEIN lazybones.LazyBones.receivePrograms: Program received for target [capture]
+18:49:51 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1216157450
+18:49:51 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+E 13495 1216156960 1882 50 14
+T Kalkofes Mattscheibe
+D Kalkofe is back! Der liebevolle &quot;Medienterminator&quot; und sadistische Grimme-Preistr&#228;ger pr&#228;sentiert die TV-Peinlichkeiten der 70er, 80er und 90er und verschont nat&#252;rlich auch die Kollegen der Gegenwart nicht. Kalkofe sieht ganz genau hin, steigt ins Geschehen ein, kommentiert und interpretiert jeden Clip und liefert ein breites Spektrum vielschichtiger Attacken gegen den t&#228;glich produzierten TV-Wahnsinn.
+X 1 01 deu Video
+X 2 03 deu deutsch
+X 2 05 deu Dolby Digital 2.0
+e
+c
+End of EPG data
+
+18:49:51 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:15:2317:0004:50:50:Kalkofes Mattscheibe:Kalkofe is back...
+18:49:52 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1216762251
+18:49:52 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:49:52 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:22:2310:2355:50:50:Kalkofes Mattscheibe:
+18:49:52 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1217367052
+18:49:52 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:49:52 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:29:2310:2355:50:50:Kalkofes Mattscheibe:
+18:49:58 LAZYBONES FEIN lazybones.LazyBones.receivePrograms: Program received for target [capture]
+18:49:58 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1216068058
+18:49:59 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+E 13458 1216066385 3345 50 14
+T 24
+D Jack und sein Vater Phillip sollen get&#246;tet werden - die beiden k&#246;nnen sich aber gerade noch retten. Jack l&#228;sst daraufhin das Haus seines Bruders Graem durchsuchen. Mittlerweile hat die CTU herausgefunden, dass Fayed einen neuen Ingenieur gefunden hat, der die restlichen Bomben scharf machen soll und l&#228;sst den Agenten Morris O'Brian entf&#252;hren. Allerdings bekommt Jack Wind davon und fliegt Fayed hinterher. Zeitgleich bringt Jacks Vater seinen Sohn Graem mit einem Nervengift um ...
+X 1 01 deu Video
+X 2 03 deu deutsch
+X 2 05 deu Dolby Digital 5.1
+e
+c
+End of EPG data
+
+18:49:59 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:14:2208:2318:50:50:24:Jack und sein V...
+18:49:59 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1216071479
+18:49:59 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+E 13459 1216069730 3259 50 14
+T 24
+D Jack verliert die Entf&#252;hrer aus den Augen. Ehe er sich auf die erneute Suche nach McCarthy machen kann, findet er dessen Leiche auf der Stra&#223;e. W&#228;hrenddessen geht Fayed brutal vor, um den Ingenieur Morris zum Bauen eines Ger&#228;ts zu bewegen, das der Terrorist zum Umprogrammieren der Bomben ben&#246;tigt. Allerdings gelingt es der CTU, das Geb&#228;ude aufzusp&#252;ren, in dem sich Fayed befindet. Als sie es st&#252;rmen, fehlt von dem Terroristen und dem Ger&#228;t von Morris jede Spur ...
+X 1 01 deu Video
+X 2 03 deu deutsch
+X 2 05 deu Dolby Digital 5.1
+e
+c
+End of EPG data
+
+18:49:59 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:14:2303:0013:50:50:24:Jack verliert d...
+18:49:59 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1216672859
+18:50:00 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:50:00 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:21:2205:2320:50:50:24:
+18:50:00 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1216676220
+18:50:00 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:50:00 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:21:2305:0015:50:50:24:
+18:50:00 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1217277600
+18:50:01 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:50:01 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:28:2205:2320:50:50:24:
+18:50:01 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1217281021
+18:50:01 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:50:01 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:28:2305:0015:50:50:24:
+18:50:13 LAZYBONES FEIN lazybones.LazyBones.receivePrograms: Program received for target [capture]
+18:50:13 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1216064413
+18:50:13 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+E 13457 1216062815 3570 50 14
+T EUReKA - Die geheime Stadt
+D Unerkl&#228;rliche Wetterph&#228;nomene ereignen sich in der Kleinstadt Eureka. W&#228;hrend eines warmen Sommertages wird ein Wissenschaftler erfroren auf der Stra&#223;e gefunden. Es ist nicht auszuschlie&#223;en, dass er ermordet wurde, denn der Mann soll ein Verh&#228;ltnis mit mehreren Frauen gehabt haben. Carter hat auch schon einen Verd&#228;chtigen im Visier. Seine Ermittlungen geraten jedoch ins Stocken, als seine Ex-Frau Abby Eureka aufsucht, und die kleine Zoe mit zu sich nach Los Angeles nehmen will.
+X 1 01 deu Video
+X 2 03 deu deutsch
+X 2 05 deu Dolby Digital 5.1
+e
+c
+End of EPG data
+
+18:50:13 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:14:2108:2223:50:50:EUReKA - Die geheime Stadt:Unerkl&#228;rliche W...
+18:50:14 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1216669213
+18:50:14 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:50:14 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:21:2105:2220:50:50:EUReKA - Die geheime Stadt:
+18:50:14 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1217274014
+18:50:14 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:50:14 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:28:2105:2220:50:50:EUReKA - Die geheime Stadt:
+18:50:25 LAZYBONES FEIN lazybones.LazyBones.receivePrograms: Program received for target [capture]
+18:50:26 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1216473445
+18:50:26 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:50:26 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:19:1500:1540:50:50:Scrubs - Die Anf&#228;nger:
+18:50:26 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1216475126
+18:50:26 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:50:26 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:19:1525:1610:50:50:Scrubs - Die Anf&#228;nger:
+18:50:26 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1217078126
+18:50:27 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:50:27 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:26:1455:1540:50:50:Scrubs - Die Anf&#228;nger:
+18:50:27 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1217079927
+18:50:27 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:50:27 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:26:1525:1610:50:50:Scrubs - Die Anf&#228;nger:
+18:50:27 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1217682927
+18:50:28 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:50:28 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:2:1455:1540:50:50:Scrubs - Die Anf&#228;nger:
+18:50:28 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1217684728
+18:50:28 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:50:28 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:2:1525:1610:50:50:Scrubs - Die Anf&#228;nger:
+18:50:43 LAZYBONES FEIN lazybones.LazyBones.receivePrograms: Program received for target [capture]
+18:50:44 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1216060963
+18:50:44 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+E 13456 1216059270 3545 50 14
+T Moonlight
+D Mick und Beth erlebten einen gemeinsamen, intimen Moment in der W&#252;ste - jetzt versuchen sie alles, um sich aus dem Weg zu gehen, nicht zuletzt deswegen, weil die Reporterin liiert ist. Mick ist derweil mit einem neuen Fall besch&#228;ftigt und hat alle H&#228;nde voll zu tun. Der Detektiv ist auf der Suche nach einem Vampirteenager, dessen Beute meist junge Frauen eines Escort-Services sind, die er zuvor im Internet ausfindig macht.
+X 1 01 deu Video
+X 2 03 deu deutsch
+X 2 05 deu Dolby Digital 2.0
+e
+c
+End of EPG data
+
+18:50:44 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:14:2009:2123:50:50:Moonlight:Mick und Beth e...
+18:50:45 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1216665764
+18:50:45 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:50:45 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:21:2010:2120:50:50:Moonlight:
+18:50:45 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1217270565
+18:50:45 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:50:45 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:28:2010:2120:50:50:Moonlight:
+18:50:45 LAZYBONES FEIN lazybones.LazyBones.receivePrograms: Program received for target [capture]
+18:50:47 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1216060965
+18:50:47 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+E 13456 1216059270 3545 50 14
+T Moonlight
+D Mick und Beth erlebten einen gemeinsamen, intimen Moment in der W&#252;ste - jetzt versuchen sie alles, um sich aus dem Weg zu gehen, nicht zuletzt deswegen, weil die Reporterin liiert ist. Mick ist derweil mit einem neuen Fall besch&#228;ftigt und hat alle H&#228;nde voll zu tun. Der Detektiv ist auf der Suche nach einem Vampirteenager, dessen Beute meist junge Frauen eines Escort-Services sind, die er zuvor im Internet ausfindig macht.
+X 1 01 deu Video
+X 2 03 deu deutsch
+X 2 05 deu Dolby Digital 2.0
+e
+c
+End of EPG data
+
+18:50:47 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:14:2009:2123:50:50:Moonlight:Mick und Beth e...
+18:50:47 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1216665767
+18:50:47 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:50:47 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:21:2010:2120:50:50:Moonlight:
+18:50:48 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 7 at 1217270567
+18:50:48 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1107-17501 ProSieben
+c
+End of EPG data
+
+18:50:48 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:7:28:2010:2120:50:50:Moonlight:
+18:50:55 LAZYBONES FEIN lazybones.LazyBones.receivePrograms: Program received for target [capture]
+18:50:56 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 6 at 1216237075
+18:50:56 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1089-12060 VOX
+E 342 1216235400 3300 50 2
+T Men in Trees
+D 3/I Das stinkt zum Himmel. Ganz Elmo ist in heller Aufregung: Es soll eine Auktion stattfinden, in der M&#228;nner des Ortes versteigert werden, um den Bau eines neuen Leuchtturms zu finanzieren. Im Gegenzug verpflichten sich alle ersteigerten M&#228;nner, einen sch&#246;nen Abend mit der Dame zu verbringen, die bereit war, daf&#252;r ein h&#252;bsches S&#252;mmchen zu spenden. Nat&#252;rlich kommt es im Vorfeld der Aktion zu diversen Absprachen: Buzz beschlie&#223;t gemeinsam mit seiner Frau Mai, dass sie ihn ersteigern soll - ..
+e
+c
+End of EPG data
+
+18:50:56 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:6:16:2105:2215:50:50:Men in Trees:3/I Das stinkt ...
+18:50:56 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 6 at 1216240376
+18:50:57 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1089-12060 VOX
+E 344 1216238700 3300 50 2
+T Men in Trees
+D 4/I Auf die Gr&#246;&#223;e kommt's an. Der alte Franklin, der f&#252;r Jack eine Art Ersatzvater war, stirbt. Doch nicht nur f&#252;r Jack ist dies ein gro&#223;er Verlust. Ganz Elmo trauert um einen geliebten und gesch&#228;tzten Nachbarn. Und als w&#228;re das nicht genug, zieht der Trauerfall weite Kreise: Durch Franklins Tod ist die Einwohnerzahl so niedrig, dass Elmo nicht mehr als Stadt gilt, sondern zum Dorf degradiert wird. Nun ist sich die Partnerstadt Pakuma zu fein, die St&#228;dtefreundschaft weiter ...
+e
+c
+End of EPG data
+
+18:50:57 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:6:16:2200:2310:50:50:Men in Trees:4/I Auf die Gr&#246;...
+18:50:57 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 6 at 1216841877
+18:50:57 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1089-12060 VOX
+c
+End of EPG data
+
+18:50:57 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:6:23:2105:2215:50:50:Men in Trees:
+18:50:57 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 6 at 1216845177
+18:50:58 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1089-12060 VOX
+c
+End of EPG data
+
+18:50:58 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:6:23:2200:2310:50:50:Men in Trees:
+18:50:58 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 6 at 1217446678
+18:50:58 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1089-12060 VOX
+c
+End of EPG data
+
+18:50:58 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:6:30:2105:2215:50:50:Men in Trees:
+18:50:58 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 6 at 1217449978
+18:50:58 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1089-12060 VOX
+c
+End of EPG data
+
+18:50:58 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:6:30:2200:2310:50:50:Men in Trees:
+18:50:58 LAZYBONES FEIN lazybones.LazyBones.receivePrograms: Program received for target [capture]
+18:51:00 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 6 at 1216237078
+18:51:00 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1089-12060 VOX
+E 342 1216235400 3300 50 2
+T Men in Trees
+D 3/I Das stinkt zum Himmel. Ganz Elmo ist in heller Aufregung: Es soll eine Auktion stattfinden, in der M&#228;nner des Ortes versteigert werden, um den Bau eines neuen Leuchtturms zu finanzieren. Im Gegenzug verpflichten sich alle ersteigerten M&#228;nner, einen sch&#246;nen Abend mit der Dame zu verbringen, die bereit war, daf&#252;r ein h&#252;bsches S&#252;mmchen zu spenden. Nat&#252;rlich kommt es im Vorfeld der Aktion zu diversen Absprachen: Buzz beschlie&#223;t gemeinsam mit seiner Frau Mai, dass sie ihn ersteigern soll - ..
+e
+c
+End of EPG data
+
+18:51:00 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:6:16:2105:2215:50:50:Men in Trees:3/I Das stinkt ...
+18:51:00 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 6 at 1216240320
+18:51:00 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1089-12060 VOX
+E 344 1216238700 3300 50 2
+T Men in Trees
+D 4/I Auf die Gr&#246;&#223;e kommt's an. Der alte Franklin, der f&#252;r Jack eine Art Ersatzvater war, stirbt. Doch nicht nur f&#252;r Jack ist dies ein gro&#223;er Verlust. Ganz Elmo trauert um einen geliebten und gesch&#228;tzten Nachbarn. Und als w&#228;re das nicht genug, zieht der Trauerfall weite Kreise: Durch Franklins Tod ist die Einwohnerzahl so niedrig, dass Elmo nicht mehr als Stadt gilt, sondern zum Dorf degradiert wird. Nun ist sich die Partnerstadt Pakuma zu fein, die St&#228;dtefreundschaft weiter ...
+e
+c
+End of EPG data
+
+18:51:00 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:6:16:2200:2310:50:50:Men in Trees:4/I Auf die Gr&#246;...
+18:51:01 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 6 at 1216841820
+18:51:01 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1089-12060 VOX
+c
+End of EPG data
+
+18:51:01 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:6:23:2105:2215:50:50:Men in Trees:
+18:51:01 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 6 at 1216845121
+18:51:01 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1089-12060 VOX
+c
+End of EPG data
+
+18:51:01 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:6:23:2200:2310:50:50:Men in Trees:
+18:51:01 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 6 at 1217446621
+18:51:02 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1089-12060 VOX
+c
+End of EPG data
+
+18:51:02 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:6:30:2105:2215:50:50:Men in Trees:
+18:51:02 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 6 at 1217449922
+18:51:02 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1089-12060 VOX
+c
+End of EPG data
+
+18:51:02 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:6:30:2200:2310:50:50:Men in Trees:
+18:51:02 LAZYBONES FEIN lazybones.LazyBones.receivePrograms: Program received for target [capture]
+18:51:03 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 6 at 1216237022
+18:51:04 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1089-12060 VOX
+E 342 1216235400 3300 50 2
+T Men in Trees
+D 3/I Das stinkt zum Himmel. Ganz Elmo ist in heller Aufregung: Es soll eine Auktion stattfinden, in der M&#228;nner des Ortes versteigert werden, um den Bau eines neuen Leuchtturms zu finanzieren. Im Gegenzug verpflichten sich alle ersteigerten M&#228;nner, einen sch&#246;nen Abend mit der Dame zu verbringen, die bereit war, daf&#252;r ein h&#252;bsches S&#252;mmchen zu spenden. Nat&#252;rlich kommt es im Vorfeld der Aktion zu diversen Absprachen: Buzz beschlie&#223;t gemeinsam mit seiner Frau Mai, dass sie ihn ersteigern soll - ..
+e
+c
+End of EPG data
+
+18:51:04 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:6:16:2105:2215:50:50:Men in Trees:3/I Das stinkt ...
+18:51:04 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 6 at 1216240324
+18:51:04 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1089-12060 VOX
+E 344 1216238700 3300 50 2
+T Men in Trees
+D 4/I Auf die Gr&#246;&#223;e kommt's an. Der alte Franklin, der f&#252;r Jack eine Art Ersatzvater war, stirbt. Doch nicht nur f&#252;r Jack ist dies ein gro&#223;er Verlust. Ganz Elmo trauert um einen geliebten und gesch&#228;tzten Nachbarn. Und als w&#228;re das nicht genug, zieht der Trauerfall weite Kreise: Durch Franklins Tod ist die Einwohnerzahl so niedrig, dass Elmo nicht mehr als Stadt gilt, sondern zum Dorf degradiert wird. Nun ist sich die Partnerstadt Pakuma zu fein, die St&#228;dtefreundschaft weiter ...
+e
+c
+End of EPG data
+
+18:51:04 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:6:16:2200:2310:50:50:Men in Trees:4/I Auf die Gr&#246;...
+18:51:04 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 6 at 1216841824
+18:51:05 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1089-12060 VOX
+c
+End of EPG data
+
+18:51:05 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:6:23:2105:2215:50:50:Men in Trees:
+18:51:05 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 6 at 1216845125
+18:51:05 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1089-12060 VOX
+c
+End of EPG data
+
+18:51:05 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:6:23:2200:2310:50:50:Men in Trees:
+18:51:05 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 6 at 1217446625
+18:51:05 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1089-12060 VOX
+c
+End of EPG data
+
+18:51:05 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:6:30:2105:2215:50:50:Men in Trees:
+18:51:06 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: --&gt;LSTE 6 at 1217449925
+18:51:06 LAZYBONES AM FEINSTEN lazybones.VDRConnection.send: &lt;--C S19.2E-1-1089-12060 VOX
+c
+End of EPG data
+
+18:51:06 LAZYBONES FEIN lazybones.actions.CommandQueue.add: Enqueued Create timer 1:6:30:2200:2310:50:50:Men in Trees:
+
+-------------------------------------------------------
+
+Date: 2008-Jul-13 18:58
+By: reelmicha
+
+Comment:
+Hier die Channels/Timer via Telnet-Ausgabe:
+
+220 ReelVDR SVDRP VideoDiskRecorder 1.4.7; Sun Jul 13 18:55:47 2008
+lstc
+250-1 Das Erste;ARD:11836:hC34:S19.2E:27500:101:102=deu,103=2ch;106=dd:104:0:28106:1:1101:0
+250-2 ZDF;ZDFvision:11954:hC34:S19.2E:27500:110:120=deu,121=2ch;125=dd:130:0:28006:1:1079:0
+250-3 SAT.1;ProSiebenSat.1:12544:hC56:S19.2E:22000:255:256=deu;259=deu:32:0:17500:1:1107:0
+250-4 RTL Television,RTL;RTL World:12188:hC34:S19.2E:27500:163:104=deu;106=deu:105:0:12003:1:1089:0
+250-5 RTL2;RTL World:12188:hC34:S19.2E:27500:166:128=deu:68:0:12020:1:1089:0
+250-6 VOX;RTL World:12188:hC34:S19.2E:27500:167:136=deu:71:0:12060:1:1089:0
+250-7 ProSieben;ProSiebenSat.1:12544:hC56:S19.2E:22000:511:512=deu;515=deu:33:0:17501:1:1107:0
+250-8 kabel eins;ProSiebenSat.1:12544:hC56:S19.2E:22000:767:768=deu:34:0:17502:1:1107:0
+250-9 DAS VIERTE,D VIERTE;BetaDigital:12460:hC34:S19.2E:27500:2047:2048=deu:36:0:1793:133:5:0
+250-10 TELE 5;BetaDigital:12480:vC34:S19.2E:27500:1535:1536=deu:38:0:51:133:33:0
+250-11 Super RTL,S RTL;RTL World:12188:hC34:S19.2E:27500:165:120=deu:65:0:12040:1:1089:0
+250-12 3sat;ZDFvision:11954:hC34:S19.2E:27500:210:220=deu,221=2ch;225=dd:230:0:28007:1:1079:0
+250-13 MDR S-Anhalt;ARD:12110:hC34:S19.2E:27500:2901:2902=deu,2903=2ch:2904:0:28229:1:1073:0
+250-14 NDR FS HH;ARD:12110:hC34:S19.2E:27500:2601:2602=deu,2603=2ch:2604:0:28225:1:1073:0
+250-15 Radio Bremen TV-alt;ARD:12266:hC34:S19.2E:27500:1201:1202=deu:1204:0:28485:1:1093:0
+250-16 rbb Berlin;ARD:12110:hC34:S19.2E:27500:601:602=deu:604:0:28206:1:1073:0
+250-17 SR Fernsehen;ARD:12266:hC34:S19.2E:27500:1301:1302=deu:1304:0:28486:1:1093:0
+250-18 SWR Fernsehen BW;ARD:11836:hC34:S19.2E:27500:801:802=deu:804:0:28113:1:1101:0
+250-19 WDR K&#246;ln;ARD:11836:hC34:S19.2E:27500:601:602=deu:604:0:28111:1:1101:0
+250-20 EinsExtra;ARD:10743:hC56:S19.2E:22000:101:102=deu:0:0:28721:1:1051:0
+250-21 EinsFestival;ARD:10743:hC56:S19.2E:22000:201:202=deu:204:0:28722:1:1051:0
+250-22 EinsPlus;ARD:10743:hC56:S19.2E:22000:301:302=deu:304:0:28723:1:1051:0
+250-23 arte;ARD:10743:hC56:S19.2E:22000:401:402=deu,403=fra:404:0:28724:1:1051:0
+250-24 Phoenix;ARD:10743:hC56:S19.2E:22000:501:502=deu:504:0:28725:1:1051:0
+250-25 ZDFdokukanal;ZDFvision:11954:hC34:S19.2E:27500:660:670=deu,671=2ch:630:0:28014:1:1079:0
+250-26 ZDFinfokanal;ZDFvision:11954:hC34:S19.2E:27500:610:620=deu:630:0:28011:1:1079:0
+250-27 ZDFtheaterkanal;ZDFvision:11954:hC34:S19.2E:27500:1110:1120=deu:630:0:28016:1:1079:0
+250-28 ZDF;T-Systems:11054:hC56:S13.0E:27500:570:571=deu:572:0:8011:318:12700:0
+250-29 PREMIERE HD,PREM HD;PREMIERE:11914:hC910E35M42:S19.2E:27500:767:0;771=deu,772=eng:32:1830,1833,9C4,1801:129:133:6:0
+250-30 DISCOVERY HD,DISC HD;PREMIERE:11914:hC910E35M42:S19.2E:27500:1023:0;1027=deu:32:1830,1833,9C4,1801:130:133:6:0
+250-31 PREMIERE FILMCLASSICS,FILMCLASSICS;PREMIERE:11720:hC34:S19.2E:27500:1023:1024=deu:32:1702,1722,1830,1833,9C4,1801:41:133:3:0
+250-32 PREMIERE FILMFEST,FILMFEST;PREMIERE:11720:hC34:S19.2E:27500:1279:1280=deu:32:1702,1722,1830,1833,9C4,1801:20:133:3:0
+250-33 PREMIERE KRIMI,KRIMI;PREMIERE:11798:hC34:S19.2E:27500:2815:2816=deu:32:1702,1722,1830,1833,9C4,1801:23:133:2:0
+250-34 PREMIERE NOSTALGIE,NOSTALGIE;PREMIERE:11720:hC34:S19.2E:27500:1535:1536=deu:32:1702,1722,1830,1833,9C4,1801:516:133:3:0
+250-35 PREMIERE SERIE,SERIE;PREMIERE:11798:hC34:S19.2E:27500:2559:2560=deu;2563=deu:32:1702,1722,1830,1833,9C4,1801:16:133:2:0
+250-36 Deutsches Gesundheitsfernsehen;BetaDigital:12460:hC34:S19.2E:27500:1023:1024=deu:0:0:663:133:5:0
+250-37 DrDish Television;BetaDigital:12246:vC34:S19.2E:27500:2047:2048=deu:0:0:10107:1:1092:0
+250-38 Mallorca.TV;BetaDigital:12246:vC34:S19.2E:27500:1487:1488=deu:0:0:10169:1:1092:0
+250-39 Franken SAT,FSAT;BetaDigital:12246:vC34:S19.2E:27500:1279:1280=deu:0:0:10104:1:1092:0
+250-40 m&#252;nchen.tv/RFO,m&#252;tv/RFO;BetaDigital:12246:vC34:S19.2E:27500:1791:1792=deu:0:0:10106:1:1092:0
+250-41 rtn myestate,rtn;BetaDigital:12148:hC34:S19.2E:27500:1279:1280=deu,1281=eng:0:0:767:133:7:0
+250-42 rhein main tv;MEDIA BROADCAST:12633:hC56:S19.2E:22000:208:308=deu:508:0:12614:1:1113:0
+250-43 Bahn TV;MEDIA BROADCAST:12633:hC56:S19.2E:22000:201:301=deu:501:0:12600:1:1113:0
+250-44 Juwelo TV;MEDIA BROADCAST:12633:hC56:S19.2E:22000:1041:1042=deu:0:0:12616:1:1113:0
+250-45 GIGA;BetaDigital:12460:hC34:S19.2E:27500:1007:1008=deu:0:0:776:133:5:0
+250-46 DMAX;BetaDigital:12246:vC34:S19.2E:27500:511:512=deu:32:0:10101:1:1092:0
+250-47 tv.gusto;BetaDigital:12460:hC34:S19.2E:27500:3071:3072=deu:0:0:659:133:5:0
+250-48 NICK AUSTRIA;MTV Networks:12226:hC34:S19.2E:27500:513:661=deu:577:0:28640:1:1091:0
+250-49 RNF;BetaDigital:12148:hC34:S19.2E:27500:1104:1105=deu:38:0:768:133:7:0
+250-50 Daystar Television Network,Daystar Television;BetaDigital:12460:hC34:S19.2E:27500:3567:3568=deu:0:0:658:133:5:0
+250-51 COMEDY CENTRAL Germany;MTV Networks Europe:11973:vC34:S19.2E:27500:4071+8190:4072:4074:0:28677:1:1078:0
+250-52 1-2-3.tv;BetaDigital:12460:hC34:S19.2E:27500:2815:2816=deu:32:0:662:133:5:0
+250-53 RTL Shop;RTL World:12188:hC34:S19.2E:27500:168:137:70:0:12080:1:1089:0
+250-54 Q TV SHOP;BetaDigital:12148:hC34:S19.2E:27500:3071:3072=deu:0:0:54:133:7:0
+250-55 Der Schmuckkanal,Schmuck;BetaDigital:12148:hC34:S19.2E:27500:3583:3584=deu:33:0:775:133:7:0
+250-56 HSE24 Digital;SES Astra:12226:hC34:S19.2E:27500:512:660=deu:576:0:31210:1:1091:0
+250-57 9Live;ProSiebenSat.1:12544:hC56:S19.2E:22000:1279:1280=deu:36:0:17504:1:1107:0
+250-58 K-TV;MEDIA BROADCAST:12633:hC56:S19.2E:22000:202:302=deu:502:0:12601:1:1113:0
+250-59 GOD Channel,GOD;BetaDigital:12148:hC34:S19.2E:27500:767:768=deu:0:0:774:133:7:0
+250-60 .;BetaDigital:12460:hC34:S19.2E:27500:255:256=deu:0:0:766:133:5:0
+250-61 Voyages Television,Voyages;BetaDigital:12148:hC34:S19.2E:27500:1023:1024=deu:37:0:769:133:7:0
+250-62 dhd24.tv;Media Broadcast:12633:hC56:S19.2E:22000:53:54=deu:55:0:12604:1:1113:0
+250-63 JAMBA! TV,JAMBA!;BetaDigital:12460:hC34:S19.2E:27500:2303:2304=deu:0:0:1794:133:5:0
+250-64 Gebrauchtwagen TV;BetaDigital:12246:vC34:S19.2E:27500:2799:2800=deu:38:0:10124:1:1092:0
+250-65 Bayerisches FS S&#252;d;ARD:11836:hC34:S19.2E:27500:201:202=deu,203=2ch;206=dd:204:0:28107:1:1101:0
+250-66 BR-alpha*;ARD:11836:hC34:S19.2E:27500:701:702=deu:704:0:28112:1:1101:0
+250-67 hr-fernsehen;ARD:11836:hC34:S19.2E:27500:301:302=deu:304:0:28108:1:1101:0
+250-68 MDR Sachsen;ARD:12110:hC34:S19.2E:27500:2901:2902=deu,2903=2ch:2904:0:28228:1:1073:0
+250-69 KiKa;ZDFvision:11954:hC34:S19.2E:27500:310:320=deu:330:0:28008:1:1079:0
+250-70 n-tv;RTL World:12188:hC34:S19.2E:27500:169:73=deu:80:0:12090:1:1089:0
+250-71 N24;ProSiebenSat.1:12544:hC56:S19.2E:22000:1023:1024=deu:35:0:17503:1:1107:0
+250-72 Bloomberg TV Germany;Bloomberg:12551:vC56:S19.2E:22000:162:99=deu:0:0:12160:1:1108:0
+250-73 Bloomberg TV Germany:12552:vC56:S19.2E:22000:162:99=deu:0:0:12160:1:1108:1
+250-74 BBC World;BBC:11597:vC56:S19.2E:22000:163:92=eng:41:0:10050:1:1026:0
+250-75 Eurosport;SES Astra:12226:hC34:S19.2E:27500:101:103=deu:102:0:31200:1:1091:0
+250-76 EuroNews;Globecast:12226:hC34:S19.2E:27500:2432:2433=deu,2434=eng,2435=fra,2436=ita,2437=esl,2438=por,2439=rus,2440=ara:0:0:31220:1:1091:0
+250-77 DSF;BetaDigital:12480:vC34:S19.2E:27500:1023:1024=deu:39:0:900:133:33:0
+250-78 ASTRA HD+;BetaDigital:11914:hC910E35M42:S19.2E:27500:1279:0;1283=deu:0:0:131:133:6:0
+250-79 ANIXE HD;BetaDigital:11914:hC910E35M42:S19.2E:27500:1535:0;1539=deu:0:0:132:133:6:0
+250-80 arte HD;ZDFvision:11361:hC23E35M8:S19.2E:22000:6210:6221=deu,6222=fra:6230:0:11120:1:1011:0
+250-81 FRANCE 2 HD;CSAT:12610:vC56:S19.2E:22000:171:124=fra;126=fra:0:100:9611:1:1112:0
+250-82 TVP HD - test;TVP:10773:hC56:S19.2E:22000:517:0;701=pol:0:0:17126:1:1053:0
+250-83 MTV Germany;MTV Networks Europe:11973:vC34:S19.2E:27500:4031+8190:4032:4034:0:28673:1:1078:0
+250-84 VIVA Germany;MTV Networks Europe:11973:vC34:S19.2E:27500:4061+8190:4062:4064:0:28676:1:1078:0
+250-85 DELUXE MUSIC,DELUXE;BetaDigital:12246:vC34:S19.2E:27500:255:256=deu;259=deu:0:0:10100:1:1092:0
+250-86 MTV AUSTRIA;MTV Networks:12227:hC34:S19.2E:27500:515:662=deu:578:0:28641:1:1091:0
+250-87 imusic TV;BetaDigital:12460:hC34:S19.2E:27500:495:496=deu:0:0:772:133:5:0
+250-88 GoTV;GoTV:12662:hC56:S19.2E:22000:1020:1021=deu:179:0:13102:1:1115:0
+250-89 YAVIDO CLIPS,Y CLIPS;BetaDigital:12148:hC34:S19.2E:27500:239:240=deu:0:0:765:133:7:0
+250-90 Das Erste;ARD:113000:C0M64:C:6900:101:102=deu,103=2ch;106=dd:104:0:28106:1:1101:0
+250-91 ZDF;ZDFvision:626000:C0M64:C:6900:110:120=deu,121=2ch;125=dd:130:0:28006:1:1079:0
+250-92 Sat. 1;Digital Free:330000000:M64:C:6875:2701:2702=deu;2703=deu:2704:1801,1722:53626:61441:10008:0
+250-93 RTL Television;Digital Free:346000:C0M256:C:6900:1401:1402=deu;1403=deu:1404:1801,1722:53601:61441:10007:0
+250-94 RTL II;Digital Free:346000:C0M256:C:6900:1601:1602=deu:1604:1801,1722:53603:61441:10007:0
+250-95 VOX;Digital Free:346000:C0M256:C:6900:1701:1702=deu:1704:1801,1722:53604:61441:10007:0
+250-96 ProSieben;Digital Free:330000000:M64:C:6875:2201:2202=deu;2203=deu:2204:1801,1722:53621:61441:10008:0
+250-97 kabel eins;Digital Free:330000000:M64:C:6875:2301:2302=deu:2304:FFFF,1722:53622:61441:10008:0
+250-98 Super RTL;Digital Free:346000:C0M256:C:6900:1501:1502=deu:1504:1801,1722:53602:61441:10007:0
+250-99 n-tv;Digital Free:346000:C0M256:C:6900:1901:1902=deu:1904:1801,1722:53606:61441:10007:0
+250-100 Eurosport;Digital Free:346000:C0M256:C:6900:2921:2922=deu:2924:1801,1722:53607:61441:10007:0
+250-101 Das Vierte;Digital Free:346000:C0M256:C:6900:2931:2932=deu:2934:1801,1722:53608:61441:10007:0
+250-102 Viva;Digital Free:346000:C0M256:C:6900:2941:2942=deu:2944:1801,1722:53609:61441:10007:0
+250-103 Comedy Central;Digital Free:346000:C0M256:C:6900:2901:2902=deu:2904:1801,1722:53628:61441:10007:0
+250-104 Tele 5;Digital Free:330000000:M64:C:6875:411:412=deu:414:1801,1722:53002:61441:10008:0
+250-105 9Live;Digital Free:330000000:M64:C:6875:2401:2402=deu:2404:1801,1722:53623:61441:10008:0
+250-106 DSF;Digital Free:330000000:M64:C:6875:2501:2502=deu:2504:1801,1722:53624:61441:10008:0
+250-107 N24;Digital Free:330000000:M64:C:6875:2801:2802=deu:2804:1801,1722:53627:61441:10008:0
+250-108 HSE24;Digital Free:330000000:M64:C:6875:2311:2312=deu:2314:1801,1722:53630:61441:10008:0
+250-109 Bayerisches FS S&#252;d;ARD:113000:C0M64:C:6900:201:202=deu,203=2ch;206=dd:204:0:28107:1:1101:0
+250-110 WDR K&#246;ln;ARD:113000:C0M64:C:6900:601:602=deu:604:0:28111:1:1101:0
+250-111 hr-fernsehen;ARD:113000:C0M64:C:6900:301:302=deu:304:0:28108:1:1101:0
+250-112 BR-alpha*;ARD:113000:C0M64:C:6900:701:702=deu:704:0:28112:1:1101:0
+250-113 SWR Fernsehen BW;ARD:113000:C0M64:C:6900:801:802=deu:804:0:28113:1:1101:0
+250-114 Bayerisches FS Nord;ARD:113000:C0M64:C:6900:201:202=deu,203=2ch;206=dd:204:0:28110:1:1101:0
+250-115 rbb Berlin;ARD:121000:C0M64:C:6900:601:602=deu:604:0:28206:1:1073:0
+250-116 NDR FS MV;ARD:121000:C0M64:C:6900:2401:2402=deu:2404:0:28224:1:1073:0
+250-117 MDR S-Anhalt;ARD:121000:C0M64:C:6900:401:402=deu:404:0:28229:1:1073:0
+250-118 SWR Fernsehen RP;ARD:121000:C0M64:C:6900:3101:3102=deu:3104:0:28231:1:1073:0
+250-119 1-2-3.tv;PREMIERE:386000000:M64:C:6900:2559:2560=deu:33:1702,1722,1830,1831,1833,1801,D05:50:133:1:0
+250-120 Giga Digital;Digital Free:410000:C0M256:C:6900:2411:2412=deu:0:1801,1722:53515:61441:10005:0
+250-121 Der Schmuckkanal;Digital Free:410000:C0M256:C:6900:2231:2232=deu:2234:1801,1722:53611:61441:10005:0
+250-122 Canal 24 Horas;Div. Sprachen:442000:C0M256:C:6900:601:602=esl:683:1801,1722:53509:61441:10001:0
+250-123 RTL Shop;Digital Free:442000:C0M256:C:6900:2391:2392=deu:2394:1801,1722:53514:61441:10001:0
+250-124 Tier TV;Digital Free:442000:C0M256:C:6900:2371:2372=deu:0:1801,1722:53620:61441:10001:0
+250-125 Kabel Digital Info;Digital Free:442000:C0M256:C:6900:2741:2742=deu:0:1801,1722:53015:61441:10001:0
+250-126 EinsExtra;ARD:458000:C0M64:C:6900:101:102=deu:0:0:28721:1:1051:0
+250-127 EinsFestival;ARD:458000:C0M64:C:6900:201:202=deu:204:0:28722:1:1051:0
+250-128 EinsPlus;ARD:458000:C0M64:C:6900:301:302=deu:304:0:28723:1:1051:0
+250-129 arte;ARD:458000:C0M64:C:6900:401:402=deu,403=fra:404:0:28724:1:1051:0
+250-130 Phoenix;ARD:458000:C0M64:C:6900:501:502=deu:504:0:28725:1:1051:0
+250-131 1-2-3.tv;Digital Free:466000:C0M64:C:6900:1101:1102:1104:1801,1722:50110:61441:10000:0
+250-132 BBC World (engl);Digital Free:466000:C0M64:C:6900:401:402=eng:404:1801,1722:53001:61441:10000:0
+250-133 Bloomberg;Digital Free:466000:C0M64:C:6900:421:422=deu:0:1801,1722:53004:61441:10000:0
+250-134 MTV;Digital Free:466000:C0M64:C:6900:431:432=deu:0:1801,1722:53005:61441:10000:0
+250-135 NICK;Digital Free:466000:C0M64:C:6900:441:442=deu:0:1801,1722:53006:61441:10000:0
+250-136 TV 5 Monde (frz);Digital Free:466000:C0M64:C:6900:451:452=fra:454:1801,1722:53007:61441:10000:0
+250-137 Eurosport 2;Digital Free:466000:C0M64:C:6900:1251:1252=eng:1254:1801,1722:53010:61441:10000:0
+250-138 BibelTV;Digital Free:466000:C0M64:C:6900:731:732=deu:734:1722,1801:53403:61441:10000:0
+250-139 EuroNews;Digital Free:466000:C0M64:C:6900:2601:2602=deu:0:1801,1722:53625:61441:10000:0
+250-140 3sat;ZDFvision:626000:C0M64:C:6900:210:220=deu,221=2ch;225=dd:230:0:28007:1:1079:0
+250-141 KiKa;ZDFvision:626000:C0M64:C:6900:310:320=deu:330:0:28008:1:1079:0
+250-142 ZDFdokukanal;ZDFvision:626000:C0M64:C:6900:660:670=deu,671=2ch:630:0:28014:1:1079:0
+250-143 ZDFinfokanal;ZDFvision:626000:C0M64:C:6900:610:620=deu:630:0:28011:1:1079:0
+250-144 ZDFtheaterkanal;ZDFvision:626000:C0M64:C:6900:1110:1120=deu:630:0:28016:1:1079:0
+250-145 tvCanaria (span);Digital Free:642000:C0M64:C:6900:2591:2592=esl:0:1801,1722:53324:61441:10010:0
+250-146 Parlamentsfernsehen;DIGIKABEL BLN:610000:C0M64:C:6900:33:36,68:47:0:6100:61441:610:0
+250-147 DW-TV EUROPA;Deutsche Welle:610000:C0M64:C:6900:1000:1001,1002:1003:B00:607:61441:610:0
+250-148 DANCE TV;OIV Zagreb:12303:vC34:S13.0E:27500:1237:1238:0:0:3221:318:8000:0
+250-149 EUROPE 2 TV;GC:12245:HC34:S13.0E:27500:200:220:0:0:194:318:7700:0
+250-150 Music Box Russia;RRSat:10971:hC34:S13.0E:27500:259:515:0:0:3:318:12300:0
+250-151 NRJ Hits;GlobeCast:11538:vC56:S19.2E:22000:608:628=fra:0:0:6908:1:1022:0
+250-152 Ocko TV;OCKO TV:10832:hC56:S19.2E:22000:161:162:163:0:61990:1:1057:0
+250-153 XXL;ABSAT:12285:vC34:S19.2E:27500:164:96:41:500,100:17024:1:1094:0
+250-154 Kabel 1 Schweiz;ProSiebenSat.1:12051:vC34:S19.2E:27500:162:163=deu:165:0:20003:1:1082:0
+250-155 ProSieben Schweiz;ProSiebenSat.1:12051:vC34:S19.2E:27500:289:290=deu;292=deu:33:0:20001:1:1082:0
+250-156 HD suisse;SRG SSR idee suisse:12399:hC34:S13.0E:27500:0:0;131=deu,132=fra,133=ita,134=eng:0:500:990:318:8500:0
+250-157 RTL 2 CH;T-Systems:11604:hC45:S13.0E:27500:175:176=deu:177:0:609:318:15500:0
+250-158 RTL CH;T-Systems:11054:hC56:S13.0E:27500:510:514:513:D02:8003:318:12700:0
+250-159 SAT.1 CH;ProSiebenSat.1:12051:vC34:S19.2E:27500:1535:1536=deu;1539=deu:38:0:20006:1:1082:0
+250-160 SAT Access;SRG SSR idee suisse:12399:hC34:S13.0E:27500:910:0:0:0:910:318:8500:0
+250-161 SF 1;Schweizer Fernsehen:12399:hC34:S13.0E:27500:160:80=deu,81=eng:32:500:901:318:8500:0
+250-162 SF info;Schweizer Fernsehen:12399:hC34:S13.0E:27500:167:102=deu,103=eng:53:0:911:318:8500:0
+250-163 SF zwei;Schweizer Fernsehen:12399:hC34:S13.0E:27500:163:92=deu,93=eng:41:500:907:318:8500:0
+250-164 SRG-DRS 1;Schweizer Radio DRS:12399:hC34:S13.0E:27500:0:211=deu:0:0:921:318:8500:0
+250-165 SRG-DRS 2;Schweizer Radio DRS:12399:hC34:S13.0E:27500:0:212=deu:0:0:922:318:8500:0
+250-166 SRG-DRS 3;Schweizer Radio DRS:12399:hC34:S13.0E:27500:0:213=deu:0:0:923:318:8500:0
+250-167 SRG-DRS Musikwelle;Schweizer Radio DRS:12399:hC34:S13.0E:27500:0:215=deu:0:0:925:318:8500:0
+250-168 SRG-DRS Virus;Schweizer Radio DRS:12399:hC34:S13.0E:27500:0:214=deu:0:0:924:318:8500:0
+250-169 SRG-Rumantsch;Radio Rumantsch:12399:hC34:S13.0E:27500:0:216=roh:0:0:926:318:8500:0
+250-170 SSR-Couleur3;Radio Suisse Romande:12399:hC34:S13.0E:27500:0:219:0:0:929:318:8500:0
+250-171 SSR-Espace 2;Radio Suisse Romande:12399:hC34:S13.0E:27500:0:218:0:0:928:318:8500:0
+250-172 SSR-La 1ere;Radio Suisse Romande:12399:hC34:S13.0E:27500:0:217:0:0:927:318:8500:0
+250-173 SSR-Option Musique;Radio Suisse Romande:12399:hC34:S13.0E:27500:0:220:0:0:930:318:8500:0
+250-174 SSR-Rete Due;Radio della Svizzera Italiana:12399:hC34:S13.0E:27500:0:222:0:0:932:318:8500:0
+250-175 SSR-Rete Tre;Radio della Svizzera Italiana:12399:hC34:S13.0E:27500:0:223:0:0:933:318:8500:0
+250-176 SSR-Rete Uno;Radio della Svizzera Italiana:12399:hC34:S13.0E:27500:0:221:0:0:931:318:8500:0
+250-177 SRG-Swiss Classic;Swiss Satellite Radio:12399:hC34:S13.0E:27500:0:224=deu:0:0:934:318:8500:0
+250-178 SRG-Swiss Jazz;Swiss Satellite Radio:12399:hC34:S13.0E:27500:0:226=deu:0:0:936:318:8500:0
+250-179 SRG-Swiss Pop;Swiss Satellite Radio:12399:hC34:S13.0E:27500:0:225=deu:0:0:935:318:8500:0
+250-180 TSI1;Televisione della Svizzera Italiana:12399:hC34:S13.0E:27500:162:88=ita,89=eng:38:500:903:318:8500:0
+250-181 TSI2;Televisione della Svizzera Italiana:12399:hC34:S13.0E:27500:166:100=ita,101=eng,106=fra:50:500:909:318:8500:0
+250-182 TSR1;Television Suisse Romande:12399:hC34:S13.0E:27500:161:84=fra,85=eng:35:500:902:318:8500:0
+250-183 TSR2;Television Suisse Romande:12399:hC34:S13.0E:27500:164:96=fra,97=eng:44:500:908:318:8500:0
+250-184 ORF1;ORF:12692:hC56:S19.2E:22000:160:161=deu;163=deu:165:D05,1801,1702:13001:1:1117:0
+250-185 ORF2;ORF:12692:hC56:S19.2E:22000:500:501=deu;503=deu:505:D05,1801,1702:13002:1:1117:0
+250-186 ATV+;ATV+:12692:hC56:S19.2E:22000:506:507=deu:509:D05,1801,1702:13012:1:1117:0
+250-187 RTL Austria;RTL:12226:hC34:S19.2E:27500:201:202=deu:203:0:28800:1:1091:0
+250-188 RTL2 Austria;RTL:12226:hC34:S19.2E:27500:401:402:403:0:28810:1:1091:0
+250-189 ProSieben Austria;ProSiebenSat.1:12051:vC34:S19.2E:27500:161:84=deu;85=deu:36:0:20002:1:1082:0
+250-190 SAT.1 A;ProSiebenSat.1:12051:vC34:S19.2E:27500:800:801=deu;803=deu:802:0:20005:1:1082:0
+250-191 Super RTL A;RTL:12226:hC34:S19.2E:27500:501:502=deu:503:0:28815:1:1091:0
+250-192 TW1;ORF:12662:hC56:S19.2E:22000:1010:1011=deu:1013:2:13101:1:1115:0
+250-193 Kabel 1 Austria;ProSiebenSat.1:12051:vC34:S19.2E:27500:166:167=deu:169:0:20004:1:1082:0
+250-194 VOX Austria;RTL:12226:hC34:S19.2E:27500:301:302=deu:303:0:28805:1:1091:0
+250-195 Motors TV;BT Broadcast Services:11137:hC34:S13.0E:27500:521:641=fra,661=eng,681=deu,701=ell:601:500:7301:318:13100:0
+250-196 TIER.TV;BetaDigital:12148:hC34:S19.2E:27500:2303:2304=deu:0:0:514:133:7:0
+250-197 ORF2 B;ORF:12692:hC56:S19.2E:22000:500:501=deu;503=deu:505:D05,1801,1702:13005:1:1117:0
+250-198 ORF2 K;ORF:12692:hC56:S19.2E:22000:500:501=deu;503=deu:505:D05,1801,1702:13011:1:1117:0
+250-199 ORF2 N;ORF:12692:hC56:S19.2E:22000:500:501=deu;503=deu:505:D05,1801,1702:13004:1:1117:0
+250-200 ORF2 O;ORF:12692:hC56:S19.2E:22000:500:501=deu;503=deu:505:D05,1801,1702:13006:1:1117:0
+250-201 ORF2 S;ORF:12692:hC56:S19.2E:22000:500:501=deu;503=deu:505:D05,1801,1702:13007:1:1117:0
+250-202 ORF2 St;ORF:12692:hC56:S19.2E:22000:500:501=deu;503=deu:505:D05,1801,1702:13010:1:1117:0
+250-203 ORF2 T;ORF:12692:hC56:S19.2E:22000:500:501=deu;503=deu:505:D05,1801,1702:13008:1:1117:0
+250-204 ORF2 V;ORF:12692:hC56:S19.2E:22000:500:501=deu;503=deu:505:D05,1801,1702:13009:1:1117:0
+250-205 ORF2 W;ORF:12692:hC56:S19.2E:22000:500:501=deu;503=deu:505:D05,1801,1702:13003:1:1117:0
+250-206 ORF2E;ORF:12692:hC56:S19.2E:22000:170:171=deu:505:0:13014:1:1117:0
+250-207 HITRADIO OE3;ORF:12692:hC56:S19.2E:22000:130:131=deu:0:0:13013:1:1117:0
+250-208 &#214;1 International;ORF:12662:hC56:S19.2E:22000:0:435=deu:0:0:13135:1:1115:0
+250-209 OE1 DD;ORF:12662:hC56:S19.2E:22000:0:0;422=deu:0:0:13122:1:1115:0
+250-210 OE1;ORF:12662:hC56:S19.2E:22000:0:421=deu:0:0:13121:1:1115:0
+250-211 OE2 B;ORF:12662:hC56:S19.2E:22000:0:425=deu:0:0:13125:1:1115:0
+250-212 OE2 K;ORF:12662:hC56:S19.2E:22000:0:431=deu:0:0:13131:1:1115:0
+250-213 OE2 N;ORF:12662:hC56:S19.2E:22000:0:424=deu:0:0:13124:1:1115:0
+250-214 OE2 O;ORF:12662:hC56:S19.2E:22000:0:426=deu:0:0:13126:1:1115:0
+250-215 OE2 S;ORF:12662:hC56:S19.2E:22000:0:427=deu:0:0:13127:1:1115:0
+250-216 OE2 St;ORF:12662:hC56:S19.2E:22000:0:430=deu:0:0:13130:1:1115:0
+250-217 OE2 T;ORF:12662:hC56:S19.2E:22000:0:428=deu:0:0:13128:1:1115:0
+250-218 OE2 V;ORF:12662:hC56:S19.2E:22000:0:429=deu:0:0:13129:1:1115:0
+250-219 OE2 W;ORF:12662:hC56:S19.2E:22000:0:423=deu:0:0:13123:1:1115:0
+250-220 FM4;ORF:12663:hC56:S19.2E:22000:0:434=deu:0:0:13134:1:1115:0
+250-221 RADIO MARIA;Radio Maria &#214;sterreich:12663:hC56:S19.2E:22000:0:440=deu:0:0:13140:1:1115:0
+250-222 OE3;ORF:12662:hC56:S19.2E:22000:0:433=deu:0:0:13133:1:1115:0
+250-223 .;BetaDigital:12460:hC34:S19.2E:27500:1791:1792=deu:0:0:1792:133:5:0
+250-224 APS.TV3;BetaDigital:12148:hC34:S19.2E:27500:495:496=deu:0:0:658:133:7:0
+250-225 ARTE;Globecast:11623:VC34:S13.0E:27500:223:233=fra,243=deu:283:0:10703:318:15600:0
+250-226 GOD TV;RRSat:10971:hC34:S13.0E:27500:277:533:0:0:15:318:12300:0
+250-227 HSE24,HSE24;BetaDigital:12480:vC34:S19.2E:27500:1279:1280=deu:37:0:40:133:33:0
+250-228 Nickelodeon Euro;MTV Networks Europe:11075:vC34:S13.0E:27500:1000:1001=eng,1002=hun,1003=rus,1004=por:1009:D00:11:318:12800:0
+250-229 NICK Germany;MTV Networks Europe:11973:vC34:S19.2E:27500:4101+8190:4102=deu:4104:0:28680:1:1078:0
+250-230 ONTV Regional,ONTV;BetaDigital:12246:vC34:S19.2E:27500:1023:1024=deu:0:0:10103:1:1092:0
+250-231 QVC GERMANY:12552:vC56:S19.2E:22000:165:166:167:0:12100:1:1108:1
+250-232 RTL Television;T-Systems:11054:hC56:S13.0E:27500:160:80:32:0:8001:318:12700:0
+250-233 Super RTL CH;T-Systems:11604:hC45:S13.0E:27500:180:181=deu:182:0:610:318:15500:0
+250-234 terranova;AB SAT:12692:hC34:S13.0E:27500:161:84=deu:35:0:502:318:9900:0
+250-235 RTL SHOP;RTL World:12188:hC34:S19.2E:27500:168:137=deu:70:0:12095:1:1089:0
+250-236 Canal+ HD:12581:vC56:S19.2E:22000:165:100=fra;101=fra:0:0:9306:0:0:0
+250-237 CNES DEMO;CNES:12558:vC34:S13.0E:27500:6143:6142:0:0:9252:319:9200:0
+250-238 Belsat TV;TVP:10773:hC56:S19.2E:22000:512:650=bel:0:0:17100:1:1053:0
+250-239 TV TRWAM;TVP:10773:hC56:S19.2E:22000:513:660=pol:577:0:17101:1:1053:0
+250-240 TV Polonia;TVP:10773:hC56:S19.2E:22000:514:670=pol;671=pol:578:0:17102:1:1053:0
+250-241 TVP Historia;TVP:10773:hC56:S19.2E:22000:515:680=pol:0:0:17103:1:1053:0
+250-242 TVP Kultura;TVP:10773:hC56:S19.2E:22000:516:690=pol:580:0:17104:1:1053:0
+250-243 Radio Maryja test;TVP:10773:hC56:S19.2E:22000:0:661=pol:0:0:17201:1:1053:0
+250-244 TAQUILLA 1;TQ1:10788:V:S19.2E:22000:168:112=esl,113=eng:56:100,1810:30350:1:1054:0
+250-245 TAQUILLA 2;TQ2:10788:V:S19.2E:22000:170:120=esl,121=eng:62:100,1810:30351:1:1054:0
+250-246 TAQUILLA 3;TQ3:10788:V:S19.2E:22000:171:124=esl:65:100,1810:30352:1:1054:0
+250-247 TAQUILLA 4;TQ4:10788:V:S19.2E:22000:167:108=esl,109=eng:53:100,1810:30353:1:1054:0
+250-248 ANIMAX;DIGITAL+:10788:V:S19.2E:22000:165:100=esl,101=eng:47:1810,100:30356:1:1054:0
+250-249 TAQUILLA XY;TXY:10788:V:S19.2E:22000:160:80=esl:0:100,1810:30357:1:1054:0
+250-250 CARTOON NET.;CTN:10788:V:S19.2E:22000:161:84=esl,85=eng,86=aut:35:1810,100:30358:1:1054:0
+250-251 BOOMERANG;BOOM:10788:V:S19.2E:22000:163:92=esl,93=eng:0:1810,100:30361:1:1054:0
+250-252 TAQUILLA 10;TQ10:10788:V:S19.2E:22000:162:88=esl,89=eng,90,91:38:0:30362:1:1054:0
+250-253 SAN FERM&#205;N;DIGITAL+:10788:V:S19.2E:22000:164:96=esl:0:0:30363:1:1054:0
+250-254 C+ ACCI&#211;N...30;CMA:10818:V:S19.2E:22000:160:80=esl,81=eng:32:1810,100:29950:1:1056:0
+250-255 C+ COMEDIA...30;CMADOS:10818:V:S19.2E:22000:161:84=esl,85=eng:35:1810,100:29951:1:1056:0
+250-256 DCINE ESPA&#209;OL;DCESP:10818:V:S19.2E:22000:167:108=esl:0:1810,100:29952:1:1056:0
+250-257 CANAL COCINA;CACOC:10818:V:S19.2E:22000:168:112=esl:0:1810,100:29953:1:1056:0
+250-258 TVV INT.;CCV:10818:V:S19.2E:22000:169:116=esl:0:0:29954:1:1056:0
+250-259 FOX;FOXGE:10818:V:S19.2E:22000:165:100=esl,101=eng:47:1810,100:29955:1:1056:0
+250-260 AXN;AXN:10818:V:S19.2E:22000:166:104=esl,105=eng:50:1810,100:29956:1:1056:0
+250-261 TVE 1;TVE 1:10818:V:S19.2E:22000:170:120=esl,121=eng:0:1810,100:29957:1:1056:0
+250-262 SCI FI;DIGITAL +:10818:V:S19.2E:22000:171:124=esl,125=eng:65:1810,100:29958:1:1056:0
+250-263 ECUAVISA INT;Digital+:10818:V:S19.2E:22000:173:132=esl:0:1810,100:29961:1:1056:0
+250-264 CARACOL TV;digital TV:10818:V:S19.2E:22000:164:96=esl:0:1810,100:29962:1:1056:0
+250-265 Bibel TV;Bibel TV:10832:H:S19.2E:22000:32:33:49:0:61900:1:1057:0
+250-266 ORF 1 HD;ORF:10832:H:S19.2E:22000:0:1921=deu,1922=eng;1923=deu:1925:D05,1702,1801:61920:1:1057:0
+250-267 Radio Horeb;Eurociel:10832:H:S19.2E:22000:0:64=deu:0:0:61960:1:1057:0
+250-268 RDC;Polskie Radio-Regionalna:10832:H:S19.2E:22000:0:67=pol:0:0:61962:1:1057:0
+250-269 CFN/RFC;Canadian Forces Europe:10832:H:S19.2E:22000:0:58=eng:0:0:61994:1:1057:0
+250-270 Radio neue Hoffnung;RADIO Neue Hoffnung:10832:H:S19.2E:22000:0:59:0:0:61995:1:1057:0
+250-271 RTBF SAT;RTBF:10832:H:S19.2E:22000:4194+4192:4195:4201:0:61998:1:1057:0
+250-272 RTBF International;RTBF:10832:H:S19.2E:22000:0:4197:0:0:61999:1:1057:0
+250-273 M&#218;SICA DIGITAL;DIGITAL+:10847:V:S19.2E:22000:163:400=eng,233,234,235,236,237,238,239,240,241:0:1810,100:30100:1:1058:0
+250-274 RADIOS;DIGITAL+:10847:V:S19.2E:22000:163:400=eng,262,257,260,256,258,259,261,268,269,263,267,265,266,264:0:0:30102:1:1058:0
+250-275 RADIOS ESP;DIGITAL+:10847:V:S19.2E:22000:0:400=eng,262,257,260,256,258,259,261,268,269,263,267,265,266,264:0:0:30104:1:1058:0
+250-276 GU&#205;A DIGITAL+;DIGITAL+:10847:V:S19.2E:22000:163:400=esl,254=eng:0:0:30121:1:1058:0
+250-277 RAD. LATINAS;Digital+:10847:V:S19.2E:22000:163:400=esl,270,271,272,273,274,275:0:1810,100:30124:1:1058:0
+250-278 COMPRA SMS;DIGITAL+:10847:V:S19.2E:22000:163:0:0:0:30125:1:1058:0
+250-279 TAQUILLA;DIGITAL+:10847:V:S19.2E:22000:163+8191:400=esl,254=eng:0:0:30128:1:1058:0
+250-280 GU&#205;A DIGITAL+;Digital+:10847:V:S19.2E:22000:163:400=esl,254=eng:0:0:30129:1:1058:0
+250-281 TAQUILLA;Digital+:10847:V:S19.2E:22000:163:400=esl,254=eng:0:0:30130:1:1058:0
+250-282 IBERDROLA;DIGITAL+:10847:V:S19.2E:22000:163:400=esl,254=eng:0:0:30158:1:1058:0
+250-283 CANAL+ HD;DIGITAL+:10847:V:S19.2E:22000:175:0:0:0:30162:1:1058:0
+250-284 SAN FERM&#205;N;DIGITAL+:10847:V:S19.2E:22000:163:400=esl,254=eng:0:0:30166:1:1058:0
+250-285 COMPRA SMS;DIGITAL+:10847:V:S19.2E:22000:163:400=esl,254=eng:0:0:30172:1:1058:0
+250-286 TEST T&#201;CNICO;DIGITAL+:10847:V:S19.2E:22000:0:0:0:0:30173:1:1058:0
+250-287 TEST_CSD1;DIGITAL+:10847:V:S19.2E:22000:163:0:0:0:30174:1:1058:0
+250-288 TEST_CSD2;DIGITAL+:10847:V:S19.2E:22000:163:400=esl,239,240:0:100,1801:30175:1:1058:0
+250-289 TEST_CSD3;DIGITAL+:10847:V:S19.2E:22000:163:0:0:0:30176:1:1058:0
+250-290 TEST_CSD4;DIGITAL+:10847:V:S19.2E:22000:163:400=esl,254=eng:0:0:30177:1:1058:0
+250-291 TEST_CSD5;DIGITAL+:10847:V:S19.2E:22000:161:84=esl:0:0:30178:1:1058:0
+250-292 TEST_CSD6;DIGITAL+:10847:V:S19.2E:22000:163:0:0:0:30179:1:1058:0
+250-293 TEST_CSD7;DIGITAL+:10847:V:S19.2E:22000:163:0:0:0:30180:1:1058:0
+250-294 TEST_CSD8;DIGITAL+:10847:V:S19.2E:22000:163:0:0:0:30181:1:1058:0
+250-295 TEST_CSD9;DIGITAL+:10847:V:S19.2E:22000:163:0:0:0:30182:1:1058:0
+250-296 TEST_CSD10;DIGITAL+:10847:V:S19.2E:22000:163:0:0:0:30183:1:1058:0
+250-297 FERIA BILBAO;DIGITAL+:10847:V:S19.2E:22000:163:400=esl,254=esl:0:0:30191:1:1058:0
+250-298 ABONO F&#218;TBOL+;Digital+:10847:V:S19.2E:22000:163:400=esl,254=eng:0:0:30196:1:1058:0
+250-299 TVP1;TVP:10862:H:S19.2E:22000:512+8190:650=pol:576:9D0:7102:1:1059:0
+250-300 TVP2;TVP:10862:H:S19.2E:22000:513+8190:660=pol:577:9D0:7103:1:1059:0
+250-301 TVP Info;TVP:10862:H:S19.2E:22000:515+8190:680=pol:579:9D0:7104:1:1059:0
+250-302 TVP Sport;Telewizja Polska SA:10862:H:S19.2E:22000:516+8190:690=pol:0:9D0:7105:1:1059:0
+250-303 INT6;Telewizja Polska SA:10862:H:S19.2E:22000:517+8190:700=pol:0:9D0:7106:1:1059:0
+250-304 40 LATINO;40LAT:10876:V:S19.2E:22000:165:100=esl:0:1810,100:30600:1:1060:0
+250-305 GOLF+;GOLF+:10876:V:S19.2E:22000:166:104=esl,105=eng:0:1810,100:30601:1:1060:0
+250-306 CANAL+...30;CP30:10876:V:S19.2E:22000:167:108=esl,109=eng:53:1810,100:30602:1:1060:0
+250-307 PLAYBOY TV;Playboy TV:10876:V:S19.2E:22000:173:132=esl:0:1810,100:30603:1:1060:0
+250-308 40 LATINO;40LAT:10876:V:S19.2E:22000:165:100=esl:0:1810,100:30604:1:1060:0
+250-309 NAT GEOGRAPH;NATGEO:10876:V:S19.2E:22000:170:120=esl,121=eng:0:1810,100:30605:1:1060:0
+250-310 C+ F&#218;TBOL;CPD1:10876:V:S19.2E:22000:161:84=esl:0:1810,100:30606:1:1060:0
+250-311 C+ DEPORTES;CPD2:10876:V:S19.2E:22000:172:128=esl:0:1810,100:30607:1:1060:0
+250-312 BABYFIRST;DIGITAL+:10876:V:S19.2E:22000:160:80=esl:0:100,1810:30610:1:1060:0
+250-313 FOX NEWS;FOXNWS:10876:V:S19.2E:22000:168:112=eng:0:1810,100:30611:1:1060:0
+250-314 C+ F&#218;TBOL;CPD1:10876:V:S19.2E:22000:161:84=esl:0:1810,100:30620:1:1060:0
+250-315 C+ DEPORTES;CPD2:10876:V:S19.2E:22000:172:128=esl:0:1810,100:30621:1:1060:0
+250-316 Cartoon Network/TCM,Cartoon Network/TCM;UPC Direct:10921:H:S19.2E:22000:101:110=hun,112=eng:120:D02,1815:20341:1:1063:0
+250-317 Viasat 3,Viasat 3;UPC Direct:10921:H:S19.2E:22000:151:160=hun:0:D02,1815:20342:1:1063:0
+250-318 Boomerang,Boomerang;UPC Direct:10921:H:S19.2E:22000:201:210=hun,212=eng,213=pol,214=ara:220:D02,1815,100:20343:1:1063:0
+250-319 Viasat Explorer,Viasat Explorer;UPC Direct:10921:H:S19.2E:22000:0:0:0:0:20344:1:1063:0
+250-320 Viasat History,Viasat History;UPC Direct:10921:H:S19.2E:22000:301:310=hun,311=cze,312=eng:320:D02,1815:20345:1:1063:0
+250-321 STV1,STV1;UPC Direct:10921:H:S19.2E:22000:351:364=slv:370:D02,1815:20346:1:1063:0
+250-322 TA3,TA3;UPC Direct:10921:H:S19.2E:22000:401:414=slv:0:D02,1815:20347:1:1063:0
+250-323 Travel,Travel;UPC Direct:10921:H:S19.2E:22000:451:459=eng,460=hun,461=cze:470:D02,1815:20348:1:1063:0
+250-324 MGM,MGM;UPC Direct:10921:H:S19.2E:22000:501:510=hun,511=cze,512=eng:0:D02,1815:20349:1:1063:0
+250-325 bebe tv,bebe tv;UPC Direct:10921:H:S19.2E:22000:551:564=slv:0:D02,1815,100:20350:1:1063:0
+250-326 AXN,AXN;UPC Direct:10921:H:S19.2E:22000:651:660=hun,661=cze,662=eng:0:D02,1815:20352:1:1063:0
+250-327 Blue Hustler,Blue Hustler;UPC Direct:10921:H:S19.2E:22000:251:262=eng:0:D02,1815:20353:1:1063:0
+250-328 Test Feed;Test Feed:10921:H:S19.2E:22000:601:0:0:D02,1815:20351:1:1063:0
+250-329 CL&#193;SICO;CLASIC:10979:VC23E35M8:S19.2E:22000:161:84=esl:0:1810,100:30651:1:1034:0
+250-330 24 HORAS;24H:10979:VC23E35M8:S19.2E:22000:162:88=esl:0:1810,100:30652:1:1034:0
+250-331 TNT;CMA30:10979:VC23E35M8:S19.2E:22000:163:92=esl,93=eng:41:1810,100:30653:1:1034:0
+250-332 CLAN TVE;Digital+:10979:VC23E35M8:S19.2E:22000:160:80=esl,81=eng:0:1810,100:30654:1:1034:0
+250-333 24 HORAS;24H:10979:VC23E35M8:S19.2E:22000:162:88=esl:0:1810,100:30655:1:1034:0
+250-334 TELENOVELAS;TLNV:10979:VC23E35M8:S19.2E:22000:165:100=esl:0:1810,100:30656:1:1034:0
+250-335 HOLLYWOOD;HOLLYW:10979:VC23E35M8:S19.2E:22000:166:104=esl,105=eng:0:1810,100:30657:1:1034:0
+250-336 HISTORIA;HIST:10979:VC23E35M8:S19.2E:22000:167:108=esl,109=por:0:1810,100:30658:1:1034:0
+250-337 TELENOVELAS;TLNV:10979:VC23E35M8:S19.2E:22000:165:100=esl:0:1810,100:30659:1:1034:0
+250-338 TV CANARIA;CANAR:10979:VC23E35M8:S19.2E:22000:164:96=esl:0:0:30661:1:1034:0
+250-339 CUATRO;Digital+:10979:VC23E35M8:S19.2E:22000:173:132=esl,133=eng:71:1810,100:30662:1:1034:0
+250-340 CUATRO;Digital+:10979:VC23E35M8:S19.2E:22000:173:132=esl,133=eng:71:1810,100:30663:1:1034:0
+250-341 TNT;CMA30:10979:VC23E35M8:S19.2E:22000:163:92=esl,93=eng:41:1810,100:30665:1:1034:0
+250-342 EUROSPORT;ESP:10979:VC23E35M8:S19.2E:22000:168:112=esl,113=eng:0:1810,100:30680:1:1034:0
+250-343 CANAL+;CP:11038:V:S19.2E:22000:160:80=esl,81=eng:32:1810,100:30400:1:1038:0
+250-344 DOCU TVE;Docu TVE:11038:V:S19.2E:22000:161:84=esl:0:1810,100:30401:1:1038:0
+250-345 DISNEY CH.;DCH:11038:V:S19.2E:22000:163:92=esl,93=eng:41:1810,100:30403:1:1038:0
+250-346 SPORTMAN&#205;A;SPM:11038:V:S19.2E:22000:164:96=esl:0:1810,100:30404:1:1038:0
+250-347 40 TV;+MUS:11038:V:S19.2E:22000:165:100=esl:0:1810,100:30405:1:1038:0
+250-348 DISCOVERY;DCR:11038:V:S19.2E:22000:166:104=esl,105=por:0:1810,100:30406:1:1038:0
+250-349 CANAL+ 2;CP2:11038:V:S19.2E:22000:168:112=esl,113=eng:56:1810,100:30410:1:1038:0
+250-350 TELEDEPORTE;TDEP:11038:V:S19.2E:22000:170:120=esl:0:1810,100:30412:1:1038:0
+250-351 BAR&#199;A TV;BARNA:11097:V:S19.2E:22000:169:116=cat,117=esl:0:100,1810:30052:1:1042:0
+250-352 TAQUILLA 5;TQ5:11097:V:S19.2E:22000:160:80=esl,81=eng:32:100,1810:30053:1:1042:0
+250-353 TAQUILLA 6;TQ6:11097:V:S19.2E:22000:171:124=esl:0:100,1810:30054:1:1042:0
+250-354 TAQUILLA 7;TQ7:11097:V:S19.2E:22000:168:112=esl,113=eng:56:100,1810:30055:1:1042:0
+250-355 TAQUILLA X;TQ10:11097:V:S19.2E:22000:163:92=esl:0:100,1810:30056:1:1042:0
+250-356 TAQUILLA XX;TQX:11097:V:S19.2E:22000:164:96=esl:0:100,1810:30057:1:1042:0
+250-357 TAQUILLA XX;TQXX:11097:V:S19.2E:22000:161:84=esl:0:100,1810:30058:1:1042:0
+250-358 C+ EVENTOS;CPD3:11097:V:S19.2E:22000:162:88=esl:0:1810,100:30059:1:1042:0
+250-359 TAQUILLA 9;TQ9:11097:V:S19.2E:22000:173:132=esl,133=eng:71:100,1810:30060:1:1042:0
+250-360 C+ EVENTOS;CPD3:11097:V:S19.2E:22000:162:88=esl:0:1810,100:30062:1:1042:0
+250-361 TAQUILLA 8;TQ8:11097:V:S19.2E:22000:170:120=esl:0:100,1810:30063:1:1042:0
+250-362 bandeja;DIGITAL+:11097:V:S19.2E:22000:165:100=esl:0:0:30065:1:1042:0
+250-363 PEOPLE+ARTS;P&amp;A:11156:V:S19.2E:22000:165:100=esl,101=eng:0:1810,100:30504:1:1046:0
+250-364 VIAJAR;VJR:11156:V:S19.2E:22000:166:104=esl,105=eng:0:1810,100:30505:1:1046:0
+250-365 PAR. COMEDY;NC:11156:V:S19.2E:22000:167:108=esl,109=eng:0:100,1810:30506:1:1046:0
+250-366 CAZA Y PESCA;CAZPES:11156:V:S19.2E:22000:169:116=esl,117=eng:0:1810,100:30507:1:1046:0
+250-367 LA 2;La2:11156:V:S19.2E:22000:162:88=esl,89=eng:0:1810,100:30509:1:1046:0
+250-368 CALLE 13;CL13:11156:V:S19.2E:22000:163:92=esl,93=eng:41:1810,100:30510:1:1046:0
+250-369 BLOOMBERG;BL:11156:V:S19.2E:22000:161:84=esl:0:1810,100:30511:1:1046:0
+250-370 COSMOPOLITAN;COSMO:11156:V:S19.2E:22000:170:120=esl,121=eng:0:1810,100:30512:1:1046:0
+250-371 R. MADRID TV;Digital+:11156:V:S19.2E:22000:171:124=esl:0:100,1810:30513:1:1046:0
+250-372 M&#201;TEO;MET:11156:V:S19.2E:22000:164:96=esl:0:1810,100:30514:1:1046:0
+250-373 VIAJAR;VJR:11156:V:S19.2E:22000:166:104=esl,105=eng:0:1810,100:30516:1:1046:0
+250-374 EHS;Digital+:11156:V:S19.2E:22000:0:0:0:0:30660:1:1046:0
+250-375 CANAL ODISEA;Digital+:11318:V:S19.2E:22000:160:80=esl,81=por:0:1810,100:29800:1:1008:0
+250-376 JETIX;FK:11318:V:S19.2E:22000:161:84=esl:0:1810,100:29801:1:1008:0
+250-377 DISNEY CH. +1;DCH1:11318:V:S19.2E:22000:164:96=esl,97=eng:44:1810,100:29802:1:1008:0
+250-378 PLAYHOUSE;PLAYDC:11318:V:S19.2E:22000:165:100=esl,101=eng:47:1810,100:29803:1:1008:0
+250-379 C+ ACCI&#211;N;CPC1:11318:V:S19.2E:22000:162:88=esl,89=eng:38:1810,100:29804:1:1008:0
+250-380 C+ COMEDIA;CPC2:11318:V:S19.2E:22000:163:92=esl,93=eng:41:1810,100:29805:1:1008:0
+250-381 C+ DCINE;CPC3:11318:V:S19.2E:22000:170:120=esl,121=eng:62:1810,100:29806:1:1008:0
+250-382 OP. TRIUNFO;DIGITAL+:11318:V:S19.2E:22000:168:112=esl:0:1810,100:29808:1:1008:0
+250-383 SONY TV;DIGITAL+:11318:V:S19.2E:22000:167:108=esl,109=eng:0:1810,100:29809:1:1008:0
+250-384 C+ ACCI&#211;N;CPC1:11318:V:S19.2E:22000:162:88=esl,89=eng:38:1810,100:29810:1:1008:0
+250-385 C+ COMEDIA;CPC2:11318:V:S19.2E:22000:163:92=esl,93=eng:41:1810,100:29811:1:1008:0
+250-386 C+ DCINE;CPC3:11318:V:S19.2E:22000:170:120=esl,121=eng:62:1810,100:29812:1:1008:0
+250-387 INTERECON TV;DIGITAL:11318:V:S19.2E:22000:171:124=esl:0:1810,100:29813:1:1008:0
+250-388 CANAL+ HD;DIGITAL+:11436:V:S19.2E:22000:0:0;96=esl,97=eng:0:1810:29900:1:1016:0
+250-389 TELEFE INT;DIGITAL+:11436:V:S19.2E:22000:166:104=esl:0:1810,100:29901:1:1016:0
+250-390 PORTADA;ESCAP:11436:V:S19.2E:22000:171:124=esl:0:0:29902:1:1016:0
+250-391 TCM MODERNO;TCM:11436:V:S19.2E:22000:4240:4241=esl,4242=eng:4243:1810,100:29903:1:1016:0
+250-392 CANAL EVENEMENT;CSAT:11479:V:S19.2E:22000:0:0:0:0:6401:1:1018:0
+250-393 VIVOLTA;CSAT:11479:V:S19.2E:22000:0:0:0:0:6402:1:1018:0
+250-394 TELEREALITE;CSAT:11479:V:S19.2E:22000:0:0:0:0:6403:1:1018:0
+250-395 BABY FIRST;CSAT:11479:V:S19.2E:22000:0:0:0:0:6404:1:1018:0
+250-396 PLANETE JUSTICE;CSAT:11479:V:S19.2E:22000:0:0:0:0:6405:1:1018:0
+250-397 PLAYIN'Tvi;CSAT:11479:V:S19.2E:22000:0:0:0:0:6431:1:1018:0
+250-398 NRJ Paris;GCE:11509:V:S19.2E:22000:705:725:0:0:7005:1:1020:0
+250-399 DEMAIN TV;GlobeCast:11509:V:S19.2E:22000:704:724:0:0:7004:1:1020:0
+250-400 CUBAVISION;GCE:11509:V:S19.2E:22000:708:728:0:0:7008:1:1020:0
+250-401 REDERECORD;GCE:11509:V:S19.2E:22000:710:730:0:0:7010:1:1020:0
+250-402 BFM TV;GLOBECAST:11509:V:S19.2E:22000:709:729:0:0:7009:1:1020:0
+250-403 AL JAZEERA ENG;GCE:11509:V:S19.2E:22000:712:732:0:0:7012:1:1020:0
+250-404 BFM TV;OVERON:11509:V:S19.2E:22000:709:729:0:0:7019:1:1020:0
+250-405 EXTREMADURA TV;OVERON:11509:V:S19.2E:22000:713:733:0:0:7013:1:1020:0
+250-406 POPULAR TV;OVERON:11509:V:S19.2E:22000:707:727:0:0:7007:1:1020:0
+250-407 ARIRANG TV;GlobeCast:11509:V:S19.2E:22000:711:731:0:0:7011:1:1020:0
+250-408 CANAL ALGERIE;CANALSATELLITE:11568:V:S19.2E:22000:168:138:0:0:9011:1:1024:0
+250-409 TV5MONDE;CANALSATELLITE:11568:V:S19.2E:22000:164:112=fra:60:0:9012:1:1024:0
+250-410 Al Masriya;CANALSATELLITE:11568:V:S19.2E:22000:163:104=ara:0:0:9014:1:1024:0
+250-411 RAI 1;CANALSATELLITE:11568:V:S19.2E:22000:289:290=ita:291:0:9015:1:1024:0
+250-412 RTPI;CANALSATELLITE:11568:V:S19.2E:22000:161:301=por:302:0:9017:1:1024:0
+250-413 TV7;CANALSATELLITE:11568:V:S19.2E:22000:166:128=ara:0:0:9018:1:1024:0
+250-414 ARTE;CANALSATELLITE:11568:V:S19.2E:22000:167:136=fra,137=deu:71:0:9019:1:1024:0
+250-415 Al Jazeera;CANALSATELLITE:11568:V:S19.2E:22000:55:56=ara:0:0:9021:1:1024:0
+250-416 TVEi;CANALSATELLITE:11568:V:S19.2E:22000:58:59:61:0:9022:1:1024:0
+250-417 ARTE:11568:V:S19.2E:22000:167:136=fra,137=deu:0:0:9023:1:1024:0
+250-418 2M Maroc;CANALSATELLITE:11568:V:S19.2E:22000:139:140=ara:0:0:9030:1:1024:0
+250-419 TRT International:11568:V:S19.2E:22000:712+7192:713=tur:1122:0:9024:1:1024:0
+250-420 DW-TV;Deutsche Telekom AG:11597:vC56:S19.2E:22000:1000:1001:1003:0:10020:1:1026:0
+250-421 CNBC Europe;CNBC:11597:vC56:S19.2E:22000:307:308=eng:43:0:10030:1:1026:0
+250-422 Sky News;BT:11597:vC56:S19.2E:22000:305+131:306=eng:579:0:28707:1:1026:0
+250-423 TV5MONDE EUROPE;TV5MONDE:11597:vC56:S19.2E:22000:45:46:3602:0:10060:1:1026:0
+250-424 Best of shopping;GlobeCast:11597:vC56:S19.2E:22000:225:245:0:0:10062:1:1026:0
+250-425 M6 BOUTIQUE LA CHAINE;Globecast:11597:vC56:S19.2E:22000:1120:1130:0:0:10063:1:1026:0
+250-426 HirTV,HirTV;UPC Direct:11671:H:S19.2E:22000:101:110=hun:120:D02,1815:20354:1:1031:0
+250-427 M1,M1;UPC Direct:11671:H:S19.2E:22000:151:160=hun:170:D02,1815:20355:1:1031:0
+250-428 MTV Hungary,MTV Hungary;UPC Direct:11671:H:S19.2E:22000:201:212=eng:220:D02,1815,D00:20356:1:1031:0
+250-429 Cinemax,Cinemax;UPC Direct:11671:H:S19.2E:22000:251:260=hun,261=cze,262=eng:0:D02,1815:20357:1:1031:0
+250-430 TV Budapest,TV Budapest;UPC Direct:11671:H:S19.2E:22000:301:310=hun:0:0:20358:1:1031:0
+250-431 RTL Klub,RTL Klub;UPC Direct:11671:H:S19.2E:22000:351:360=hun:370:D02,1815:20359:1:1031:0
+250-432 Spektrum Int,Spektrum Int;UPC Direct:11671:H:S19.2E:22000:401:410=hun,411=cze:420:D02,1815:20360:1:1031:0
+250-433 Sport Klub,Sport Klub;UPC Direct:11671:H:S19.2E:22000:451:460=hun:470:D02,1815:20361:1:1031:0
+250-434 Film+,Film+;UPC Direct:11671:H:S19.2E:22000:501:511=cze:0:D02,1815:20362:1:1031:0
+250-435 TV2,TV2;UPC Direct:11671:H:S19.2E:22000:551:560=hun:570:D02,1815:20363:1:1031:0
+250-436 Sport 1 CZE,Sport 1 CZE;UPC Direct:11671:H:S19.2E:22000:601:611=cze:620:D02,1815:20364:1:1031:0
+250-437 Viva Hungary,Viva Hungary;UPC Direct:11671:H:S19.2E:22000:651:662=eng:670:D02,1815,D00:20365:1:1031:0
+250-438 Bartok Radio,Bartok Radio;UPC Direct:11671:H:S19.2E:22000:0:710=hun:0:D02,1815:20450:1:1031:0
+250-439 Petofi Radio,Petofi Radio;UPC Direct:11671:H:S19.2E:22000:0:760=hun:0:D02,1815:20451:1:1031:0
+250-440 Kossuth Radio,Kossuth Radio;UPC Direct:11671:H:S19.2E:22000:0:810=hun:0:D02,1815:20452:1:1031:0
+250-441 TVC INT.;TVC:11686:V:S19.2E:22000:161:84=cat:35:0:30201:1:1032:0
+250-442 ANDALUC&#205;A TV;ANTV:11686:V:S19.2E:22000:162:88=esl,89=eng:38:0:30202:1:1032:0
+250-443 EUSKADI TV;DIGITAL+:11686:V:S19.2E:22000:163:92:0:0:30203:1:1032:0
+250-444 TM SAT/LAOTRA;DIGITAL+:11686:V:S19.2E:22000:164:96=esl:44:0:30204:1:1032:0
+250-445 CANAL CLUB;DIGITAL+:11686:V:S19.2E:22000:166:104=esl:0:0:30205:1:1032:0
+250-446 C. ESTRELLAS;GALAV:11686:V:S19.2E:22000:168:112=esl:0:1810,100:30206:1:1032:0
+250-447 CNN+;CNN+:11686:V:S19.2E:22000:169:116=esl:59:1810,100:30207:1:1032:0
+250-448 CNN+;CNN+:11686:V:S19.2E:22000:169:116=esl:59:1810,100:30210:1:1032:0
+250-449 PRO TV INT;DIGITAL+:11686:V:S19.2E:22000:172:128=ron:0:1810,100:30211:1:1032:0
+250-450 RAD. ROMANIA;DIGITAL+:11686:V:S19.2E:22000:0:129:0:1810,100:30212:1:1032:0
+250-451 TCM CL&#193;SICO;CMACLS:11686:V:S19.2E:22000:165:100=esl,101=eng:47:1810,100:30220:1:1032:0
+250-452 TV GALICIA;DIGITAL+:11686:V:S19.2E:22000:167:108=glg:53:0:30222:1:1032:0
+250-453 PREMIERE SPORT PORTAL,SPORT PORTAL;PREMIERE:11720:hC34:S19.2E:27500:255:256=deu,257=deu;259=deu:32:1702,1722,1830,1833,9C4,1801:17:133:3:0
+250-454 MTV ESP;MTV Networks Europe:11739:V:S19.2E:27500:3011+8190:3012:3014:100,D00,1810:28651:1:1066:0
+250-455 MTV France;MTV Networks Europe:11739:V:S19.2E:27500:3021+8190:3022=fra:3024:D00,100,500:28652:1:1066:0
+250-456 MTV Hits;MTV Networks Europe:11739:V:S19.2E:27500:3041+8190:3042:0:100,B00,500,D00,D02,1815,D22:28654:1:1066:0
+250-457 MTV Dance;MTV Networks Europe:11739:V:S19.2E:27500:3051+8190:3052:0:100,B00,500,D00,D02,1815,D22:28655:1:1066:0
+250-458 VH1;MTV Networks Europe:11739:V:S19.2E:27500:3061+8190:3062:0:B00,100,500,D00,D02,1815,1810:28656:1:1066:0
+250-459 VH1 Classic;MTV Networks Europe:11739:V:S19.2E:27500:3071+8190:3072:0:100,500,B00,D00,D02,1815,D22:28657:1:1066:0
+250-460 MTV TWO;MTV Networks Europe:11739:V:S19.2E:27500:3091+8190:3092:0:100,D00,B00,500,D02,1815:28659:1:1066:0
+250-461 Nick ESP;MTV Networks Europe:11739:V:S19.2E:27500:3101+8190:3102=esl,3103=eng:3104:D00,100,1810:28660:1:1066:0
+250-462 MTV Base France;MTV Networks Europe:11739:V:S19.2E:27500:3111+8190:3112:0:D00,100,500:28661:1:1066:0
+250-463 GAME ONE;MTV Networks Europe:11739:V:S19.2E:27500:3031+8190:3032=fra:0:100,D00,500:28663:1:1066:0
+250-464 MTV Hits.;MTV Networks Europe:11739:V:S19.2E:27500:3041+8190:3042:0:100,D00,500,D02:28664:1:1066:0
+250-465 VH1.;MTV Networks Europe:11739:V:S19.2E:27500:3061+8190:3062:0:B00,100,500,D00,D02:28666:1:1066:0
+250-466 VH1 Classic.;MTV Networks Europe:11739:V:S19.2E:27500:3071+8190:3072:0:D00,100,500:28667:1:1066:0
+250-467 NICKELODEON France;MTV Networks Europe:11739:V:S19.2E:27500:3081+8190:3082=fra:3084:100,500,D00:28668:1:1066:0
+250-468 MTV TWO.;MTV Networks Europe:11739:V:S19.2E:27500:3091+8190:3092:0:100,D00,500,D02:28669:1:1066:0
+250-469 DISNEY CHANNEL,DISNEY;PREMIERE:11758:H:S19.2E:27500:2559:2560=deu:32:1702,1722,1830,1833,9C4,1801:34:133:17:0
+250-470 JETIX;PREMIERE:11758:H:S19.2E:27500:0:0:0:0:28:133:17:0
+250-471 JUNIOR,JUNIOR;PREMIERE:11758:H:S19.2E:27500:0:0:0:0:19:133:17:0
+250-472 DISCOVERY CHANNEL,DISCOVERY;PREMIERE:11758:H:S19.2E:27500:1023:1024=deu:32:1702,1722,1830,1833,9C4,1801,B00,D05:14:133:17:0
+250-473 ANIMAL PLANET,ANIMAL;PREMIERE:11758:H:S19.2E:27500:2815:2816=deu:32:1702,1722,1830,1833,9C4,1801,B00,D05:12:133:17:0
+250-474 DISCOVERY GESCHICHTE,GESCHICHTE;PREMIERE:11758:H:S19.2E:27500:1535:1536=deu:32:1702,1722,1830,1833,9C4,1801,B00,D05:13:133:17:0
+250-475 FOCUS GESUNDHEIT,GESUND;PREMIERE:11758:H:S19.2E:27500:3071:3072=deu:32:1702,1722,1830,1833,9C4,1801,B00,D05:15:133:17:0
+250-476 BEATE-UHSE.TV,B-UHSE;PREMIERE:11758:H:S19.2E:27500:1791:1792=deu:32:1702,1722,1830,1833,9C4,1801,B00,D05:21:133:17:0
+250-477 CLASSICA;PREMIERE:11758:H:S19.2E:27500:511:512=deu:32:1702,1722,1830,1833,9C4,1801,B00,D05:24:133:17:0
+250-478 Spare 2;TBS:11778:V:S19.2E:27500:0:0:0:0:28520:1:1068:0
+250-479 Cartoon Network;TBS:11778:V:S19.2E:27500:0:0:0:0:28521:1:1068:0
+250-480 CNN Int.;CNN:11778:V:S19.2E:27500:0:0:0:0:28522:1:1068:0
+250-481 CNN Radio;CNN:11778:V:S19.2E:27500:0:0:0:0:28523:1:1068:0
+250-482 TCM;TBS:11778:V:S19.2E:27500:0:0:0:0:28525:1:1068:0
+250-483 Spare 28526;Arqiva:11778:V:S19.2E:27500:0:0:0:0:28526:1:1068:0
+250-484 Boomerang;TBS:11778:V:S19.2E:27500:0:0:0:0:28527:1:1068:0
+250-485 1.068 Spare;Arqiva:11778:V:S19.2E:27500:0:0:0:0:28605:1:1068:0
+250-486 TVBS;Chinese Channel LTD.:11778:V:S19.2E:27500:0:0:0:0:28632:1:1068:0
+250-487 PREMIERE 1,PREM 1;PREMIERE:11798:hC34:S19.2E:27500:511:512=deu;515=deu:32:1702,1722,1830,1833,9C4,1801:10:133:2:0
+250-488 PREMIERE 2,PREM 2;PREMIERE:11798:hC34:S19.2E:27500:1791:1792=deu,1793=deu;1795=deu:32:1702,1722,1830,1833,9C4,1801:11:133:2:0
+250-489 PREMIERE 3,PREM 3;PREMIERE:11798:hC34:S19.2E:27500:2303:2304=deu,2305=deu;2307=deu:32:1702,1722,1830,1833,9C4,1801:43:133:2:0
+250-490 PREMIERE 4,PREM 4;PREMIERE:11798:hC34:S19.2E:27500:767:768=deu,769=deu;771=deu:32:1702,1722,1830,1833,9C4,1801:9:133:2:0
+250-491 SEASONS;CSAT:11817:V:S19.2E:27500:0:0:0:0:8001:1:1070:0
+250-492 C CINEMA EMOTION;CSAT:11817:V:S19.2E:27500:0:0:0:0:8002:1:1070:0
+250-493 C CINEMA FRISSON;CSAT:11817:V:S19.2E:27500:0:0:0:0:8003:1:1070:0
+250-494 EURONEWS;CSAT:11817:V:S19.2E:27500:0:0:0:0:8004:1:1070:0
+250-495 PARIS PREMIERE;CSAT:11817:V:S19.2E:27500:0:0:0:0:8005:1:1070:0
+250-496 JIMMY;CSAT:11817:V:S19.2E:27500:0:0:0:0:8006:1:1070:0
+250-497 MEZZO;CSAT:11817:V:S19.2E:27500:0:0:0:0:8007:1:1070:0
+250-498 LA CHAINE METEO;CSAT:11817:V:S19.2E:27500:0:0:0:0:8008:1:1070:0
+250-499 SPORT+;CSAT:11817:V:S19.2E:27500:0:0:0:0:8009:1:1070:0
+250-500 I&gt;TELE;CSAT:11817:V:S19.2E:27500:0:0:0:0:8010:1:1070:0
+250-501 HISTOIRE;CSAT:11817:V:S19.2E:27500:0:0:0:0:8011:1:1070:0
+250-502 MEZZO.;CSAT:11817:V:S19.2E:27500:0:0:0:0:8012:1:1070:0
+250-503 NCMESS;CSAT:11817:V:S19.2E:27500:0:0:0:0:8013:1:1070:0
+250-504 I&gt;TELE;CSAT:11817:V:S19.2E:27500:0:0:0:0:8021:1:1070:0
+250-505 Bayerisches FS Nord;ARD:11836:hC34:S19.2E:27500:201:202=deu,203=2ch;206=dd:204:0:28110:1:1101:0
+250-506 CANAL+;CSAT:11856:V:S19.2E:27500:0:0:0:0:8201:1:1072:0
+250-507 CANAL+ DECALE;CSAT:11856:V:S19.2E:27500:0:0:0:0:8202:1:1072:0
+250-508 CANAL+ CINEMA;CSAT:11856:V:S19.2E:27500:0:0:0:0:8203:1:1072:0
+250-509 CANAL+ HI-TECH;CSAT:11856:V:S19.2E:27500:0:0:0:0:8204:1:1072:0
+250-510 C CINEMA PREMIER;CSAT:11856:V:S19.2E:27500:0:0:0:0:8206:1:1072:0
+250-511 DISNEY CHANNEL;CSAT:11856:V:S19.2E:27500:0:0:0:0:8207:1:1072:0
+250-512 CANAL+ SPORT;CSAT:11856:V:S19.2E:27500:0:0:0:0:8208:1:1072:0
+250-513 EQUIDIA;CSAT:11856:V:S19.2E:27500:0:0:0:0:8209:1:1072:0
+250-514 CANAL+ HI-TECH.;CSAT:11856:V:S19.2E:27500:0:0:0:0:8213:1:1072:0
+250-515 SCI FI;CSAT:11856:V:S19.2E:27500:0:0:0:0:8215:1:1072:0
+250-516 CANAL+;CSAT:11856:V:S19.2E:27500:0:0:0:0:8221:1:1072:0
+250-517 DOWNLOAD TNTSAT STRONG;IMEDIA:11856:V:S19.2E:27500:0:0:0:0:8297:1:1072:0
+250-518 STAR XL LIVE,STAR XL;PREMIERE:11876:HC23E35M8:S19.2E:27500:2815:2816=deu:32:0:52:133:9:0
+250-519 KINOWELT TV (P),KINOWELT (P);PREMIERE:11876:HC23E35M8:S19.2E:27500:255:256=deu:0:1702,1830,1833,9C4,1801:60:133:9:0
+250-520 TCM (a/P);arena/Premiere:11876:HC23E35M8:S19.2E:27500:511:512=deu,513=eng:0:1702,1830,1833,9C4,1801,D22:61:133:9:0
+250-521 AXN (a/P);arena/Premiere:11876:HC23E35M8:S19.2E:27500:767:768=deu:0:1702,1830,1833,9C4,1801,D22:62:133:9:0
+250-522 ROMANCE TV,ROMANCE;PREMIERE:11876:HC23E35M8:S19.2E:27500:1023:1024=deu:0:1702,1830,1833,9C4,1801:63:133:9:0
+250-523 DISNEY PLAYHOUSE (P),DISNEY P (P);PREMIERE:11876:HC23E35M8:S19.2E:27500:1279:1280=deu:0:1702,1830,1833,9C4,1801:64:133:9:0
+250-524 DISNEY TOON (P),DISNEY T (P);PREMIERE:11876:HC23E35M8:S19.2E:27500:1535:1536=deu:0:1702,1830,1833,9C4,1801:65:133:9:0
+250-525 BOOMERANG (a/P),BOOM (a/P);arena/Premiere:11876:HC23E35M8:S19.2E:27500:1791:1792=deu,1793=eng:0:1702,1830,1833,9C4,1801,D22:66:133:9:0
+250-526 E.CLIPS (P),E.CLIPS;PREMIERE:11876:HC23E35M8:S19.2E:27500:2047:2048=deu:0:1702,1830,1833,9C4,1801:67:133:9:0
+250-527 .;BetaDigital:11876:HC23E35M8:S19.2E:27500:0:0:0:0:68:133:9:0
+250-528 sportdigital.tv,sd.tv;BetaDigital:11876:HC23E35M8:S19.2E:27500:2559:2560=deu:0:1830,D22:69:133:9:0
+250-529 C CINEMA CULTE;CSAT:11895:V:S19.2E:27500:0:0:0:0:8351:1:1074:0
+250-530 MCM;CSAT:11895:V:S19.2E:27500:0:0:0:0:8352:1:1074:0
+250-531 MCM POP;CSAT:11895:V:S19.2E:27500:0:0:0:0:8354:1:1074:0
+250-532 CHEZ VOUS TV;CSAT:11895:V:S19.2E:27500:0:0:0:0:8355:1:1074:0
+250-533 VIRGIN 17;CSAT:11895:V:S19.2E:27500:0:0:0:0:8358:1:1074:0
+250-534 FOXLIFE;CSAT:11895:V:S19.2E:27500:0:0:0:0:8359:1:1074:0
+250-535 TEST CDN 8;CSAT:11895:V:S19.2E:27500:0:0:0:0:8360:1:1074:0
+250-536 MCM TOP;CSAT:11895:V:S19.2E:27500:0:0:0:0:8365:1:1074:0
+250-537 TF1;CSAT:11895:V:S19.2E:27500:0:0:0:0:8366:1:1074:0
+250-538 M6;IMEDIA:11895:V:S19.2E:27500:0:0:0:0:8367:1:1074:0
+250-539 TF1;CSAT:11895:V:S19.2E:27500:0:0:0:0:8371:1:1074:0
+250-540 M6;CSAT:11895:V:S19.2E:27500:0:0:0:0:8372:1:1074:0
+250-541 VIRGIN 17;CSAT:11895:V:S19.2E:27500:0:0:0:0:8374:1:1074:0
+250-542 EUROSPORT;CSAT:11934:V:S19.2E:27500:0:0:0:0:8151:1:1076:0
+250-543 TMC;CSAT:11934:V:S19.2E:27500:0:0:0:0:8152:1:1076:0
+250-544 PLANETE;CSAT:11934:V:S19.2E:27500:0:0:0:0:8153:1:1076:0
+250-545 VOYAGE;CSAT:11934:V:S19.2E:27500:0:0:0:0:8155:1:1076:0
+250-546 LCI;CSAT:11934:V:S19.2E:27500:0:0:0:0:8156:1:1076:0
+250-547 CANAL J;CSAT:11934:V:S19.2E:27500:0:0:0:0:8157:1:1076:0
+250-548 PLANETE JUNIORS;CSAT:11934:V:S19.2E:27500:0:0:0:0:8159:1:1076:0
+250-549 CUISINE TV;CSAT:11934:V:S19.2E:27500:0:0:0:0:8160:1:1076:0
+250-550 FILLES TV;CSAT:11934:V:S19.2E:27500:0:0:0:0:8161:1:1076:0
+250-551 TIJI;CSAT:11934:V:S19.2E:27500:0:0:0:0:8162:1:1076:0
+250-552 CANAL+ FAMILY;CSAT:11934:V:S19.2E:27500:0:0:0:0:8163:1:1076:0
+250-553 TMC;CSAT:11934:V:S19.2E:27500:0:0:0:0:8171:1:1076:0
+250-554 DKULTUR;ZDFvision:11954:hC34:S19.2E:27500:0:710=deu:0:0:28012:1:1079:0
+250-555 DLF;ZDFvision:11954:hC34:S19.2E:27500:0:810=deu:0:0:28013:1:1079:0
+250-556 Dok&Deb;ZDFvision:11954:hC34:S19.2E:27500:0:410=deu:0:0:28017:1:1079:0
+250-557 MTV Music;MTV Networks Europe:11973:vC34:S19.2E:27500:4011+8190:4012:0:100,1702,B00,D00,1830,1801,1833,9C4:28671:1:1078:0
+250-558 MTV Euro;MTV Networks Europe:11973:vC34:S19.2E:27500:4021+8190:4022:4024:D00,D02,1815:28672:1:1078:0
+250-559 MTV Pulse;MTV Networks Europe:11973:vC34:S19.2E:27500:4041+8190:4042=fra:0:D00,100,500:28674:1:1078:0
+250-560 MTV Idol;MTV Networks Europe:11973:vC34:S19.2E:27500:4051+8190:4052=fra:0:D00,100,500:28675:1:1078:0
+250-561 MTV NL;MTV Networks Europe:11973:vC34:S19.2E:27500:4091+8190:4092:4094:100,D00:28679:1:1078:0
+250-562 MTV ENTERTAINMENT (P);MTV Networks Europe:11973:vC34:S19.2E:27500:4111+8190:4112:0:D00,1702,1801,1830,1833,9C4:28681:1:1078:0
+250-563 NICK PREMIUM (P);MTV Networks Europe:11973:vC34:S19.2E:27500:4121+8190:4122:0:D00,1702,1801,1830,1833,9C4:28682:1:1078:0
+250-564 Echo TV,Echo TV;UPC Direct:11992:H:S19.2E:27500:101:110=hun:0:D02,1815:20327:1:1279:0
+250-565 HBO2,HBO2;UPC Direct:11992:H:S19.2E:27500:151:160=hun,161=cze,162=eng,163=eng:170:D02,1815:20328:1:1279:0
+250-566 HBO,HBO;UPC Direct:11992:H:S19.2E:27500:201:210=hun,212=eng;219=hun:220:D02,1815:20329:1:1279:0
+250-567 HBO,HBO;UPC Direct:11992:H:S19.2E:27500:251:261=cze,262=eng;269=cze:0:D02,1815:20330:1:1279:0
+250-568 Duna TV,Duna TV;UPC Direct:11992:H:S19.2E:27500:301:310=hun:320:D02,1815:20331:1:1279:0
+250-569 TV Paprika,TV Paprika;UPC Direct:11992:H:S19.2E:27500:351:360=hun,361=cze:0:D02,1815:20332:1:1279:0
+250-570 Magyar ATV,Magyar ATV;UPC Direct:11992:H:S19.2E:27500:401:410=hun:420:D02,1815:20333:1:1279:0
+250-571 Cool,Cool;UPC Direct:11992:H:S19.2E:27500:451:460=hun:0:D02,1815:20334:1:1279:0
+250-572 TV Deko,TV Deko;UPC Direct:11992:H:S19.2E:27500:501:510=hun,511=cze:0:D02,1815:20335:1:1279:0
+250-573 Sport 1,Sport 1;UPC Direct:11992:H:S19.2E:27500:551:560=hun:570:D02,1815:20336:1:1279:0
+250-574 m2,m2;UPC Direct:11992:H:S19.2E:27500:601:610=hun:620:D02,1815:20337:1:1279:0
+250-575 Minimax / Animax,Minimax / Animax;UPC Direct:11992:H:S19.2E:27500:651:660=hun,661=cze:0:D02,1815:20338:1:1279:0
+250-576 Sport 2,Sport 2;UPC Direct:11992:H:S19.2E:27500:701:710=hun:720:D02,1815:20339:1:1279:0
+250-577 Film+,Film+;UPC Direct:11992:H:S19.2E:27500:751:760=hun:0:D02,1815:20340:1:1279:0
+250-578 FRANCE 2;CSAT:12012:V:S19.2E:27500:0:0:0:0:8801:1:1080:0
+250-579 FRANCE 3;CSAT:12012:V:S19.2E:27500:0:0:0:0:8802:1:1080:0
+250-580 A LA CARTE 11;CSAT:12012:V:S19.2E:27500:0:0:0:0:8804:1:1080:0
+250-581 TRACE TV;CSAT:12012:V:S19.2E:27500:0:0:0:0:8807:1:1080:0
+250-582 TELE MELODY;CSAT:12012:V:S19.2E:27500:0:0:0:0:8808:1:1080:0
+250-583 CINE+;CSAT:12012:V:S19.2E:27500:0:0:0:0:8809:1:1080:0
+250-584 CINE+;CSAT:12012:V:S19.2E:27500:0:0:0:0:8810:1:1080:0
+250-585 A LA CARTE 10;CSAT:12012:V:S19.2E:27500:0:0:0:0:8811:1:1080:0
+250-586 A LA CARTE;CSAT:12012:V:S19.2E:27500:0:0:0:0:8812:1:1080:0
+250-587 ESPN CLASSIC;CSAT:12012:V:S19.2E:27500:0:0:0:0:8813:1:1080:0
+250-588 MOTORS TV;CSAT:12012:V:S19.2E:27500:0:0:0:0:8816:1:1080:0
+250-589 FRANCE 2;CSAT:12012:V:S19.2E:27500:0:0:0:0:8821:1:1080:0
+250-590 FRANCE 3;CSAT:12012:V:S19.2E:27500:0:0:0:0:8822:1:1080:0
+250-591 PREMIERE DIREKT,DIREKT;PREMIERE:12032:HC23E35M8:S19.2E:27500:2815:2816=deu,2817=deu;2819=deu:0:0:18:133:4:0
+250-592 EROTIK - AB 18!,AB 18!;PREMIERE:12032:HC23E35M8:S19.2E:27500:1279:1280=deu:32:1702,1722,1830,1833,9C4,1801,1810:513:133:4:0
+250-593 BIG BROTHER,BIG B;PREMIERE:12032:HC23E35M8:S19.2E:27500:255:256=deu:32:1702,1722,1830,1833,9C4,1801:664:133:4:0
+250-594 13 TH STREET,13 TH;PREMIERE:12032:HC23E35M8:S19.2E:27500:511:512=deu:32:1702,1722,1830,1833,9C4,1801,B00,D05:42:133:4:0
+250-595 SCI FI;PREMIERE:12032:HC23E35M8:S19.2E:27500:1791:1792=deu:32:1702,1722,1830,1833,9C4,1801,B00,D05:36:133:4:0
+250-596 MGM;PREMIERE:12032:HC23E35M8:S19.2E:27500:2047:2048=deu,2049=deu:32:1702,1722,1830,1833,9C4,1801,B00,D05:515:133:4:0
+250-597 PULS 4 Austria;ProSiebenSat.1:12051:V:S19.2E:27500:1791:1792=deu:39:D05:20007:1:1082:0
+250-598 RTL CRIME;PREMIERE:12070:H:S19.2E:27500:1791:1792=deu:0:1702,1722,1830,1833,9C4,1801,B00,D05,D22:27:133:1:0
+250-599 PASSION;PREMIERE:12070:H:S19.2E:27500:255:256=deu:0:1702,1722,1830,1833,9C4,1801,B00,D05,D22:29:133:1:0
+250-600 GOLDSTAR TV,GOLDSTAR;PREMIERE:12070:H:S19.2E:27500:3839:3840=deu:32:1702,1722,1830,1833,9C4,1801,B00,D05:518:133:1:0
+250-601 HEIMATKANAL,HEIMAT;PREMIERE:12070:H:S19.2E:27500:1279:1280=deu:32:1702,1722,1830,1833,9C4,1801,B00,D05:22:133:1:0
+250-602 HIT24;PREMIERE:12070:H:S19.2E:27500:1023:1024=deu:32:1702,1722,1830,1833,9C4,1801,B00,D05:168:133:1:0
+250-603 1-2-3.tv;PREMIERE:12070:H:S19.2E:27500:2559:2560=deu:33:1702,1722,1830,1833,9C4,1801,D05:50:133:1:0
+250-604 PREMIERE START,START;PREMIERE:12070:H:S19.2E:27500:3071:3072=deu:32:1702,1722,1830,1833,9C4,1801:8:133:1:0
+250-605 P-DEUTSCHE CHARTS,P-D CHARTS;PREMIERE:12070:H:S19.2E:27500:0:272=deu:0:1702,1722,1830,1833,9C4,1801,B00,D05:150:133:1:0
+250-606 P-ROCK HYMNEN,P-ROCK;PREMIERE:12070:H:S19.2E:27500:0:288=deu:0:1702,1722,1830,1833,9C4,1801,B00,D05:151:133:1:0
+250-607 P-LOVE SONGS,P-LOVE;PREMIERE:12070:H:S19.2E:27500:0:304=deu:0:1702,1722,1830,1833,9C4,1801,B00,D05:152:133:1:0
+250-608 P-60ER/70ER;PREMIERE:12070:H:S19.2E:27500:0:320=deu:0:1702,1722,1830,1833,9C4,1801,B00,D05:153:133:1:0
+250-609 P-80ER/90ER;PREMIERE:12070:H:S19.2E:27500:0:336=deu:0:1702,1722,1830,1833,9C4,1801,B00,D05:154:133:1:0
+250-610 P-RnB/HIP HOP,P-RnB;PREMIERE:12070:H:S19.2E:27500:0:352=deu:0:1702,1722,1830,1833,9C4,1801,B00,D05:155:133:1:0
+250-611 P-COUNTRY,P-COUNT;PREMIERE:12070:H:S19.2E:27500:0:368=deu:0:1702,1722,1830,1833,9C4,1801,B00,D05:156:133:1:0
+250-612 TPS STAR;CSAT:12090:V:S19.2E:27500:0:0:0:0:9401:1:1084:0
+250-613 SERIE CLUB;CSAT:12090:V:S19.2E:27500:0:0:0:0:9402:1:1084:0
+250-614 W9;CSAT:12090:V:S19.2E:27500:0:0:0:0:9403:1:1084:0
+250-615 INFOSPORT;CSAT:12090:V:S19.2E:27500:0:0:0:0:9404:1:1084:0
+250-616 C CINEMA STAR;CSAT:12090:V:S19.2E:27500:0:0:0:0:9405:1:1084:0
+250-617 TELETOON;CSAT:12090:V:S19.2E:27500:0:0:0:0:9406:1:1084:0
+250-618 M6 MUSIC HITS;CSAT:12090:V:S19.2E:27500:0:0:0:0:9407:1:1084:0
+250-619 DISCOVERY;CSAT:12090:V:S19.2E:27500:0:0:0:0:9408:1:1084:0
+250-620 PINK TV/PINK X;CSAT:12090:V:S19.2E:27500:0:0:0:0:9409:1:1084:0
+250-621 TELETOON+1;CSAT:12090:V:S19.2E:27500:0:0:0:0:9410:1:1084:0
+250-622 W9;CSAT:12090:V:S19.2E:27500:0:0:0:0:9423:1:1084:0
+250-623 rbb Brandenburg;ARD:12110:hC34:S19.2E:27500:601:602=deu:604:0:28205:1:1073:0
+250-624 ARD-Online-Kanal;ARD:12110:hC34:S19.2E:27500:0:1801:0:0:28218:1:1073:0
+250-625 ARD-TEST-1;ARD:12110:hC34:S19.2E:27500:0:0:0:0:28221:1:1073:0
+250-626 ARD-TEST-2;ARD:12110:hC34:S19.2E:27500:601:602=deu:0:0:28222:1:1073:0
+250-627 NDR FS MV;ARD:12110:hC34:S19.2E:27500:2601:2602=deu,2603=2ch:2604:0:28224:1:1073:0
+250-628 NDR FS NDS;ARD:12110:hC34:S19.2E:27500:2601:2602=deu,2603=2ch:2604:0:28226:1:1073:0
+250-629 NDR FS SH;ARD:12110:hC34:S19.2E:27500:2601:2602=deu,2603=2ch:2604:0:28227:1:1073:0
+250-630 MDR Th&#252;ringen;ARD:12110:hC34:S19.2E:27500:2901:2902=deu,2903=2ch:2904:0:28230:1:1073:0
+250-631 SWR Fernsehen RP;ARD:12110:hC34:S19.2E:27500:3101:3102=deu:3104:0:28231:1:1073:0
+250-632 A LA CARTE 1;CSAT:12129:V:S19.2E:27500:0:0:0:0:8402:1:1086:0
+250-633 A LA CARTE 2;CSAT:12129:V:S19.2E:27500:0:0:0:0:8403:1:1086:0
+250-634 A LA CARTE 3;CSAT:12129:V:S19.2E:27500:0:0:0:0:8404:1:1086:0
+250-635 A LA CARTE 4;CSAT:12129:V:S19.2E:27500:0:0:0:0:8405:1:1086:0
+250-636 A LA CARTE 5;CSAT:12129:V:S19.2E:27500:0:0:0:0:8406:1:1086:0
+250-637 A LA CARTE 6;CSAT:12129:V:S19.2E:27500:0:0:0:0:8407:1:1086:0
+250-638 A LA CARTE 7;CSAT:12129:V:S19.2E:27500:0:0:0:0:8408:1:1086:0
+250-639 A LA CARTE 8;CSAT:12129:V:S19.2E:27500:0:0:0:0:8409:1:1086:0
+250-640 A LA CARTE 9;CSAT:12129:V:S19.2E:27500:0:0:0:0:8410:1:1086:0
+250-641 A LA CARTE 13;CSAT:12129:V:S19.2E:27500:0:0:0:0:8411:1:1086:0
+250-642 A LA CARTE 14;CSAT:12129:V:S19.2E:27500:0:0:0:0:8412:1:1086:0
+250-643 KIOSQUE;CSAT:12129:V:S19.2E:27500:0:0:0:0:8414:1:1086:0
+250-644 Alpengl&#252;hen TVX,AlpenTVX;BetaDigital:12148:hC34:S19.2E:27500:255:256=deu:0:1702,1830,1833,9C4,1801,D05:70:133:7:0
+250-645 Service 12;BetaDigital:12148:hC34:S19.2E:27500:0:0:0:0:71:133:7:0
+250-646 PREMIERE Austria,PREM A;PREMIERE:12148:hC34:S19.2E:27500:2559:2560=deu:35:1702,1833,9C4,1801,D05:53:133:7:0
+250-647 .;BetaDigital:12148:hC34:S19.2E:27500:0:0:0:0:770:133:7:0
+250-648 .;BetaDigital:12148:hC34:S19.2E:27500:0:0:0:0:771:133:7:0
+250-649 BD 4;BetaDigital:12148:hC34:S19.2E:27500:2047:2048=deu:0:1702,1833,9C4,1801:773:133:7:0
+250-650 PFH:12148:hC34:S19.2E:27500:3327:3328=deu,3329=deu:0:1810:33:133:7:0
+250-651 ROCK ANTENNE,ROCK ANT;BetaDigital:12148:hC34:S19.2E:27500:0:304=deu:0:0:160:133:7:0
+250-652 ERF Radio,ERF;BetaDigital:12148:hC34:S19.2E:27500:0:320=deu:0:0:161:133:7:0
+250-653 sunshine live,sunshine;BetaDigital:12148:hC34:S19.2E:27500:0:336=deu:0:0:169:133:7:0
+250-654 ANTENNE BAYERN,ANTENNE;BetaDigital:12148:hC34:S19.2E:27500:0:352=deu:0:0:170:133:7:0
+250-655 2255 Gewinnradio;BetaDigital:12148:hC34:S19.2E:27500:0:528=deu:0:0:176:133:7:0
+250-656 TF6;CSAT:12168:V:S19.2E:27500:0:0:0:0:9501:1:1088:0
+250-657 USHUAIA TV;CSAT:12168:V:S19.2E:27500:0:0:0:0:9502:1:1088:0
+250-658 EUROSPORT 2;CSAT:12168:V:S19.2E:27500:0:0:0:0:9503:1:1088:0
+250-659 C CINEMA 16/9;CSAT:12168:V:S19.2E:27500:0:0:0:0:9505:1:1088:0
+250-660 PIWI;CSAT:12168:V:S19.2E:27500:0:0:0:0:9507:1:1088:0
+250-661 EXTREME SPORTS;CSAT:12168:V:S19.2E:27500:0:0:0:0:9508:1:1088:0
+250-662 FRANCE 4;CSAT:12168:V:S19.2E:27500:0:0:0:0:9509:1:1088:0
+250-663 FRANCE 4;CSAT:12168:V:S19.2E:27500:0:0:0:0:9529:1:1088:0
+250-664 Super RTL CH;RTL:12188:hC34:S19.2E:27500:172:145=deu:82:0:12041:1:1089:0
+250-665 VOX CH;RTL:12188:hC34:S19.2E:27500:173:146=deu:84:0:12061:1:1089:0
+250-666 RTL HB NDS;RTL World:12188:hC34:S19.2E:27500:163:104=deu:105:0:12005:1:1089:0
+250-667 RTL HH SH;RTL World:12188:hC34:S19.2E:27500:163:104=deu:105:0:12004:1:1089:0
+250-668 FRANCE 5;CSAT:12207:V:S19.2E:27500:0:0:0:0:8501:1:1090:0
+250-669 TV BREIZH;CSAT:12207:V:S19.2E:27500:0:0:0:0:8502:1:1090:0
+250-670 PLANETE THALASSA;CSAT:12207:V:S19.2E:27500:0:0:0:0:8504:1:1090:0
+250-671 PLAYBOY TV;CSAT:12207:V:S19.2E:27500:0:0:0:0:8506:1:1090:0
+250-672 CANALSAT RADIOS;CSAT:12207:V:S19.2E:27500:0:0:0:0:8507:1:1090:0
+250-673 FRANCE &#212;;CSAT:12207:V:S19.2E:27500:0:0:0:0:8508:1:1090:0
+250-674 RADIO INT 2;CSAT:12207:V:S19.2E:27500:0:0:0:0:8512:1:1090:0
+250-675 RADIO INT;CSAT:12207:V:S19.2E:27500:0:0:0:0:8513:1:1090:0
+250-676 A LA CARTE 12;CSAT:12207:V:S19.2E:27500:0:0:0:0:8515:1:1090:0
+250-677 OM'TV;CSAT:12207:V:S19.2E:27500:0:0:0:0:8516:1:1090:0
+250-678 OLTV;CSAT:12207:V:S19.2E:27500:0:0:0:0:8517:1:1090:0
+250-679 RFI INT;CSAT:12207:V:S19.2E:27500:0:0:0:0:8524:1:1090:0
+250-680 RADIO CLASSIQUE;CSAT:12207:V:S19.2E:27500:0:0:0:0:8525:1:1090:0
+250-681 EUROPE 1;CSAT:12207:V:S19.2E:27500:0:0:0:0:8526:1:1090:0
+250-682 RMC;CSAT:12207:V:S19.2E:27500:0:0:0:0:8527:1:1090:0
+250-683 RIRE &amp; CHANSONS;CSAT:12207:V:S19.2E:27500:0:0:0:0:8529:1:1090:0
+250-684 SUD RADIO;CSAT:12207:V:S19.2E:27500:0:0:0:0:8530:1:1090:0
+250-685 MC DOUALIYA;CSAT:12207:V:S19.2E:27500:0:0:0:0:8531:1:1090:0
+250-686 TSF;CSAT:12207:V:S19.2E:27500:0:0:0:0:8532:1:1090:0
+250-687 NOSTALGIE;CSAT:12207:V:S19.2E:27500:0:0:0:0:8533:1:1090:0
+250-688 BFM;CSAT:12207:V:S19.2E:27500:0:0:0:0:8534:1:1090:0
+250-689 JAZZ RADIO;CSAT:12207:V:S19.2E:27500:0:0:0:0:8535:1:1090:0
+250-690 NRJ;CSAT:12207:V:S19.2E:27500:0:0:0:0:8536:1:1090:0
+250-691 VIRGIN RADIO;CSAT:12207:V:S19.2E:27500:0:0:0:0:8537:1:1090:0
+250-692 SKYROCK;CSAT:12207:V:S19.2E:27500:0:0:0:0:8539:1:1090:0
+250-693 RADIO NOVA;CSAT:12207:V:S19.2E:27500:0:0:0:0:8542:1:1090:0
+250-694 RADIO FG;CSAT:12207:V:S19.2E:27500:0:0:0:0:8543:1:1090:0
+250-695 VIBRATION;CSAT:12207:V:S19.2E:27500:0:0:0:0:8544:1:1090:0
+250-696 CONTACT FM;CSAT:12207:V:S19.2E:27500:0:0:0:0:8545:1:1090:0
+250-697 RADIO LATINA;CSAT:12207:V:S19.2E:27500:0:0:0:0:8546:1:1090:0
+250-698 RFM;CSAT:12207:V:S19.2E:27500:0:0:0:0:8547:1:1090:0
+250-699 CHERIE FM;CSAT:12207:V:S19.2E:27500:0:0:0:0:8548:1:1090:0
+250-700 ALOUETTE;CSAT:12207:V:S19.2E:27500:0:0:0:0:8549:1:1090:0
+250-701 VOLTAGE;CSAT:12207:V:S19.2E:27500:0:0:0:0:8550:1:1090:0
+250-702 OUI FM;CSAT:12207:V:S19.2E:27500:0:0:0:0:8551:1:1090:0
+250-703 ADO;CSAT:12207:V:S19.2E:27500:0:0:0:0:8552:1:1090:0
+250-704 COULEUR 3;CSAT:12207:V:S19.2E:27500:0:0:0:0:8553:1:1090:0
+250-705 PARENTHESE RADIO;CSAT:12207:V:S19.2E:27500:0:0:0:0:8554:1:1090:0
+250-706 RADIO NOTRE-DAME;CSAT:12207:V:S19.2E:27500:0:0:0:0:8555:1:1090:0
+250-707 RADIO ALPHA;CSAT:12207:V:S19.2E:27500:0:0:0:0:8556:1:1090:0
+250-708 RCJ / SHALOM;CSAT:12207:V:S19.2E:27500:0:0:0:0:8557:1:1090:0
+250-709 BEUR FM;CSAT:12207:V:S19.2E:27500:0:0:0:0:8558:1:1090:0
+250-710 BBC ARABIC;CSAT:12207:V:S19.2E:27500:0:0:0:0:8559:1:1090:0
+250-711 RFI MULTILINGUE;CSAT:12207:V:S19.2E:27500:0:0:0:0:8560:1:1090:0
+250-712 RCI SAT;CSAT:12207:V:S19.2E:27500:0:0:0:0:8561:1:1090:0
+250-713 MEDI 1;CSAT:12207:V:S19.2E:27500:0:0:0:0:8562:1:1090:0
+250-714 WRN;CSAT:12207:V:S19.2E:27500:0:0:0:0:8564:1:1090:0
+250-715 BBCW SERVICE;CSAT:12207:V:S19.2E:27500:0:0:0:0:8565:1:1090:0
+250-716 RADIO COURTOISIE;CSAT:12207:V:S19.2E:27500:0:0:0:0:8566:1:1090:0
+250-717 FRANCE 5;CSAT:12207:V:S19.2E:27500:0:0:0:0:8591:1:1090:0
+250-718 ! Primetime;BetaDigital:12246:vC34:S19.2E:27500:767:768=deu:0:0:10102:1:1092:0
+250-719 LokalSAT;BetaDigital:12246:vC34:S19.2E:27500:1535:1536=deu:0:0:10105:1:1092:0
+250-720 TVM/WWTV;BetaDigital:12246:vC34:S19.2E:27500:2303:2304=deu:0:0:10108:1:1092:0
+250-721 tirol tv;BetaDigital:12246:vC34:S19.2E:27500:2559:2560=deu:0:0:10109:1:1092:0
+250-722 .;BetaDigital:12246:vC34:S19.2E:27500:2815:0:0:1702,1830,1833,1801:10110:1:1092:0
+250-723 entavio Home;BetaDigital:12246:vC34:S19.2E:27500:3071:0:0:0:10111:1:1092:0
+250-724 Top Girl Sex TV;BetaDigital:12246:vC34:S19.2E:27500:495:496=deu:0:0:10115:1:1092:0
+250-725 Hot Girls TV;BetaDigital:12246:vC34:S19.2E:27500:751:752=deu:0:0:10116:1:1092:0
+250-726 Zack Erotik TV;BetaDigital:12246:vC34:S19.2E:27500:1007:1008=deu:0:0:10117:1:1092:0
+250-727 Blitzkontakt.TV;BetaDigital:12246:vC34:S19.2E:27500:1263:1264=deu:0:0:10118:1:1092:0
+250-728 .6live;BetaDigital:12246:vC34:S19.2E:27500:1519:1520=deu:0:0:10119:1:1092:0
+250-729 Amore TV;BetaDigital:12246:vC34:S19.2E:27500:1775:1776=deu:0:0:10120:1:1092:0
+250-730 Herzschlag69;BetaDigital:12246:vC34:S19.2E:27500:2031:2032=deu:37:0:10121:1:1092:0
+250-731 tele6.tv;BetaDigital:12246:vC34:S19.2E:27500:2287:2288=deu:0:0:10122:1:1092:0
+250-732 maennerwelt.tv;BetaDigital:12246:vC34:S19.2E:27500:2543:2544=deu:0:0:10123:1:1092:0
+250-733 Traumkontakt.tv;BetaDigital:12246:vC34:S19.2E:27500:3055:3056=deu:0:0:10125:1:1092:0
+250-734 Po6;BetaDigital:12246:vC34:S19.2E:27500:3311:3312=deu:39:0:10126:1:1092:0
+250-735 2255live;BetaDigital:12246:vC34:S19.2E:27500:3567:3568=deu:0:0:10127:1:1092:0
+250-736 .;BetaDigital:12246:vC34:S19.2E:27500:0:0:0:0:10128:1:1092:0
+250-737 Allesf&#252;rsHandy;BetaDigital:12246:vC34:S19.2E:27500:4079:4080=deu:0:0:10129:1:1092:0
+250-738 A1 Teleshop;BetaDigital:12246:vC34:S19.2E:27500:3583:3584=deu:0:0:10130:1:1092:0
+250-739 .;BetaDigital:12246:vC34:S19.2E:27500:0:0:0:0:10131:1:1092:0
+250-740 Liebesgl&#252;ck.TV;BetaDigital:12246:vC34:S19.2E:27500:479:480=deu:0:0:10150:1:1092:0
+250-741 Partnersuche.TV;BetaDigital:12246:vC34:S19.2E:27500:735:736=deu:0:0:10151:1:1092:0
+250-742 ReiseSchn&#228;ppchen.TV;BetaDigital:12246:vC34:S19.2E:27500:991:992=deu:0:0:10152:1:1092:0
+250-743 Venusclub.TV;BetaDigital:12246:vC34:S19.2E:27500:1247:1248=deu:0:0:10153:1:1092:0
+250-744 Ringtone TV;BetaDigital:12246:vC34:S19.2E:27500:1503:1504=deu:0:0:10154:1:1092:0
+250-745 .Club1.TV;BetaDigital:12246:vC34:S19.2E:27500:1759:1760=deu:0:0:10155:1:1092:0
+250-746 AbsolutSexy.TV;BetaDigital:12246:vC34:S19.2E:27500:2015:2016=deu:0:0:10156:1:1092:0
+250-747 ACHTUNG Singles.TV;BetaDigital:12246:vC34:S19.2E:27500:2271:2272=deu:0:0:10157:1:1092:0
+250-748 SexyGirls.TV;BetaDigital:12246:vC34:S19.2E:27500:2527:2528=deu:0:0:10158:1:1092:0
+250-749 Liebestraum.TV;BetaDigital:12246:vC34:S19.2E:27500:2783:2784=deu:0:0:10159:1:1092:0
+250-750 ACHTUNG Erotik.TV;BetaDigital:12246:vC34:S19.2E:27500:3039:3040=deu:0:0:10160:1:1092:0
+250-751 Pro Erotik TV;BetaDigital:12246:vC34:S19.2E:27500:3295:3296=deu:0:0:10161:1:1092:0
+250-752 EroticDome;BetaDigital:12246:vC34:S19.2E:27500:3551:3552=deu:0:0:10162:1:1092:0
+250-753 666 Girls.TV;BetaDigital:12246:vC34:S19.2E:27500:3807:3808=deu:0:0:10163:1:1092:0
+250-754 Gratis Hot TV;BetaDigital:12246:vC34:S19.2E:27500:4063:4064=deu:0:0:10164:1:1092:0
+250-755 XXXKanal.TV;BetaDigital:12246:vC34:S19.2E:27500:463:464=deu:0:0:10165:1:1092:0
+250-756 SAT Erotiktreff.TV;BetaDigital:12246:vC34:S19.2E:27500:719:720=deu:0:0:10166:1:1092:0
+250-757 Friends TV;BetaDigital:12246:vC34:S19.2E:27500:975:976=deu:0:0:10167:1:1092:0
+250-758 .;BetaDigital:12246:vC34:S19.2E:27500:0:0:0:0:10168:1:1092:0
+250-759 .;BetaDigital:12246:vC34:S19.2E:27500:0:0:0:0:10170:1:1092:0
+250-760 .;BetaDigital:12246:vC34:S19.2E:27500:0:0:0:0:10171:1:1092:0
+250-761 .;BetaDigital:12246:vC34:S19.2E:27500:0:0:0:0:10172:1:1092:0
+250-762 DELUXE RADIO;BetaDigital:12246:vC34:S19.2E:27500:0:336=deu:0:0:10140:1:1092:0
+250-763 DELUXE LOUNGE;BetaDigital:12246:vC34:S19.2E:27500:0:352=deu:0:0:10141:1:1092:0
+250-764 TEDDY;BetaDigital:12246:vC34:S19.2E:27500:0:368=deu:0:0:10142:1:1092:0
+250-765 APS.R12;BetaDigital:12246:vC34:S19.2E:27500:0:0:0:0:10143:1:1092:0
+250-766 APS.R13;BetaDigital:12246:vC34:S19.2E:27500:0:0:0:0:10144:1:1092:0
+250-767 APS.R14;BetaDigital:12246:vC34:S19.2E:27500:0:0:0:0:10145:1:1092:0
+250-768 APS.R15;BetaDigital:12246:vC34:S19.2E:27500:0:0:0:0:10146:1:1092:0
+250-769 Bayern 1;ARD BR:12266:hC34:S19.2E:27500:0:101=deu:0:0:28400:1:1093:0
+250-770 Bayern 2;ARD BR:12266:hC34:S19.2E:27500:0:111=deu:0:0:28401:1:1093:0
+250-771 Bayern 3;ARD BR:12266:hC34:S19.2E:27500:0:121=deu:0:0:28402:1:1093:0
+250-772 Bayern 4 Klassik;ARD BR:12266:hC34:S19.2E:27500:0:131=deu;132=deu:0:0:28403:1:1093:0
+250-773 B5 aktuell;ARD BR:12266:hC34:S19.2E:27500:0:141=deu:0:0:28404:1:1093:0
+250-774 Bayern Mobil;ARD BR:12266:hC34:S19.2E:27500:0:151=deu:0:0:28405:1:1093:0
+250-775 on3radio;ARD BR:12266:hC34:S19.2E:27500:0:161=deu:0:0:28406:1:1093:0
+250-776 BR Verkehr;ARD BR:12266:hC34:S19.2E:27500:0:171=deu:0:0:28407:1:1093:0
+250-777 B5 plus;ARD BR:12266:hC34:S19.2E:27500:0:181=deu:0:0:28408:1:1093:0
+250-778 DW 1;ARD DW:12266:hC34:S19.2E:27500:0:301=deu:0:0:28416:1:1093:0
+250-779 DW 4;ARD DW:12266:hC34:S19.2E:27500:0:311=deu:0:0:28417:1:1093:0
+250-780 hr1;ARD HR:12266:hC34:S19.2E:27500:0:401=deu:0:0:28419:1:1093:0
+250-781 hr2;ARD HR:12266:hC34:S19.2E:27500:0:411=deu;412=deu:0:0:28420:1:1093:0
+250-782 hr3;ARD HR:12266:hC34:S19.2E:27500:0:421=deu:0:0:28421:1:1093:0
+250-783 hr4;ARD HR:12266:hC34:S19.2E:27500:0:431=deu:0:0:28422:1:1093:0
+250-784 YOU FM;ARD HR:12266:hC34:S19.2E:27500:0:451=deu:0:0:28423:1:1093:0
+250-785 hr iNFO;ARD HR:12266:hC34:S19.2E:27500:0:461=deu:0:0:28424:1:1093:0
+250-786 hr iNFO +;ARD HR:12266:hC34:S19.2E:27500:0:471=deu:0:0:28425:1:1093:0
+250-787 MDR1 SACHSEN;ARD MDR:12266:hC34:S19.2E:27500:0:501=deu:0:0:28428:1:1093:0
+250-788 MDR1 S-ANHALT;ARD MDR:12266:hC34:S19.2E:27500:0:511=deu:0:0:28429:1:1093:0
+250-789 MDR1 TH&#220;RINGEN;ARD MDR:12266:hC34:S19.2E:27500:0:521=deu:0:0:28430:1:1093:0
+250-790 MDR FIGARO;ARD MDR:12266:hC34:S19.2E:27500:0:531=deu:0:0:28431:1:1093:0
+250-791 MDR JUMP;ARD MDR:12266:hC34:S19.2E:27500:0:541=deu:0:0:28432:1:1093:0
+250-792 MDR SPUTNIK;ARD MDR:12266:hC34:S19.2E:27500:0:551=deu:0:0:28433:1:1093:0
+250-793 MDR INFO;ARD MDR:12266:hC34:S19.2E:27500:0:561=deu:0:0:28434:1:1093:0
+250-794 NDR 2;ARD NDR:12266:hC34:S19.2E:27500:0:601=deu:0:0:28437:1:1093:0
+250-795 NDR Kultur;ARD NDR:12266:hC34:S19.2E:27500:0:611=deu:0:0:28438:1:1093:0
+250-796 NDR Info;ARD NDR:12266:hC34:S19.2E:27500:0:621=deu:0:0:28439:1:1093:0
+250-797 N-JOY;ARD NDR:12266:hC34:S19.2E:27500:0:631=deu:0:0:28440:1:1093:0
+250-798 NDR 90,3;ARD NDR:12266:hC34:S19.2E:27500:0:641=deu:0:0:28441:1:1093:0
+250-799 NDR 1 Welle Nord;ARD NDR:12266:hC34:S19.2E:27500:0:651=deu:0:0:28442:1:1093:0
+250-800 NDR 1 Radio MV;ARD NDR:12266:hC34:S19.2E:27500:0:661=deu:0:0:28443:1:1093:0
+250-801 NDR 1 Niedersachsen;ARD NDR:12266:hC34:S19.2E:27500:0:671=deu:0:0:28444:1:1093:0
+250-802 NDR Info Spezial;ARD NDR:12266:hC34:S19.2E:27500:0:681=deu:0:0:28445:1:1093:0
+250-803 Bremen Eins;ARD RB:12266:hC34:S19.2E:27500:0:701=deu:0:0:28448:1:1093:0
+250-804 Nordwestradio;ARD RB:12266:hC34:S19.2E:27500:0:711=deu:0:0:28449:1:1093:0
+250-805 Bremen Vier;ARD RB:12266:hC34:S19.2E:27500:0:721=deu:0:0:28450:1:1093:0
+250-806 InfoRadio;ARD rbb:12266:hC34:S19.2E:27500:0:801=deu:0:0:28452:1:1093:0
+250-807 kulturradio;ARD rbb:12266:hC34:S19.2E:27500:0:811=deu:0:0:28453:1:1093:0
+250-808 Antenne Brandenburg;ARD rbb:12266:hC34:S19.2E:27500:0:821=deu:0:0:28454:1:1093:0
+250-809 radioBERLIN 88,8;ARD rbb:12266:hC34:S19.2E:27500:0:831=deu:0:0:28455:1:1093:0
+250-810 radioeins;ARD rbb:12266:hC34:S19.2E:27500:0:841=deu:0:0:28456:1:1093:0
+250-811 Fritz;ARD rbb:12266:hC34:S19.2E:27500:0:851=deu:0:0:28457:1:1093:0
+250-812 radiomultikulti;ARD rbb:12266:hC34:S19.2E:27500:0:861=deu:0:0:28458:1:1093:0
+250-813 SR1;ARD SR:12266:hC34:S19.2E:27500:0:901=deu:0:0:28461:1:1093:0
+250-814 SR2;ARD SR:12266:hC34:S19.2E:27500:0:911=deu:0:0:28462:1:1093:0
+250-815 SR3;ARD SR:12266:hC34:S19.2E:27500:0:921=deu:0:0:28463:1:1093:0
+250-816 SWR1 BW;ARD SWR:12266:hC34:S19.2E:27500:0:1001=deu:0:0:28465:1:1093:0
+250-817 SWR1 RP;ARD SWR:12266:hC34:S19.2E:27500:0:1011=deu:0:0:28466:1:1093:0
+250-818 SWR2;ARD SWR:12266:hC34:S19.2E:27500:0:1021=deu;1022=deu:0:0:28467:1:1093:0
+250-819 SWR3;ARD SWR:12266:hC34:S19.2E:27500:0:1031=deu:0:0:28468:1:1093:0
+250-820 SWR4 BW;ARD SWR:12266:hC34:S19.2E:27500:0:1041=deu:0:0:28469:1:1093:0
+250-821 SWR4 RP;ARD SWR:12266:hC34:S19.2E:27500:0:1051=deu:0:0:28470:1:1093:0
+250-822 DASDING;ARD SWR:12266:hC34:S19.2E:27500:0:1061=deu:0:0:28471:1:1093:0
+250-823 cont.ra;ARD SWR:12266:hC34:S19.2E:27500:0:1071=deu:0:0:28472:1:1093:0
+250-824 1LIVE;ARD WDR:12266:hC34:S19.2E:27500:0:1101=deu:0:0:28475:1:1093:0
+250-825 WDR 2;ARD WDR:12266:hC34:S19.2E:27500:0:1111=deu:0:0:28476:1:1093:0
+250-826 WDR 3;ARD WDR:12266:hC34:S19.2E:27500:0:1121=deu;1122=deu:0:0:28477:1:1093:0
+250-827 WDR 4;ARD WDR:12266:hC34:S19.2E:27500:0:1131=deu:0:0:28478:1:1093:0
+250-828 WDR 5;ARD WDR:12266:hC34:S19.2E:27500:0:1141=deu:0:0:28479:1:1093:0
+250-829 WDR Funkhaus Europa;ARD WDR:12266:hC34:S19.2E:27500:0:1151=deu:0:0:28480:1:1093:0
+250-830 1LIVE diggi;ARD WDR:12266:hC34:S19.2E:27500:0:1161=deu:0:0:28481:1:1093:0
+250-831 WDR 2 Klassik;ARD WDR:12266:hC34:S19.2E:27500:0:1171=deu:0:0:28482:1:1093:0
+250-832 WDR Event;ARD WDR:12266:hC34:S19.2E:27500:0:1181=deu:0:0:28483:1:1093:0
+250-833 BR-alpha;ARD:12266:hC34:S19.2E:27500:1401:1402=deu;1406=deu:1404:0:28487:1:1093:0
+250-834 AB MOTEURS;ABSAT:12285:V:S19.2E:27500:160:80=fra:41:500,100:17020:1:1094:0
+250-835 ACTION;ABSAT:12285:V:S19.2E:27500:170:120:41:500,100:17030:1:1094:0
+250-836 CINE FX;ABSAT:12285:V:S19.2E:27500:174:136:41:500,100:17034:1:1094:0
+250-837 AB1;ABSAT:12285:V:S19.2E:27500:161:84:41:500,100:17021:1:1094:0
+250-838 CINE POLAR;ABSAT:12285:V:S19.2E:27500:173:132=deu:41:100:17033:1:1094:0
+250-839 NT1;ABSAT:12285:V:S19.2E:27500:168:112:43:0:17028:1:1094:0
+250-840 NT1;ABSAT:12285:V:S19.2E:27500:168+8191:112:43:0:17040:1:1094:0
+250-841 ANIMAUX;ABSAT:12285:V:S19.2E:27500:162:88:41:500,100:17022:1:1094:0
+250-842 ESCALES;ABSAT:12285:V:S19.2E:27500:165:100:41:500,100:17025:1:1094:0
+250-843 ENCYCLOPEDIA;ABSAT:12285:V:S19.2E:27500:163:92:41:500,100:17023:1:1094:0
+250-844 toute L'HISTOIRE;ABSAT:12285:V:S19.2E:27500:166:104:41:500,100:17026:1:1094:0
+250-845 MANGAS;ABSAT:12285:V:S19.2E:27500:171:124:41:500,100:17031:1:1094:0
+250-846 LCP;ABSAT:12285:V:S19.2E:27500:167:108:53:0:17027:1:1094:0
+250-847 LCP;ABSAT:12285:V:S19.2E:27500:167:108:53:0:17041:1:1094:0
+250-848 RTL9;ABsat:12285:V:S19.2E:27500:175:140:41:500,100:17035:1:1094:0
+250-849 Galaxie Sport,GalSport;UPC Direct:12304:HC23E35M8:S19.2E:27500:101:111=cze,112=eng:0:D02,1815:20301:1:1095:0
+250-850 Animal Planet,AnimalPl;UPC Direct:12304:HC23E35M8:S19.2E:27500:151:160=hun,161=cze,162=eng:0:D02,1815:20302:1:1095:0
+250-851 Discovery CE,Disc;UPC Direct:12304:HC23E35M8:S19.2E:27500:201:210=hun,211=cze,212=eng:0:D02,1815:20303:1:1095:0
+250-852 JimJam,JimJam;UPC Direct:12304:HC23E35M8:S19.2E:27500:251:260=hun,261=cze,262=eng,265=dut:0:D02,1815,100:20304:1:1095:0
+250-853 Jetix/Jetix Max,Jetix/Jetix Max;UPC Direct:12304:HC23E35M8:S19.2E:27500:301:310=hun,311=cze,312=eng:0:D02,1815:20305:1:1095:0
+250-854 Nat Geo,NatGeo;UPC Direct:12304:HC23E35M8:S19.2E:27500:351:360=hun,362=eng,363=pol:370:D02,1815:20306:1:1095:0
+250-855 HBO Comedy,HBO Comedy;UPC Direct:12304:HC23E35M8:S19.2E:27500:401:410=hun,411=cze,412=eng:420:D02,1815:20307:1:1095:0
+250-856 Hallmark,Hall;UPC Direct:12304:HC23E35M8:S19.2E:27500:451:460=hun,461=cze,462=eng:0:D02,1815:20308:1:1095:0
+250-857 Hustler TV,Hustler TV;UPC Direct:12304:HC23E35M8:S19.2E:27500:501:512=eng:0:D02,1815,100:20309:1:1095:0
+250-858 ZoneReality,Zone;UPC Direct:12304:HC23E35M8:S19.2E:27500:551:560=hun,561=cze,562=eng:570:D02,622,1815,100:20310:1:1095:0
+250-859 Extreme Sports,ExSports;UPC Direct:12304:HC23E35M8:S19.2E:27500:601:610=hun,612=eng:620:D02,622,1815,100:20311:1:1095:0
+250-860 UPC_EPG;UPC Direct:12304:HC23E35M8:S19.2E:27500:0:0:0:0:20499:1:1095:0
+250-861 Guide;UPC Direct:12304:HC23E35M8:S19.2E:27500:0:0:0:0:20500:1:1095:0
+250-862 Games Portal;UPC Direct:12304:HC23E35M8:S19.2E:27500:0:0:0:D02,1815:20498:1:1095:0
+250-863 Game 1;chellomedia IS:12304:HC23E35M8:S19.2E:27500:0:0:0:0:20497:1:1095:0
+250-864 Game 2;chellomedia IS:12304:HC23E35M8:S19.2E:27500:0:0:0:0:20496:1:1095:0
+250-865 Game 3;chellomedia IS:12304:HC23E35M8:S19.2E:27500:0:0:0:0:20495:1:1095:0
+250-866 UPC Direct Radio;UPC Direct:12304:HC23E35M8:S19.2E:27500:0:0:0:0:20494:1:1095:0
+250-867 ONZEO;CSAT:12324:V:S19.2E:27500:0:0:0:0:8602:1:1096:0
+250-868 MOSAIQUE;CSAT:12324:V:S19.2E:27500:0:0:0:0:8603:1:1096:0
+250-869 SAILING CHANNEL;CSAT:12324:V:S19.2E:27500:0:0:0:0:8607:1:1096:0
+250-870 MOSAIQUE;CSAT:12324:V:S19.2E:27500:0:0:0:0:8608:1:1096:0
+250-871 MMD;CSAT:12324:V:S19.2E:27500:0:0:0:0:8609:1:1096:0
+250-872 CASH TV;CSAT:12324:V:S19.2E:27500:0:0:0:0:8611:1:1096:0
+250-873 PRIVATE SPICE;CSAT:12324:V:S19.2E:27500:0:0:0:0:8613:1:1096:0
+250-874 CDN12;CSAT:12324:V:S19.2E:27500:0:0:0:0:8616:1:1096:0
+250-875 DISNEY MAGIC HD;CSAT:12324:V:S19.2E:27500:0:0:0:0:8618:1:1096:0
+250-876 MOSAIQUE;CSAT:12324:V:S19.2E:27500:0:0:0:0:8641:1:1096:0
+250-877 RTL4;CANALDIGITAAL:12344:H:S19.2E:27500:512+8190:80=dut:32:622,100:2004:53:1097:0
+250-878 RTL5;CANALDIGITAAL:12344:H:S19.2E:27500:513+8190:92=dut:33:622,100:2005:53:1097:0
+250-879 RTL7;CANALDIGITAAL:12344:H:S19.2E:27500:518+8190:90=dut:38:622,100:2006:53:1097:0
+250-880 RTL8;CANALDIGITAAL:12344:H:S19.2E:27500:519+8190:108=dut:39:622,100:2035:53:1097:0
+250-881 TV Oranje;CANALDIGITAAL:12344:H:S19.2E:27500:516+8190:84=dut:0:622,100:2010:53:1097:0
+250-882 Discovery;CANALDIGITAAL:12344:H:S19.2E:27500:515+8190:88=dut:50:622,100:2015:53:1097:0
+250-883 Animal Planet;CANALDIGITAAL:12344:H:S19.2E:27500:514+8190:96=dut:35:622,100:2020:53:1097:0
+250-884 EUROSPORT;CANALDIGITAAL:12344:H:S19.2E:27500:517+8190:112=dut,113=eng,114=cze,115=hun:36:622,D02,1815,100:2025:53:1097:0
+250-885 Cartoon/TCM;CANALDIGITAAL:12344:H:S19.2E:27500:520+8190:116=dut:37:622,100:2030:53:1097:0
+250-886 Hallmark;CANALDIGITAAL:12344:H:S19.2E:27500:523+8190:118=dut:34:622,100:2041:53:1097:0
+250-887 DORCEL TV;CANALDIGITAAL:12344:H:S19.2E:27500:522+8190:124=dut:0:622,100,500:2045:53:1097:0
+250-888 RTL RADIO;CANALDIGITAAL:12344:H:S19.2E:27500:0:104=deu:0:0:2051:53:1097:0
+250-889 RVi1 (VRT);CANALDIGITAAL:12344:H:S19.2E:27500:0:100=dut:0:0:2070:53:1097:0
+250-890 RVi2 (VRT);CANALDIGITAAL:12344:H:S19.2E:27500:0:101=dut:0:0:2075:53:1097:0
+250-891 GUIDE TV;CSAT:12363:V:S19.2E:27500:0:0:0:0:9101:1:1098:0
+250-892 CANAL+ HI-TECH HD;IMEDIA:12363:V:S19.2E:27500:0:0:0:0:9102:1:1098:0
+250-893 NATIONAL GEO HD;CSAT:12363:V:S19.2E:27500:0:0:0:0:9103:1:1098:0
+250-894 MON CSAT;CSAT:12363:V:S19.2E:27500:0:0:0:0:9104:1:1098:0
+250-895 C+ A LA DEMANDE;CSAT:12363:V:S19.2E:27500:0:0:0:0:9105:1:1098:0
+250-896 ADIBOU TV;CSAT:12363:V:S19.2E:27500:0:0:0:0:9109:1:1098:0
+250-897 ESPACE CLIENT;CSAT:12363:V:S19.2E:27500:0:0:0:0:9110:1:1098:0
+250-898 TF1 HD;CSAT:12363:V:S19.2E:27500:0:0:0:0:9113:1:1098:0
+250-899 M6 HD;CSAT:12363:V:S19.2E:27500:0:0:0:0:9114:1:1098:0
+250-900 CINE PREMIER HD;CSAT:12363:V:S19.2E:27500:0:0:0:0:9115:1:1098:0
+250-901 13EME RUE HD;CSAT:12363:V:S19.2E:27500:0:0:0:0:9116:1:1098:0
+250-902 CE SOIR;CSAT:12363:V:S19.2E:27500:0:0:0:0:9120:1:1098:0
+250-903 FRANCE 2 HD;CSAT:12363:V:S19.2E:27500:0:0:0:0:9128:1:1098:0
+250-904 DT1;CSAT:12363:V:S19.2E:27500:0:0:0:0:9150:1:1098:0
+250-905 DT2;CSAT:12363:V:S19.2E:27500:0:0:0:0:9151:1:1098:0
+250-906 DT4;CSAT:12363:V:S19.2E:27500:0:0:0:0:9153:1:1098:0
+250-907 DT5;CSAT:12363:V:S19.2E:27500:0:0:0:0:9154:1:1098:0
+250-908 DT6;CSAT:12363:V:S19.2E:27500:0:0:0:0:9155:1:1098:0
+250-909 DT7;CSAT:12363:V:S19.2E:27500:0:0:0:0:9156:1:1098:0
+250-910 DT8;CSAT:12363:V:S19.2E:27500:0:0:0:0:9157:1:1098:0
+250-911 DT9;CSAT:12363:V:S19.2E:27500:0:0:0:0:9158:1:1098:0
+250-912 DT10;CSAT:12363:V:S19.2E:27500:0:0:0:0:9159:1:1098:0
+250-913 DT11;CSAT:12363:V:S19.2E:27500:0:0:0:0:9160:1:1098:0
+250-914 DT12;CSAT:12363:V:S19.2E:27500:0:0:0:0:9161:1:1098:0
+250-915 DT13;CSAT:12363:V:S19.2E:27500:0:0:0:0:9162:1:1098:0
+250-916 DT14;CSAT:12363:V:S19.2E:27500:0:0:0:0:9163:1:1098:0
+250-917 DT15;CSAT:12363:V:S19.2E:27500:0:0:0:0:9164:1:1098:0
+250-918 DT16;CSAT:12363:V:S19.2E:27500:0:0:0:0:9165:1:1098:0
+250-919 DT17;CSAT:12363:V:S19.2E:27500:0:0:0:0:9166:1:1098:0
+250-920 DT18;CSAT:12363:V:S19.2E:27500:0:0:0:0:9167:1:1098:0
+250-921 DT19;CSAT:12363:V:S19.2E:27500:0:0:0:0:9168:1:1098:0
+250-922 DT20;CSAT:12363:V:S19.2E:27500:0:0:0:0:9169:1:1098:0
+250-923 DOWNLOAD TNTSAT GENERIQUE;CSAT:12363:V:S19.2E:27500:0:0:0:0:9192:1:1098:0
+250-924 DOWNLOAD TNTSAT STRONG;CSAT:12363:V:S19.2E:27500:0:0:0:0:9193:1:1098:0
+250-925 DOWNLOAD TNTSAT SAGEM;CSAT:12363:V:S19.2E:27500:0:0:0:0:9194:1:1098:0
+250-926 CDN2;CSAT:12363:V:S19.2E:27500:0:0:0:0:9195:1:1098:0
+250-927 CDN6;CSAT:12363:V:S19.2E:27500:0:0:0:0:9196:1:1098:0
+250-928 CDN7;CSAT:12363:V:S19.2E:27500:0:0:0:0:9197:1:1098:0
+250-929 CDN5;CSAT:12363:V:S19.2E:27500:0:0:0:0:9198:1:1098:0
+250-930 CT1,CT1;UPC Direct:12382:HC23E35M8:S19.2E:27500:101:111=cze:120:D02,1815:20315:1:1099:0
+250-931 CT24,CT24;UPC Direct:12382:HC23E35M8:S19.2E:27500:151:161=cze:170:0:20316:1:1099:0
+250-932 NOVA Cinema,NOVA Cinema;UPC Direct:12382:HC23E35M8:S19.2E:27500:201:211=cze:0:D02,1815:20317:1:1099:0
+250-933 CT2,CT2;UPC Direct:12382:HC23E35M8:S19.2E:27500:251:261=cze:270:D02,1815:20318:1:1099:0
+250-934 TV Markiza,TV Markiza;UPC Direct:12382:HC23E35M8:S19.2E:27500:301:314=slv:320:D02,1815:20319:1:1099:0
+250-935 TV JOJ,TV JOJ;UPC Direct:12382:HC23E35M8:S19.2E:27500:351:364=slv:370:D02,1815:20320:1:1099:0
+250-936 TV Nova,TV Nova;UPC Direct:12382:HC23E35M8:S19.2E:27500:401:411=cze:420:D02,1815:20321:1:1099:0
+250-937 XXX,XXX;UPC Direct:12382:HC23E35M8:S19.2E:27500:451:462=eng:470:D02,1815,100:20322:1:1099:0
+250-938 Prima TV,Prima TV;UPC Direct:12382:HC23E35M8:S19.2E:27500:501:511=cze:520:D02,1815:20323:1:1099:0
+250-939 DOQ;UPC Direct:12382:HC23E35M8:S19.2E:27500:551:560=hun:0:D02:20324:1:1099:0
+250-940 Filmmuzeum,Filmmuzeum;UPC Direct:12382:HC23E35M8:S19.2E:27500:601:610=hun:0:D02,1815:20325:1:1099:0
+250-941 CT4 Sport,CT4 Sport;UPC Direct:12382:HC23E35M8:S19.2E:27500:651:661=cze:670:D02,1815:20326:1:1099:0
+250-942 Eurosport 2,Eurosport 2;UPC Direct:12382:HC23E35M8:S19.2E:27500:701:712=eng:0:D02,1815,100:20366:1:1099:0
+250-943 EQUIDIA INFO;CSAT:12402:V:S19.2E:27500:0:0:0:0:8701:1:1100:0
+250-944 COMEDIE !;CSAT:12402:V:S19.2E:27500:0:0:0:0:8702:1:1100:0
+250-945 13EME RUE;CSAT:12402:V:S19.2E:27500:0:0:0:0:8703:1:1100:0
+250-946 REAL TIME;CSAT:12402:V:S19.2E:27500:0:0:0:0:8704:1:1100:0
+250-947 JETIX;CSAT:12402:V:S19.2E:27500:0:0:0:0:8705:1:1100:0
+250-948 L'EQUIPE TV;CSAT:12402:V:S19.2E:27500:0:0:0:0:8706:1:1100:0
+250-949 PLANETE NO LIMIT;CSAT:12402:V:S19.2E:27500:0:0:0:0:8707:1:1100:0
+250-950 NATIONAL GEO;CSAT:12402:V:S19.2E:27500:0:0:0:0:8708:1:1100:0
+250-951 C CINEMA CLASSIC;CSAT:12402:V:S19.2E:27500:0:0:0:0:8709:1:1100:0
+250-952 NRJ 12;CSAT:12402:V:S19.2E:27500:0:0:0:0:8710:1:1100:0
+250-953 C CINEMA FAMIZ;CSAT:12402:V:S19.2E:27500:0:0:0:0:8711:1:1100:0
+250-954 NRJ 12;CSAT:12402:V:S19.2E:27500:0:0:0:0:8721:1:1100:0
+250-955 WDR Bielefeld;ARD:12422:H:S19.2E:27500:101:102=deu:104:0:28306:1:1201:0
+250-956 WDR Dortmund;ARD:12422:H:S19.2E:27500:101:102=deu:104:0:28307:1:1201:0
+250-957 WDR D&#252;sseldorf;ARD:12422:H:S19.2E:27500:101:102=deu:104:0:28308:1:1201:0
+250-958 WDR Essen;ARD:12422:H:S19.2E:27500:101:102=deu:104:0:28309:1:1201:0
+250-959 WDR M&#252;nster;ARD:12422:H:S19.2E:27500:101:102=deu:104:0:28310:1:1201:0
+250-960 WDR Siegen;ARD:12422:H:S19.2E:27500:101:102=deu:104:0:28311:1:1201:0
+250-961 NDR FS HH+;ARD:12422:H:S19.2E:27500:2701:2702=deu:2704:0:28325:1:1201:0
+250-962 NDR FS MV+;ARD:12422:H:S19.2E:27500:2701:2702=deu:2704:0:28326:1:1201:0
+250-963 NDR FS SH+;ARD:12422:H:S19.2E:27500:2701:2702=deu:2704:0:28327:1:1201:0
+250-964 Radio Bremen TV;ARD:12422:H:S19.2E:27500:1201:1202=deu:1204:0:28385:1:1201:0
+250-965 WDR Test A;ARD:12422:H:S19.2E:27500:101:102=deu,103=deu;106=deu:104:0:28395:1:1201:0
+250-966 MEHRKANALTEST;ARD:12422:H:S19.2E:27500:0:2001=deu;2002=deu:0:0:28397:1:1201:0
+250-967 History Channel;arena:12441:V:S19.2E:27500:2010:2011=deu:0:D22:13201:1:1102:0
+250-968 National Geographic Channel;arena:12441:V:S19.2E:27500:0:0:0:0:13202:1:1102:0
+250-969 ANIMAX (a/P);arena/Premiere:12441:V:S19.2E:27500:0:0:0:0:13203:1:1102:0
+250-970 Cartoon Network (a/P);arena/Premiere:12441:V:S19.2E:27500:0:0:0:0:13204:1:1102:0
+250-971 EuroSport 2 (a/P);arena/Premiere:12441:V:S19.2E:27500:0:0:0:0:13205:1:1102:0
+250-972 Kinowelt;arena:12441:V:S19.2E:27500:2060:2061=deu:2063:D22:13206:1:1102:0
+250-973 RTL Living;arena:12441:V:S19.2E:27500:2070:2071=deu:0:D22,1702,1801,1830:13207:1:1102:0
+250-974 Biography Channel;arena:12441:V:S19.2E:27500:2080:2081=deu:0:D22:13208:1:1102:0
+250-975 FOX;arena:12441:V:S19.2E:27500:2090:2091=deu,2092=deu:0:D22:13209:1:1102:0
+250-976 Bundesliga HOME;arena:12441:V:S19.2E:27500:2110:2111=deu,2112=deu:0:D22:13211:1:1102:0
+250-977 Bundesliga INFO;arena:12441:V:S19.2E:27500:0:0:0:0:13212:1:1102:0
+250-978 Bundesliga 1;arena:12441:V:S19.2E:27500:0:0:0:0:13213:1:1102:0
+250-979 Bundesliga 2;arena:12441:V:S19.2E:27500:0:0:0:0:13214:1:1102:0
+250-980 Bundesliga 3;arena:12441:V:S19.2E:27500:0:0:0:0:13215:1:1102:0
+250-981 Bundesliga 4;arena:12441:V:S19.2E:27500:0:0:0:0:13216:1:1102:0
+250-982 Bundesliga 7;arena:12441:V:S19.2E:27500:0:0:0:0:13217:1:1102:0
+250-983 Bundesliga 8;arena:12441:V:S19.2E:27500:0:0:0:0:13218:1:1102:0
+250-984 ERF;BetaDigital:12460:hC34:S19.2E:27500:511:512=deu,513=deu:0:0:48:133:5:0
+250-985 .;BetaDigital:12460:hC34:S19.2E:27500:0:0:0:0:72:133:5:0
+250-986 .;BetaDigital:12460:hC34:S19.2E:27500:0:0:0:0:73:133:5:0
+250-987 Q1TV;BetaDigital:12460:hC34:S19.2E:27500:0:0:0:0:74:133:5:0
+250-988 3A TV;BetaDigital:12460:hC34:S19.2E:27500:767:768=deu:35:0:75:133:5:0
+250-989 ANIXE SD;BetaDigital:12460:hC34:S19.2E:27500:3311:3312=deu:0:0:764:133:5:0
+250-990 domradio;BetaDigital:12460:hC34:S19.2E:27500:0:368=deu:0:0:171:133:5:0
+250-991 .;BetaDigital:12460:hC34:S19.2E:27500:0:0:0:0:172:133:5:0
+250-992 Klassik Radio,Klassik;BetaDigital:12460:hC34:S19.2E:27500:0:336=deu:0:0:173:133:5:0
+250-993 oldiestar*;BetaDigital:12460:hC34:S19.2E:27500:0:352=deu:0:0:174:133:5:0
+250-994 equi8,e8;BetaDigital:12480:vC34:S19.2E:27500:2815:2816=deu:0:0:76:133:33:0
+250-995 .;BetaDigital:12480:vC34:S19.2E:27500:0:0:0:0:77:133:33:0
+250-996 Sonnenklar TV,SonnenTV;PREMIERE:12480:vC34:S19.2E:27500:2303:2304=deu:40:0:32:133:33:0
+250-997 XXHOME;BetaDigital:12480:vC34:S19.2E:27500:255:256=deu:0:0:898:133:33:0
+250-998 meinTVshop;BetaDigital:12480:vC34:S19.2E:27500:511:512=deu:0:0:899:133:33:0
+250-999 gl&#252;ck TV;BetaDigital:12480:vC34:S19.2E:27500:1791:1792=deu:0:0:46:133:33:0
+250-1000 DAF-AnlegerTV,DAF;BetaDigital:12480:vC34:S19.2E:27500:2047:2048=deu:0:0:47:133:33:0
+250-1001 AstroTV;BetaDigital:12480:vC34:S19.2E:27500:2559:2560=deu:41:0:661:133:33:0
+250-1002 SpiritON.TV,SpiritON;BetaDigital:12480:vC34:S19.2E:27500:767:768=deu:0:0:897:133:33:0
+250-1003 Film1.1;CANALDIGITAAL:12515:H:S19.2E:22000:512+8190:80=dut:32:622,100:4005:53:1105:0
+250-1004 Sport1;CANALDIGITAAL:12515:H:S19.2E:22000:513+8190:84=dut:32:622,100:4006:53:1105:0
+250-1005 Film1.2;CANALDIGITAAL:12515:H:S19.2E:22000:514+8190:104=dut:32:622,100:4007:53:1105:0
+250-1006 NED1;CANALDIGITAAL:12515:H:S19.2E:22000:517+8190:88=dut:34:622,100:4011:53:1105:0
+250-1007 NED2;CANALDIGITAAL:12515:H:S19.2E:22000:518+8190:92=dut:35:622,100:4012:53:1105:0
+250-1008 NED3;CANALDIGITAAL:12515:H:S19.2E:22000:519+8190:96=dut:36:622,100:4013:53:1105:0
+250-1009 Nickelodeon/Comedy Central;CANALDIGITAAL:12515:H:S19.2E:22000:520+8190:98=dut:38:622,100:4014:53:1105:0
+250-1010 NGC;CANALDIGITAAL:12515:H:S19.2E:22000:523+8190:116=dut:39:622,100:4015:53:1105:0
+250-1011 Tele2 2e kanaal;CANALDIGITAAL:12515:H:S19.2E:22000:521+8190:100=dut:37:622,100:4016:53:1105:0
+250-1012 Man-X;CANALDIGITAAL:12515:H:S19.2E:22000:515+8190:102=dut:0:100:4018:53:1105:0
+250-1013 R538 Dance Department;CANALDIGITAAL:12515:H:S19.2E:22000:0:126=dut:0:0:4030:53:1105:0
+250-1014 FunX;CANALDIGITAAL:12515:H:S19.2E:22000:0:120=dut:0:0:4035:53:1105:0
+250-1015 Classic FM;CANALDIGITAAL:12515:H:S19.2E:22000:0:118=dut:0:622,100:4040:53:1105:0
+250-1016 Q-Music;CANALDIGITAAL:12515:H:S19.2E:22000:0:114=dut:0:622,100:4045:53:1105:0
+250-1017 EPG;CANALDIGITAAL:12515:H:S19.2E:22000:0:0:0:0:7199:53:1105:0
+250-1018 Sat.1 Comedy;ProSiebenSat.1:12545:hC56:S19.2E:22000:1535:1536=deu:0:1702,1830,1833,9C4,1801,D22:17505:1:1107:0
+250-1019 kabel eins classics;ProSiebenSat.1:12545:hC56:S19.2E:22000:1791:1792=deu:0:1702,1830,1833,9C4,1801,D22:17506:1:1107:0
+250-1020 LUXE.TV SD;DVL.TV:12552:vC56:S19.2E:22000:98:4451=deu,4453=fra,4459=esl:0:0:3992:1:1108:0
+250-1021 RTL Tele Letzebuerg:12552:vC56:S19.2E:22000:168:144=ltz,146=fra:301:0:3994:1:1108:0
+250-1022 Primetime;SES ASTRA:12552:vC56:S19.2E:22000:305:306=deu:0:0:3995:1:1108:0
+250-1023 Astra Vision;SES ASTRA:12552:vC56:S19.2E:22000:168:144=ltz,146=fra:74:0:3997:1:1108:0
+250-1024 QVC Deutschland;QVC:12552:vC56:S19.2E:22000:0:0:0:0:12100:1:1108:0
+250-1025 LibertyTV FR;LibertyTV.com:12552:vC56:S19.2E:22000:941:943=fra:0:0:12120:1:1108:0
+250-1026 Medi1SAT;PRVDR:12552:vC56:S19.2E:22000:2050:2051=fra:0:0:12121:1:1108:0
+250-1027 [tru|] young tv;Bibel TV:12552:vC56:S19.2E:22000:33:34=deu:0:0:12122:1:1108:0
+250-1028 eUrotic NEU;Neterra:12552:vC56:S19.2E:22000:460+511:470:0:0:12123:1:1108:0
+250-1029 Chamber TV;Chambre des D&#233;put&#233;es:12552:vC56:S19.2E:22000:55:56=ltz:0:0:12180:1:1108:0
+250-1030 NET5;CANALDIGITAAL:12574:H:S19.2E:22000:513+8190:100=dut:37:622,100:5004:53:1109:0
+250-1031 SBS6;CANALDIGITAAL:12574:H:S19.2E:22000:514+8190:80=dut:32:622,100:5005:53:1109:0
+250-1032 Hallmark oud;CANALDIGITAAL:12574:H:S19.2E:22000:520+8190:106=dut:0:622,100:5011:53:1109:0
+250-1033 TMF;CANALDIGITAAL:12574:H:S19.2E:22000:516+8190:88=dut:34:622,100:5015:53:1109:0
+250-1034 Veronica/JETIX;CANALDIGITAAL:12574:H:S19.2E:22000:518+8190:92=dut:38:622,100:5020:53:1109:0
+250-1035 BVN;CANALDIGITAAL:12574:H:S19.2E:22000:515+8190:96=dut:36:0:5025:53:1109:0
+250-1036 Film1.3;CANALDIGITAAL:12574:H:S19.2E:22000:519+8190:86=dut:0:622,100:5028:53:1109:0
+250-1037 BiB;CANALDIGITAAL:12574:H:S19.2E:22000:0:0:0:0:5029:53:1109:0
+250-1038 Tele2 / Het Gesprek;CANALDIGITAAL:12574:H:S19.2E:22000:517+8190:104=dut:35:622,100:5030:53:1109:0
+250-1039 CAZ!;CANALDIGITAAL:12574:H:S19.2E:22000:0:222=dut:0:0:5050:53:1109:0
+250-1040 KINK FM;CANALDIGITAAL:12574:H:S19.2E:22000:0:220=dut:0:0:5055:53:1109:0
+250-1041 RNW1;CANALDIGITAAL:12574:H:S19.2E:22000:0:225=dut:0:0:5060:53:1109:0
+250-1042 RNW2;CANALDIGITAAL:12574:H:S19.2E:22000:0:226=dut:0:0:5061:53:1109:0
+250-1043 Sky Radio;CANALDIGITAAL:12574:H:S19.2E:22000:0:227=dut:0:0:5070:53:1109:0
+250-1044 Juize.FM;CANALDIGITAAL:12574:H:S19.2E:22000:0:229=dut:0:0:5071:53:1109:0
+250-1045 Radio538;CANALDIGITAAL:12574:H:S19.2E:22000:0:230=dut:0:0:5072:53:1109:0
+250-1046 NL-Radio 6;CANALDIGITAAL:12574:H:S19.2E:22000:0:228=dut:0:0:5080:53:1109:0
+250-1047 NL-Radio 1;CANALDIGITAAL:12574:H:S19.2E:22000:0:231=dut:0:0:5031:53:1109:0
+250-1048 NL-Radio 2;CANALDIGITAAL:12574:H:S19.2E:22000:0:232=dut:0:622,100:5032:53:1109:0
+250-1049 NL-3FM;CANALDIGITAAL:12574:H:S19.2E:22000:0:233=dut:0:622,100:5033:53:1109:0
+250-1050 NL-Radio 4;CANALDIGITAAL:12574:H:S19.2E:22000:0:234=dut:0:622,100:5034:53:1109:0
+250-1051 NL-Radio 5;CANALDIGITAAL:12574:H:S19.2E:22000:0:235=dut:0:0:5035:53:1109:0
+250-1052 Radio10Gold;CANALDIGITAAL:12574:H:S19.2E:22000:0:236=dut:0:0:5085:53:1109:0
+250-1053 RNW3;CANALDIGITAAL:12574:H:S19.2E:22000:0:240=dut:0:0:5062:53:1109:0
+250-1054 Radio Veronica;CANALDIGITAAL:12574:H:S19.2E:22000:0:239=dut:0:0:5095:53:1109:0
+250-1055 Radio Swiss Jazz;TechniSat:12604:hC56:S19.2E:22000:0:5001:0:B00:6001:1:1111:0
+250-1056 RADIOROPA-H&#246;rbuch 2;TechniSat:12604:hC56:S19.2E:22000:0:0:0:0:6002:1:1111:0
+250-1057 Radio Swiss Pop;TechniSat:12604:hC56:S19.2E:22000:0:5003:0:B00:6003:1:1111:0
+250-1058 Euroklassik 1;TechniSat:12604:hC56:S19.2E:22000:0:5004:0:B00:6004:1:1111:0
+250-1059 Radio Viola;TechniSat:12604:hC56:S19.2E:22000:0:5005:0:B00:6005:1:1111:0
+250-1060 Star*Sat Gold;TechniSat:12604:hC56:S19.2E:22000:0:5006:0:B00:6006:1:1111:0
+250-1061 Star*Sat Country;TechniSat:12604:hC56:S19.2E:22000:0:5007:0:B00:6007:1:1111:0
+250-1062 Star*Sat Hit-Express;TechniSat:12604:hC56:S19.2E:22000:0:5008:0:B00:6008:1:1111:0
+250-1063 Radio Swiss Classic;TechniSat:12604:hC56:S19.2E:22000:0:5009:0:B00:6009:1:1111:0
+250-1064 Star*Sat EASYTI;TechniSat:12604:hC56:S19.2E:22000:0:5010:0:B00:6010:1:1111:0
+250-1065 Kinderradio 1/ Konzertsaal 1;TechniSat:12604:hC56:S19.2E:22000:0:5011:0:B00:6011:1:1111:0
+250-1066 RADIOROPA-H&#246;rbuch 1;TechniSat:12604:hC56:S19.2E:22000:0:0:0:0:6012:1:1111:0
+250-1067 RADIOROPA-H&#246;rbuch 3;TechniSat:12604:hC56:S19.2E:22000:0:0:0:0:6013:1:1111:0
+250-1068 Star*Sat Melodie;TechniSat:12604:hC56:S19.2E:22000:0:5014:0:B00:6014:1:1111:0
+250-1069 RADIOROPA-BERLIN;TechniSat:12604:hC56:S19.2E:22000:0:5015:0:0:6015:1:1111:0
+250-1070 Jazz Time;TechniSat:12604:hC56:S19.2E:22000:0:5016:0:B00:6016:1:1111:0
+250-1071 Star*Sat Klassik;TechniSat:12604:hC56:S19.2E:22000:0:5017:0:B00:6017:1:1111:0
+250-1072 TechniTipp-TV;TechniSat:12604:hC56:S19.2E:22000:5018:6118=deu:0:0:6018:1:1111:0
+250-1073 RADIOROPA-H&#246;rbuch 4;TechniSat:12604:hC56:S19.2E:22000:0:0:0:0:6019:1:1111:0
+250-1074 WDR Aachen;ARD:12604:hC56:S19.2E:22000:3301:3302=deu:3304:0:28534:1:1111:0
+250-1075 WDR Wuppertal;ARD:12604:hC56:S19.2E:22000:3301:3302=deu:3304:0:28535:1:1111:0
+250-1076 WDR Bonn;ARD:12604:hC56:S19.2E:22000:3301:3302=deu:3304:0:28536:1:1111:0
+250-1077 WDR Duisburg;ARD:12604:hC56:S19.2E:22000:3301:3302=deu:3304:0:28537:1:1111:0
+250-1078 IP4_slides;SES ASTRA:12604:hC56:S19.2E:22000:0:0:0:0:7245:1:1111:0
+250-1079 STB Comag;SES ASTRA:12604:hC56:S19.2E:22000:0:0:0:0:7266:1:1111:0
+250-1080 123Damenwahl;MEDIA BROADCAST:12633:hC56:S19.2E:22000:220:320:0:0:12620:1:1113:0
+250-1081 SexySat;MEDIA BROADCAST:12633:hC56:S19.2E:22000:221:321=eng:0:0:12621:1:1113:0
+250-1082 Inselradio;MEDIA BROADCAST:12633:hC56:S19.2E:22000:0:702:0:0:12651:1:1113:0
+250-1083 radio top40;MEDIA BROADCAST:12633:hC56:S19.2E:22000:0:353=deu:0:0:12653:1:1113:0
+250-1084 HIT RADIO FFH;MEDIA BROADCAST:12633:hC56:S19.2E:22000:0:1024=deu:0:0:12660:1:1113:0
+250-1085 planet radio;MEDIA BROADCAST:12633:hC56:S19.2E:22000:0:1030=deu:0:0:12661:1:1113:0
+250-1086 harmony.fm;MEDIA BROADCAST:12633:hC56:S19.2E:22000:0:1036=deu:0:0:12662:1:1113:0
+250-1087 ffn digital;MEDIA BROADCAST:12633:hC56:S19.2E:22000:0:354=deu:0:0:12654:1:1113:0
+250-1088 DefJay 100% R&B;MEDIA BROADCAST:12633:hC56:S19.2E:22000:0:355=und:0:0:12655:1:1113:0
+250-1089 paradise;MEDIA BROADCAST:12633:hC56:S19.2E:22000:222:322=deu:522:0:12622:1:1113:0
+250-1090 Date Line;MEDIA BROADCAST:12633:hC56:S19.2E:22000:223:323=deu:0:0:12623:1:1113:0
+250-1091 Fotohandy;MEDIA BROADCAST:12633:hC56:S19.2E:22000:224:324=deu:0:0:12624:1:1113:0
+250-1092 Lustkanal.TV;Media Broadcast:12633:hC56:S19.2E:22000:206:306:0:0:12606:1:1113:0
+250-1093 Erotik 24;MEDIA BROADCAST:12633:hC56:S19.2E:22000:212:312:0:0:12612:1:1113:0
+250-1094 Deutsche Girls 2;MEDIA BROADCAST:12633:hC56:S19.2E:22000:215:315:0:0:12615:1:1113:0
+250-1095 Dreamgirls.TV;MEDIA BROADCAST:12633:hC56:S19.2E:22000:218:318:0:0:12618:1:1113:0
+250-1096 Erotik Sat;MEDIA BROADCAST:12633:hC56:S19.2E:22000:219:319:0:0:12619:1:1113:0
+250-1097 WRN Deutsch;MEDIA BROADCAST:12633:hC56:S19.2E:22000:0:356=deu:0:0:12656:1:1113:0
+250-1098 Manneskraft TV NEU;Media Broadcast:12633:hC56:S19.2E:22000:233:333=deu:0:0:12633:1:1113:0
+250-1099 Mobile Sex;MEDIA BROADCAST:12633:hC56:S19.2E:22000:225:325=deu:0:0:12625:1:1113:0
+250-1100 jeden Tag x;MEDIA BROADCAST:12633:hC56:S19.2E:22000:226:326=deu:0:0:12626:1:1113:0
+250-1101 Kamasutra TV;MEDIA BROADCAST:12633:hC56:S19.2E:22000:227:327:0:0:12627:1:1113:0
+250-1102 Rundum Sex TV;MEDIA BROADCAST:12633:hC56:S19.2E:22000:228:328:0:0:12628:1:1113:0
+250-1103 Traumgirls.TV;MEDIA BROADCAST:12633:hC56:S19.2E:22000:229:329:0:0:12629:1:1113:0
+250-1104 Das Erotische TV;MEDIA BROADCAST:12633:hC56:S19.2E:22000:230:330:0:0:12630:1:1113:0
+250-1105 Supreme Master TV;MEDIA BROADCAST:12633:hC56:S19.2E:22000:234:334=eng:0:0:12634:1:1113:0
+250-1106 PEPPERMINT fm;MEDIA BROADCAST:12633:hC56:S19.2E:22000:0:357=deu:0:0:12657:1:1113:0
+250-1107 Camshots TV;MEDIA BROADCAST:12633:hC56:S19.2E:22000:235:335=deu:0:0:12635:1:1113:0
+250-1108 Peep TV;MEDIA BROADCAST:12633:hC56:S19.2E:22000:232:332=deu:0:0:12632:1:1113:0
+250-1109 ffn Comedy;MEDIA BROADCAST:12633:hC56:S19.2E:22000:0:358=deu:0:0:12658:1:1113:0
+250-1110 dhd24 plus;Media Broadcast:12633:hC56:S19.2E:22000:0:0:0:0:12636:1:1113:0
+250-1111 Gratis Hot TV NEU;Media Broadcast:12633:hC56:S19.2E:22000:238:338=deu:0:0:12638:1:1113:0
+250-1112 Top Girl Sex TV NEU;Media Broadcast:12633:hC56:S19.2E:22000:238:338=deu:0:0:12637:1:1113:0
+250-1113 Radio Gloria;Media Broadcast:12633:hC56:S19.2E:22000:0:359:0:0:12659:1:1113:0
+250-1114 CINE POLAR;CSAT:12640:V:S19.2E:22000:0:0:0:0:8902:1:1114:0
+250-1115 GULLI;CSAT:12640:V:S19.2E:22000:0:0:0:0:8903:1:1114:0
+250-1116 BLOOMBERG TV;CSAT:12640:V:S19.2E:22000:0:0:0:0:8904:1:1114:0
+250-1117 TEVA;CSAT:12640:V:S19.2E:22000:0:0:0:0:8905:1:1114:0
+250-1118 DISNEY CHANNEL+1;CSAT:12640:V:S19.2E:22000:0:0:0:0:8906:1:1114:0
+250-1119 PLAYHOUSE DISNEY;CSAT:12640:V:S19.2E:22000:0:0:0:0:8907:1:1114:0
+250-1120 DISNEY CINEMAGIC;CSAT:12640:V:S19.2E:22000:0:0:0:0:8908:1:1114:0
+250-1121 DISNEY MAGIC+1;CSAT:12640:V:S19.2E:22000:0:0:0:0:8909:1:1114:0
+250-1122 E! ENTERTAINMENT;CSAT:12640:V:S19.2E:22000:0:0:0:0:8911:1:1114:0
+250-1123 GULLI;CSAT:12640:V:S19.2E:22000:0:0:0:0:8921:1:1114:0
+250-1124 ALL FUN TV;-:12663:hC56:S19.2E:22000:1030:1031=deu:0:0:13103:1:1115:0
+250-1125 INNSAT.TV;-:12663:hC56:S19.2E:22000:1040:1041=deu:0:0:13104:1:1115:0
+250-1126 NASN (P);PREMIERE:12663:hC56:S19.2E:22000:1090:1091:0:1702,1801,1830,D22:13105:1:1115:0
+250-1127 AUSTRIA 9 TV;AUSTRIA 9 TV:12663:hC56:S19.2E:22000:1060:1061=deu:1063:D05,648,D95:13106:1:1115:0
+250-1128 Visit-X.TV;-:12663:hC56:S19.2E:22000:1070:1071=deu:0:0:13107:1:1115:0
+250-1129 Spass im TV;-:12663:hC56:S19.2E:22000:1080:1081=deu:0:0:13108:1:1115:0
+250-1130 NASN;arena:12663:hC56:S19.2E:22000:1090:1091:0:100,D22,1702,1801,1830,D02,1815,500:13109:1:1115:0
+250-1131 Bundesliga 9;arena:12663:hC56:S19.2E:22000:0:0:0:0:13110:1:1115:0
+250-1132 AKTIV DIREKT TV;-:12663:hC56:S19.2E:22000:1050:1051=deu:0:0:13112:1:1115:0
+250-1133 Kuren und Wellness;StarSat:12663:hC56:S19.2E:22000:2130:2131=deu:0:0:13113:1:1115:0
+250-1134 Uschi TV;StarSat:12663:hC56:S19.2E:22000:2140:2141=deu:0:0:13114:1:1115:0
+250-1135 Uschi&#180;s Schwestern;StarSat:12663:hC56:S19.2E:22000:2150:2151=deu:0:0:13115:1:1115:0
+250-1136 Liebeskanal;StarSat:12663:hC56:S19.2E:22000:2160:2161=deu:0:0:13116:1:1115:0
+250-1137 Weiber TV;StarSat:12663:hC56:S19.2E:22000:2170:2171=deu:0:0:13117:1:1115:0
+250-1138 Intim TV;StarSat:12663:hC56:S19.2E:22000:2180:2181=deu:0:0:13118:1:1115:0
+250-1139 Kurven-Reich;StarSat:12663:hC56:S19.2E:22000:2190:2191=deu:0:0:13119:1:1115:0
+250-1140 Hei&#223;e Nummer;StarSat:12663:hC56:S19.2E:22000:34:2200=deu:0:0:13120:1:1115:0
+250-1141 Teles&#252;nde;StarSat:12663:hC56:S19.2E:22000:2500:2501=deu:0:0:13150:1:1115:0
+250-1142 Piep Show;StarSat:12663:hC56:S19.2E:22000:2510:2511=deu:0:0:13151:1:1115:0
+250-1143 .Ab18;StarSat:12663:hC56:S19.2E:22000:2520:2521=deu:0:0:13152:1:1115:0
+250-1144 Bundesliga 5;arena:12692:H:S19.2E:22000:0:0:0:0:13017:1:1117:0
+250-1145 Bundesliga 6;arena:12692:H:S19.2E:22000:0:0:0:0:13018:1:1117:0
+250-1146 FR3 AMIENS;CSAT:12699:V:S19.2E:22000:0:0:0:0:9701:1:1118:0
+250-1147 FR3 BESANCON;CSAT:12699:V:S19.2E:22000:0:0:0:0:9702:1:1118:0
+250-1148 FR3 BORDEAUX;CSAT:12699:V:S19.2E:22000:0:0:0:0:9703:1:1118:0
+250-1149 FR3 NANCY;CSAT:12699:V:S19.2E:22000:0:0:0:0:9704:1:1118:0
+250-1150 FR3 CLERMONT FD;CSAT:12699:V:S19.2E:22000:0:0:0:0:9705:1:1118:0
+250-1151 FR3 PARIS;CSAT:12699:V:S19.2E:22000:0:0:0:0:9706:1:1118:0
+250-1152 FR3 RENNES;CSAT:12699:V:S19.2E:22000:0:0:0:0:9707:1:1118:0
+250-1153 FR3 ROUEN;CSAT:12699:V:S19.2E:22000:0:0:0:0:9708:1:1118:0
+250-1154 FR3 LIMOGES;CSAT:12699:V:S19.2E:22000:0:0:0:0:9709:1:1118:0
+250-1155 FR3 LYON;CSAT:12699:V:S19.2E:22000:0:0:0:0:9710:1:1118:0
+250-1156 FR3 MARSEILLE;CSAT:12699:V:S19.2E:22000:0:0:0:0:9711:1:1118:0
+250-1157 FR3 TOULOUSE;CSAT:12699:V:S19.2E:22000:0:0:0:0:9712:1:1118:0
+250-1158 &#233;&#233;n;TV Vlaanderen:12722:H:S19.2E:22000:945+8190:925=dut:905:622,100:12775:53:1119:0
+250-1159 Ketnet/Canvas;TV Vlaanderen:12722:H:S19.2E:22000:946+8190:926=dut:906:622,100:12776:53:1119:0
+250-1160 Radio 1;TV Vlaanderen:12722:H:S19.2E:22000:0:0:0:0:12778:53:1119:0
+250-1161 Radio 2;TV Vlaanderen:12722:H:S19.2E:22000:0:0:0:0:12779:53:1119:0
+250-1162 Donna;TV Vlaanderen:12722:H:S19.2E:22000:0:0:0:0:12780:53:1119:0
+250-1163 Studio Brussel;TV Vlaanderen:12722:H:S19.2E:22000:0:0:0:0:12781:53:1119:0
+250-1164 Klara;TV Vlaanderen:12722:H:S19.2E:22000:0:0:0:0:12782:53:1119:0
+250-1165 ActionNow;TV Vlaanderen:12722:H:S19.2E:22000:0:0:0:0:12774:53:1119:0
+250-1166 VTM;TV Vlaanderen:12722:H:S19.2E:22000:0:0:0:0:12771:53:1119:0
+250-1167 2BE;TV Vlaanderen:12722:H:S19.2E:22000:942+8190:922=dut:902:100:12772:53:1119:0
+250-1168 VT4;TV Vlaanderen:12722:H:S19.2E:22000:0:0:0:0:12773:53:1119:0
+250-1169 Vitaya;TV Vlaanderen:12722:H:S19.2E:22000:0:0:0:0:12777:53:1119:0
+250-1170 JIM;TV Vlaanderen:12722:H:S19.2E:22000:0:0:0:0:12783:53:1119:0
+250-1171 KANAAL Z;TV Vlaanderen:12722:H:S19.2E:22000:0:0:0:0:12785:53:1119:0
+250-1172 Q-music;TV Vlaanderen:12722:H:S19.2E:22000:0:0:0:0:12786:53:1119:0
+250-1173 VIJFtv;TV Vlaanderen:12722:H:S19.2E:22000:0:0:0:0:12784:53:1119:0
+250-1174 4FM;TV Vlaanderen:12722:H:S19.2E:22000:0:0:0:0:12787:53:1119:0
+250-1175 FR3 CAEN;CSAT:12728:V:S19.2E:22000:0:0:0:0:9801:1:1120:0
+250-1176 FR3 NANTES;CSAT:12728:V:S19.2E:22000:0:0:0:0:9802:1:1120:0
+250-1177 FR3 NICE;CSAT:12728:V:S19.2E:22000:0:0:0:0:9803:1:1120:0
+250-1178 FR3 ORLEANS;CSAT:12728:V:S19.2E:22000:0:0:0:0:9804:1:1120:0
+250-1179 FR3 DIJON;CSAT:12728:V:S19.2E:22000:0:0:0:0:9805:1:1120:0
+250-1180 FR3 POITIERS;CSAT:12728:V:S19.2E:22000:0:0:0:0:9806:1:1120:0
+250-1181 FR3 REIMS;CSAT:12728:V:S19.2E:22000:0:0:0:0:9807:1:1120:0
+250-1182 FR3 GRENOBLE;CSAT:12728:V:S19.2E:22000:0:0:0:0:9808:1:1120:0
+250-1183 FR3 LILLE;CSAT:12728:V:S19.2E:22000:0:0:0:0:9809:1:1120:0
+250-1184 FR3 STRASBOURG;CSAT:12728:V:S19.2E:22000:0:0:0:0:9810:1:1120:0
+250-1185 FR3 MONTPELLIER;CSAT:12728:V:S19.2E:22000:0:0:0:0:9811:1:1120:0
+250-1186 FR3 VIA STELLA;CSAT:12728:V:S19.2E:22000:0:0:0:0:9812:1:1120:0
+250-1187 CINE PREMIER HD;CSAT:12581:VC23E35M8:S19.2E:22000:0:0:0:0:9301:1:1110:0
+250-1188 13EME RUE HD;CSAT:12581:VC23E35M8:S19.2E:22000:0:0:0:0:9302:1:1110:0
+250-1189 DISNEY MAGIC HD;CSAT:12581:VC23E35M8:S19.2E:22000:0:0:0:0:9303:1:1110:0
+250-1190 M6 HD;CSAT:12581:VC23E35M8:S19.2E:22000:0:0:0:0:9310:1:1110:0
+250-1191 D 1 - 18|15:12032:HC23E35M8:S19.2E:27500:0:0:0:0:228:133:4:0
+250-1192 D 1 - 18|45:11720:hC34:S19.2E:27500:767:768=deu,769=deu;771=deu:0:1702,1722,1830,1833,9C4,1801:220:133:3:0
+250-1193 D 2 - 18|15:11758:H:S19.2E:27500:0:0:0:0:227:133:17:0
+250-1194 D 2 - 18|45:11720:hC34:S19.2E:27500:3071:3072=deu,3073=deu;3075=deu:0:1702,1722,1830,1833,9C4,1801:244:133:3:0
+250-1195 D 8 - 17|00:12032:HC23E35M8:S19.2E:27500:0:0:0:0:209:133:4:0
+250-1196 D 3 - 18|30:11798:hC34:S19.2E:27500:3071:3072=deu,3073=deu;3075=deu:0:1702,1722,1830,1833,9C4,1801:224:133:2:0
+250-1197 D 5 - 19|00:11798:hC34:S19.2E:27500:3327:3328=deu,3329=deu;3331=deu:0:1702,1722,1830,1833,9C4,1801:225:133:2:0
+250-1198 D 4 - 18|15:12032:HC23E35M8:S19.2E:27500:0:0:0:0:208:133:4:0
+250-1199 D 4 - 18|45:11720:hC34:S19.2E:27500:2559:2560=deu,2561=deu;2563=deu:0:1702,1722,1830,1833,9C4,1801:242:133:3:0
+250-1200 D 9 - 19|00:11758:H:S19.2E:27500:0:0:0:0:226:133:17:0
+250-1201 Golf:11720:hC34:S19.2E:27500:511:512=deu,513=deu;515=deu:32:1702,1722,1830,1833,9C4,1801:222:133:3:0
+250-1202 Fu&#223;ball AUT:11758:H:S19.2E:27500:0:0:0:0:221:133:17:0
+250-1203 Bundesliga:12032:HC23E35M8:S19.2E:27500:0:0:0:0:223:133:4:0
+250-1204 Erotik 1:12070:H:S19.2E:27500:0:0:0:0:778:133:1:0
+250-1205 Erotik 2:12070:H:S19.2E:27500:0:0:0:0:780:133:1:0
+250-1206 BLUE MOVIE:12070:H:S19.2E:27500:0:0:0:0:665:133:1:0
+250-1207 BLUE MOVIE Extra:12070:H:S19.2E:27500:0:0:0:0:666:133:1:0
+250-1208 BLUE MOVIE Gay:12070:H:S19.2E:27500:0:0:0:0:671:133:1:0
+250-1209 D 3 - 19|00:11720:hC34:S19.2E:27500:2815:2816=deu,2817=deu;2819=deu:0:1702,1722,1830,1833,9C4,1801:243:133:3:0
+250-1210 MDR1 S-ANHALT;ARD:346000:C0M256:C:6900:0:3829:0:0:28429:61441:10007:0
+250-1211 MDR1 TH&#220;RINGEN;ARD:346000:C0M256:C:6900:0:3830:0:0:28430:61441:10007:0
+250-1212 NDR 1 Radio MV;ARD:346000:C0M256:C:6900:0:3843:0:0:28443:61441:10007:0
+250-1213 NDR 2;ARD:346000:C0M256:C:6900:0:3837:0:0:28437:61441:10007:0
+250-1214 radioBERLIN 88,8;ARD:346000:C0M256:C:6900:0:3855:0:0:28455:61441:10007:0
+250-1215 SR1;ARD:346000:C0M256:C:6900:0:3861:0:0:28461:61441:10007:0
+250-1216 SR3;ARD:346000:C0M256:C:6900:0:0:0:0:28463:61441:10007:0
+250-1217 SWR1 RP;ARD:346000:C0M256:C:6900:0:0:0:0:28466:61441:10007:0
+250-1218 SWR3;ARD:346000:C0M256:C:6900:0:0:0:0:28468:61441:10007:0
+250-1219 SWR2;ARD:346000:C0M256:C:6900:0:0:0:0:28467:61441:10007:0
+250-1220 WDR 5;ARD:346000:C0M256:C:6900:0:0:0:0:28479:61441:10007:0
+250-1221 1LIVE diggi;ARD:346000:C0M256:C:6900:0:0:0:0:28481:61441:10007:0
+250 1222 VivaGina;StarSat:12662:hC56:S19.2E:22000:2530:2531=deu:0:0:13153:1:1115:0
+lstt
+250-1 1:29:2008-07-13:2010:2205:99:99:Born to be Wild - Saum&#228;&#223;ig unterwegs:&lt;epgsearch&gt;&lt;eventid&gt;13695&lt;/eventid&gt;&lt;update&gt;0&lt;/update&gt;&lt;bstart&gt;5&lt;/bstart&gt;&lt;bstop&gt;10&lt;/bstop&gt;&lt;/epgsearch&gt;
+250-2 1:7:2008-07-14:2009:2123:50:50:Moonlight:Mick und Beth erlebten einen gemeinsamen, intimen Moment in der W&#252;ste - jetzt versuchen sie alles, um sich aus dem Weg zu gehen, nicht zuletzt deswegen, weil die Reporterin liiert ist. Mick ist derweil mit einem neuen Fall besch&#228;ftigt und hat alle H&#228;nde voll zu tun. Der Detektiv ist auf der Suche nach einem Vampirteenager, dessen Beute meist junge Frauen eines Escort-Services sind, die er zuvor im Internet ausfindig macht.
+250 3 1:7:2008-07-15:0750:0833:50:50:Two and a Half Men:Alan leidet unter Schlafst&#246;rungen. Als er versucht, durch Joggen m&#252;de zu werden, wird er auch noch f&#228;lschlicherweise f&#252;r einen Bankr&#228;uber gehalten und verhaftet. Bei einer Therapeutin findet er schlie&#223;lich heraus, dass Charlie der Ausl&#246;ser seiner Probleme ist. Der gr&#228;bt indes die Mutter von Jakes Freundin an, was dem gar nicht passt. Jake glaubt n&#228;mlich, dass die Sache kein gutes Ende f&#252;r ihn nehmen wird. Charlie trifft sich heimlich mit der attraktiven Mutter.
+
+-------------------------------------------------------
+
+Date: 2008-Jul-13 18:27
+By: hampelratte
+
+Comment:
+Das ist ein merkw&#252;rdiger Fehler. Er tritt auf, weil zu dem Timer kein passender VDR-Sender gefunden wurde. Hat sich in den letzten Tagen etwas an Deiner channels.conf ge&#228;ndert?
+
+Zum Nachvollziehen k&#246;nntest Du mal per Telnet auf den VDR gehen und mir die Ausgaben schicken / hier posten:
+
+telnet &lt;vdr-ip&gt; 2001
+lstc
+lstt
+quit
+
+Oder, falls Du schon die Version mit dem neuen Logging benutzt, kannst Du mir auch die Datei lazybones.log aus dem Konfigurationsverzeichnis vom TV-Browser, das sich in Deinem home-Verzeichnis befindet, schicken.
+-------------------------------------------------------
+
+For detailed info, follow this link:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=14192&amp;group_id=4483">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=14192&amp;group_id=4483</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000031.html">[Lazybones-devel] [Bug #14192] Fehler beim Laden des Plugins
+</A></li>
+	<LI>Next message: <A HREF="000033.html">[Lazybones-devel] [Bug #14192] Fehler beim Laden des Plugins
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#32">[ date ]</a>
+              <a href="thread.html#32">[ thread ]</a>
+              <a href="subject.html#32">[ subject ]</a>
+              <a href="author.html#32">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/lazybones-devel">More information about the Lazybones-devel
+mailing list</a><br>
+</body></html>

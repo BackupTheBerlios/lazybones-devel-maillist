@@ -1,0 +1,439 @@
+From admin at berlios.de  Sun Aug  9 20:03:56 2009
+From: admin at berlios.de (admin at berlios.de)
+Date: Sun, 9 Aug 2009 10:03:56 -0800 (AKDT)
+Subject: [Lazybones-devel] [Feature #4718] Stummschaltetaste
+Message-ID: <200908091803.n79I3uPK019063@unicorn.berlios.de>
+
+Feature Request #4718, was updated on 2009-Aug-09 10:03
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4718&group_id=4483
+
+Category: LazyBones
+Status: Open
+Priority: 5
+Summary: Stummschaltetaste
+
+By: murzl
+Date: 2009-Aug-09 10:03
+
+Message:
+Logged In: YES 
+user_id=47874
+Browser: Opera/9.64 (X11; FreeBSD 7.2-STABLE i386; U; en) Presto/2.1.1
+
+Das wichtigste einer Fernseher-Fernbedienung ist doch die Stummtaste.
+W?re es ein sehr gro?er Aufwand, eine solche hinzuzuf?gen?
+
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4718&group_id=4483
+
+
+From admin at berlios.de  Sun Aug  9 20:05:41 2009
+From: admin at berlios.de (admin at berlios.de)
+Date: Sun, 9 Aug 2009 10:05:41 -0800 (AKDT)
+Subject: [Lazybones-devel] [Feature #4719] Synchronisiertaste im "Timer"-Tab
+Message-ID: <200908091805.n79I5fQR023029@unicorn.berlios.de>
+
+Feature Request #4719, was updated on 2009-Aug-09 10:05
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4719&group_id=4483
+
+Category: LazyBones
+Status: Open
+Priority: 5
+Summary: Synchronisiertaste im "Timer"-Tab
+
+By: murzl
+Date: 2009-Aug-09 10:05
+
+Message:
+Logged In: YES 
+user_id=47874
+Browser: Opera/9.64 (X11; FreeBSD 7.2-STABLE i386; U; en) Presto/2.1.1
+
+Eine Taste "Mit VDR synchronisieren" neben den drei Tasten unten im 
+Timer-Tab w?re sehr nett.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4719&group_id=4483
+
+
+From admin at berlios.de  Sun Aug  9 20:08:11 2009
+From: admin at berlios.de (admin at berlios.de)
+Date: Sun, 9 Aug 2009 10:08:11 -0800 (AKDT)
+Subject: [Lazybones-devel] [Feature #4718] Stummschaltetaste
+Message-ID: <200908091808.n79I8Bnv028466@unicorn.berlios.de>
+
+Feature Request #4718, was updated on 2009-Aug-09 10:03
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4718&group_id=4483
+
+Category: LazyBones
+Status: Open
+Priority: 5
+Summary: Stummschaltetaste
+
+By: murzl
+Date: 2009-Aug-09 10:08
+
+Message:
+Logged In: YES 
+user_id=47874
+Browser: Opera/9.64 (X11; FreeBSD 7.2-STABLE i386; U; en) Presto/2.1.1
+
+Das allercoolste w?re nat?rlich ein Regler f?r die Lautst?rke, aber ich wei? 
+nicht, ob man auf dem VDR direkt Lautst?rkewerte setzen kann?
+
+----------------------------------------------------------------------
+
+By: murzl
+Date: 2009-Aug-09 10:03
+
+Message:
+Logged In: YES 
+user_id=47874
+Browser: Opera/9.64 (X11; FreeBSD 7.2-STABLE i386; U; en) Presto/2.1.1
+
+Das wichtigste einer Fernseher-Fernbedienung ist doch die Stummtaste.
+W?re es ein sehr gro?er Aufwand, eine solche hinzuzuf?gen?
+
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4718&group_id=4483
+
+
+From admin at berlios.de  Sun Aug  9 20:08:16 2009
+From: admin at berlios.de (admin at berlios.de)
+Date: Sun, 9 Aug 2009 10:08:16 -0800 (AKDT)
+Subject: [Lazybones-devel] [Feature #4718] Stummschaltetaste
+Message-ID: <200908091808.n79I8GVX028608@unicorn.berlios.de>
+
+Feature Request #4718, was updated on 2009-Aug-09 10:03
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4718&group_id=4483
+
+Category: LazyBones
+Status: Open
+Priority: 5
+Summary: Stummschaltetaste
+
+By: murzl
+Date: 2009-Aug-09 10:08
+
+Message:
+Logged In: YES 
+user_id=47874
+Browser: Opera/9.64 (X11; FreeBSD 7.2-STABLE i386; U; en) Presto/2.1.1
+
+Das allercoolste w?re nat?rlich ein Regler f?r die Lautst?rke, aber ich wei? 
+nicht, ob man auf dem VDR direkt Lautst?rkewerte setzen kann?
+
+----------------------------------------------------------------------
+
+By: murzl
+Date: 2009-Aug-09 10:08
+
+Message:
+Logged In: YES 
+user_id=47874
+Browser: Opera/9.64 (X11; FreeBSD 7.2-STABLE i386; U; en) Presto/2.1.1
+
+Das allercoolste w?re nat?rlich ein Regler f?r die Lautst?rke, aber ich wei? 
+nicht, ob man auf dem VDR direkt Lautst?rkewerte setzen kann?
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4718&group_id=4483
+
+
+From admin at berlios.de  Mon Aug 10 13:48:06 2009
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 10 Aug 2009 13:48:06 +0200 (CEST)
+Subject: [Lazybones-devel] [Feature #4718] Stummschaltetaste
+Message-ID: <200908101148.n7ABm6Rr017280@unicorn.berlios.de>
+
+Feature Request #4718, was updated on 2009-Aug-09 20:03
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4718&group_id=4483
+
+Category: LazyBones
+Status: Closed
+Priority: 3
+Summary: Stummschaltetaste
+
+By: hampelratte
+Date: 2009-Aug-10 13:48
+
+Message:
+Logged In: YES 
+user_id=18663
+Browser: Mozilla/5.0 (X11; U; Linux i686; de; rv:1.9.0.11) Gecko/2009072519 Gentoo Firefox/3.0.11
+
+Ich habe einen Slider eingebaut, mit dem man die Lautst?rke
+einstellen kann. Ist bereits im CVS und dann in der n?chsten
+Version enthalten.
+
+----------------------------------------------------------------------
+
+By: murzl
+Date: 2009-Aug-09 20:08
+
+Message:
+Logged In: YES 
+user_id=47874
+Browser: Opera/9.64 (X11; FreeBSD 7.2-STABLE i386; U; en) Presto/2.1.1
+
+Das allercoolste w?re nat?rlich ein Regler f?r die Lautst?rke, aber ich wei? 
+nicht, ob man auf dem VDR direkt Lautst?rkewerte setzen kann?
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4718&group_id=4483
+
+
+From admin at berlios.de  Mon Aug 10 14:08:06 2009
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 10 Aug 2009 14:08:06 +0200 (CEST)
+Subject: [Lazybones-devel] [Task #4540] Add buttons to the recordings panel
+Message-ID: <200908101208.n7AC864I005147@unicorn.berlios.de>
+
+Task #4540 has been updated. 
+
+Project: Lazy Bones
+Subproject: Lazy Bones
+Summary: Add buttons to the recordings panel
+Priority: 3
+Percent Complete: 0%
+Status: Open
+Authority  : hampelratte
+Assigned to: hampelratte
+
+Description: Add remove and synchronize buttons to the recordings panel similar to the timer panel
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/pm/task.php?func=detailtask&project_task_id=4540&group_id=4483&group_project_id=1814
+
+
+From admin at berlios.de  Mon Aug 10 14:15:58 2009
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 10 Aug 2009 14:15:58 +0200 (CEST)
+Subject: [Lazybones-devel] [Feature #4719] Synchronisiertaste im "Timer"-Tab
+Message-ID: <200908101215.n7ACFw1n022915@unicorn.berlios.de>
+
+Feature Request #4719, was updated on 2009-Aug-09 20:05
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4719&group_id=4483
+
+Category: LazyBones
+Status: Closed
+Priority: 3
+Summary: Synchronisiertaste im "Timer"-Tab
+
+By: hampelratte
+Date: 2009-Aug-10 14:15
+
+Message:
+Logged In: YES 
+user_id=18663
+Browser: Mozilla/5.0 (X11; U; Linux i686; de; rv:1.9.0.11) Gecko/2009072519 Gentoo Firefox/3.0.11
+
+Hab ich eingebaut und ist dann in der n?chsten Version
+enthalten. Ich werde dann aber auch noch Buttons in das
+Aufnahme-Tab einbauen...
+
+----------------------------------------------------------------------
+
+By: murzl
+Date: 2009-Aug-09 20:05
+
+Message:
+Logged In: YES 
+user_id=47874
+Browser: Opera/9.64 (X11; FreeBSD 7.2-STABLE i386; U; en) Presto/2.1.1
+
+Eine Taste "Mit VDR synchronisieren" neben den drei Tasten unten im 
+Timer-Tab w?re sehr nett.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4719&group_id=4483
+
+
+From admin at berlios.de  Mon Aug 10 14:24:42 2009
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 10 Aug 2009 04:24:42 -0800 (AKDT)
+Subject: [Lazybones-devel] [Feature #4719] Synchronisiertaste im "Timer"-Tab
+Message-ID: <200908101224.n7ACOgSJ012037@unicorn.berlios.de>
+
+Feature Request #4719, was updated on 2009-Aug-09 10:05
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4719&group_id=4483
+
+Category: LazyBones
+Status: Closed
+Priority: 3
+Summary: Synchronisiertaste im "Timer"-Tab
+
+By: murzl
+Date: 2009-Aug-10 04:24
+
+Message:
+Logged In: YES 
+user_id=47874
+Browser: Opera/9.64 (X11; FreeBSD 7.2-STABLE i386; U; en) Presto/2.1.1
+
+Mann, ist das ein Service hier, unglaublich ...
+
+----------------------------------------------------------------------
+
+By: hampelratte
+Date: 2009-Aug-10 04:15
+
+Message:
+Logged In: YES 
+user_id=18663
+Browser: Mozilla/5.0 (X11; U; Linux i686; de; rv:1.9.0.11) Gecko/2009072519 Gentoo Firefox/3.0.11
+
+Hab ich eingebaut und ist dann in der n?chsten Version
+enthalten. Ich werde dann aber auch noch Buttons in das
+Aufnahme-Tab einbauen...
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4719&group_id=4483
+
+
+From admin at berlios.de  Mon Aug 10 16:36:53 2009
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 10 Aug 2009 16:36:53 +0200 (CEST)
+Subject: [Lazybones-devel] [Feature #4719] Synchronisiertaste im "Timer"-Tab
+Message-ID: <200908101436.n7AEarTq021091@unicorn.berlios.de>
+
+Feature Request #4719, was updated on 2009-Aug-09 20:05
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4719&group_id=4483
+
+Category: LazyBones
+Status: Closed
+Priority: 3
+Summary: Synchronisiertaste im "Timer"-Tab
+
+By: hampelratte
+Date: 2009-Aug-10 16:36
+
+Message:
+Logged In: YES 
+user_id=18663
+Browser: Mozilla/5.0 (X11; U; Linux i686; de; rv:1.9.0.11) Gecko/2009072519 Gentoo Firefox/3.0.11
+
+So kleine Dinge sind ja schnell gemacht.
+
+----------------------------------------------------------------------
+
+By: murzl
+Date: 2009-Aug-10 14:24
+
+Message:
+Logged In: YES 
+user_id=47874
+Browser: Opera/9.64 (X11; FreeBSD 7.2-STABLE i386; U; en) Presto/2.1.1
+
+Mann, ist das ein Service hier, unglaublich ...
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4719&group_id=4483
+
+
+From admin at berlios.de  Mon Aug 10 18:55:23 2009
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 10 Aug 2009 18:55:23 +0200 (CEST)
+Subject: [Lazybones-devel] [Task #4540] Add buttons to the recordings panel
+Message-ID: <200908101655.n7AGtNN0008371@unicorn.berlios.de>
+
+Task #4540 has been updated. 
+
+Project: Lazy Bones
+Subproject: Lazy Bones
+Summary: Add buttons to the recordings panel
+Priority: 3
+Percent Complete: 100%
+Status: Closed
+Authority  : hampelratte
+Assigned to: hampelratte
+
+Description: Add remove and synchronize buttons to the recordings panel similar to the timer panel
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/pm/task.php?func=detailtask&project_task_id=4540&group_id=4483&group_project_id=1814
+
+
+From admin at berlios.de  Mon Aug 10 19:21:24 2009
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 10 Aug 2009 19:21:24 +0200 (CEST)
+Subject: [Lazybones-devel] [Task #4448] Lazy Bones mit verschiedenen LaFs
+	testen
+Message-ID: <200908101721.n7AHLODN017426@unicorn.berlios.de>
+
+Task #4448 has been updated. 
+
+Project: Lazy Bones
+Subproject: Lazy Bones
+Summary: Lazy Bones mit verschiedenen LaFs testen
+Priority: 5
+Percent Complete: 100%
+Status: Closed
+Authority  : hampelratte
+Assigned to: none
+
+Description: Lazy Bones mit verschiedenen LaFs testen
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/pm/task.php?func=detailtask&project_task_id=4448&group_id=4483&group_project_id=1814
+
+
+From admin at berlios.de  Mon Aug 10 19:28:38 2009
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 10 Aug 2009 19:28:38 +0200 (CEST)
+Subject: [Lazybones-devel] [Bug #13647] Manual creation of timers fail,
+	if no epg is avail. on vdr
+Message-ID: <200908101728.n7AHScxD007481@unicorn.berlios.de>
+
+Bug #13647, was updated on 2008-Apr-20 16:58
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Closed
+Resolution: Works For Me
+Bug Group: None
+Priority: 5
+Submitted by: hampelratte
+Assigned to : hampelratte
+Summary: Manual creation of timers fail, if no epg is avail. on vdr
+
+Details: If no EPG is available on VDR, the manual (enter everything manual) creation of timers fails with the message, that LB can't find the program on vdr
+
+Follow-Ups:
+
+Date: 2009-Aug-10 19:28
+By: hampelratte
+
+Comment:
+This bug doesn't seem to exist anymore...
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=13647&group_id=4483
+
+

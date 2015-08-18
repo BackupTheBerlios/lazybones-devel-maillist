@@ -1,0 +1,249 @@
+From Martin.Skopp at gmx.de  Sat Aug 20 15:26:04 2005
+From: Martin.Skopp at gmx.de (Martin Skopp)
+Date: Sat, 20 Aug 2005 15:26:04 +0200
+Subject: [Lazybones-devel] Connection Timeout
+Message-ID: <43072F6C.3030407@gmx.de>
+
+Moin,
+
+noch ein Feature dass nett w?re (ich w?rds demn?chst irgendwann machen):
+Wenn der VDR down ist, dauert der tvbrowser start recht lange - man 
+k?nnte den connection timeout konfigurierbar machen und/oder k?rzer setzen.
+emsker
+
+
+
+From henrik.niehaus at gmx.de  Sat Aug 20 16:54:12 2005
+From: henrik.niehaus at gmx.de (Henrik Niehaus)
+Date: Sat, 20 Aug 2005 16:54:12 +0200
+Subject: [Lazybones-devel] Connection Timeout
+In-Reply-To: <43072F6C.3030407@gmx.de>
+References: <43072F6C.3030407@gmx.de>
+Message-ID: <43074414.7070202@gmx.de>
+
+ich denke, wir sollten f?r die ein oder andere "experten-funktion"
+sowieso noch ein weiteres tab in den einstellungen hinzuf?gen. da k?nnte
+man das integrieren. genauso wie die prozentzahl f?r die
+levenshtein-distanz und solche dinge.
+
+die funktion selbst sollten wir in de.hampelratte.svdrp.Connection einbauen
+
+Martin Skopp schrieb:
+
+> Moin,
+>
+> noch ein Feature dass nett w?re (ich w?rds demn?chst irgendwann machen):
+> Wenn der VDR down ist, dauert der tvbrowser start recht lange - man
+> k?nnte den connection timeout konfigurierbar machen und/oder k?rzer
+> setzen.
+> emsker
+>
+> _______________________________________________
+> Lazybones-devel mailing list
+> Lazybones-devel at lists.berlios.de
+> http://lists.berlios.de/mailman/listinfo/lazybones-devel
+>
+>
+
+
+
+From yvonnenilgen at web.de  Tue Aug 23 00:08:34 2005
+From: yvonnenilgen at web.de (Yvonne Skopp-Nilgen)
+Date: Tue, 23 Aug 2005 00:08:34 +0200
+Subject: [Lazybones-devel] JGoodies Forms
+Message-ID: <430A4CE2.9020203@web.de>
+
+Moin Herik,
+
+du warst ja fleissig+schnell!
+
+Erst hab ich gedacht, du h?ttest die Einstellungen noch nicht in das 
+Panel programmiert und bin losgesprintet, aber ich hatte vergessen das 
+alte VDRPlugin.jar zu l?schen.
+Da war es schon passiert, und ich hatte das UI umprogrammiert - das 
+GridBagLayout ist doch arg unhandlich.
+
+Naja egal, ich checke es trotzdem mal ein.  TVBrowser bringt 
+praktischerweise die JGoodies Forms schon mit, vielleicht gef?llt Dir ja 
+auch, wie das UI gebaut ist und aussieht.
+
+Doku hier: http://www.jgoodies.com/articles/forms.pdf
+
+P.S.: es ist Absicht, dass bei einer nicht-proportionalen Schrift die 
+cc.xy(.... untereinander stehen, damit man die positionierung sofort erkennt
+Auch wenn unsere Source-Formatierung die Leerzeichen komprimieren will, 
+find' ich diese Ausnahme von der Regel in Ordnung.
+
+
+
+From skopp at riege.com  Tue Aug 23 08:57:37 2005
+From: skopp at riege.com (Martin Skopp)
+Date: Tue, 23 Aug 2005 08:57:37 +0200
+Subject: [Lazybones-devel] JGoodies Forms
+In-Reply-To: <430A4CE2.9020203@web.de>
+References: <430A4CE2.9020203@web.de>
+Message-ID: <430AC8E1.90700@riege.com>
+
+Hi Henrik,
+
+?h nicht wundern - hab den falschen email account benutzt....
+
+Gru?,
+   Martin
+
+Yvonne Skopp-Nilgen schrieb:
+> Moin Herik,
+> 
+> du warst ja fleissig+schnell!
+> 
+> Erst hab ich gedacht, du h?ttest die Einstellungen noch nicht in das 
+> Panel programmiert und bin losgesprintet, aber ich hatte vergessen das 
+> alte VDRPlugin.jar zu l?schen.
+> Da war es schon passiert, und ich hatte das UI umprogrammiert - das 
+> GridBagLayout ist doch arg unhandlich.
+> 
+> Naja egal, ich checke es trotzdem mal ein.  TVBrowser bringt 
+> praktischerweise die JGoodies Forms schon mit, vielleicht gef?llt Dir ja 
+> auch, wie das UI gebaut ist und aussieht.
+> 
+> Doku hier: http://www.jgoodies.com/articles/forms.pdf
+> 
+> P.S.: es ist Absicht, dass bei einer nicht-proportionalen Schrift die 
+> cc.xy(.... untereinander stehen, damit man die positionierung sofort 
+> erkennt
+> Auch wenn unsere Source-Formatierung die Leerzeichen komprimieren will, 
+> find' ich diese Ausnahme von der Regel in Ordnung.
+> 
+> _______________________________________________
+> Lazybones-devel mailing list
+> Lazybones-devel at lists.berlios.de
+> http://lists.berlios.de/mailman/listinfo/lazybones-devel
+
+-- 
+Martin Skopp
+Riege Software International GmbH
+Support: mailto:maint at riege.com, Information: http://www.riege.com
+
+This email is intended to be viewed with a nonproportional font.
+
+
+
+From skopp at riege.com  Wed Aug 24 12:05:55 2005
+From: skopp at riege.com (Martin Skopp)
+Date: Wed, 24 Aug 2005 12:05:55 +0200
+Subject: [Lazybones-devel] [VOTE] Unified statt context diff
+Message-ID: <430C4683.4080008@riege.com>
+
+Moin,
+
+ich schlage vor, auf den cvs mailinglisten den unified statt des context 
+diff zu benutzen. (option -u f?r syncmail)
+emsker
+
+context diff:
+===================================================================
+diff -C2 -d -r1.3 -r1.4
+*** loginfo	19 Aug 2005 15:22:05 -0000	1.3
+--- loginfo	24 Aug 2005 09:53:32 -0000	1.4
+***************
+*** 31,35 ****
+   # for detail doc.
+   #
+! CVSROOT		/usr/local/bin/syncmail %{sVv} emsker at users.berlios.de
+! develop01/	/usr/local/bin/syncmail %{sVv} 
+tvbrowser-looks-cvs at lists.berlios.de
+
+--- 31,35 ----
+   # for detail doc.
+   #
+! CVSROOT		/usr/local/bin/syncmail -u %{sVv} emsker at users.berlios.de
+! develop01/	/usr/local/bin/syncmail -u %{sVv} 
+tvbrowser-looks-cvs at lists.berlios.de
+
+
+unified diff:
+===================================================================
+diff -u -d -r1.4 -r1.5
+--- loginfo	24 Aug 2005 09:53:32 -0000	1.4
++++ loginfo	24 Aug 2005 09:54:14 -0000	1.5
+@@ -30,6 +30,6 @@
+  # https://developer.berlios.de/docman/display_doc.php?docid=40&group_id=2
+  # for detail doc.
+  #
+-CVSROOT		/usr/local/bin/syncmail -u %{sVv} emsker at users.berlios.de
+-develop01/	/usr/local/bin/syncmail -u %{sVv} 
+tvbrowser-looks-cvs at lists.berlios.de
++CVSROOT         /usr/local/bin/syncmail -u %{sVv} emsker at users.berlios.de
++develop01/      /usr/local/bin/syncmail -u %{sVv} 
+tvbrowser-looks-cvs at lists.berlios.de
+
+-- 
+Martin Skopp
+Riege Software International GmbH
+Support: mailto:maint at riege.com, Information: http://www.riege.com
+
+This email is intended to be viewed with a nonproportional font.
+
+
+
+From henrik.niehaus at gmx.de  Wed Aug 24 13:10:14 2005
+From: henrik.niehaus at gmx.de (Henrik Niehaus)
+Date: Wed, 24 Aug 2005 13:10:14 +0200
+Subject: [Lazybones-devel] [VOTE] Unified statt context diff
+In-Reply-To: <430C4683.4080008@riege.com>
+References: <430C4683.4080008@riege.com>
+Message-ID: <430C5596.2080100@gmx.de>
+
+einverstanden. hab ich kein problem mit. ich stelle es dann um.
+
+Martin Skopp schrieb:
+
+> Moin,
+>
+> ich schlage vor, auf den cvs mailinglisten den unified statt des
+> context diff zu benutzen. (option -u f?r syncmail)
+> emsker
+>
+> context diff:
+> ===================================================================
+> diff -C2 -d -r1.3 -r1.4
+> *** loginfo    19 Aug 2005 15:22:05 -0000    1.3
+> --- loginfo    24 Aug 2005 09:53:32 -0000    1.4
+> ***************
+> *** 31,35 ****
+>   # for detail doc.
+>   #
+> ! CVSROOT        /usr/local/bin/syncmail %{sVv} emsker at users.berlios.de
+> ! develop01/    /usr/local/bin/syncmail %{sVv}
+> tvbrowser-looks-cvs at lists.berlios.de
+>
+> --- 31,35 ----
+>   # for detail doc.
+>   #
+> ! CVSROOT        /usr/local/bin/syncmail -u %{sVv}
+> emsker at users.berlios.de
+> ! develop01/    /usr/local/bin/syncmail -u %{sVv}
+> tvbrowser-looks-cvs at lists.berlios.de
+>
+>
+> unified diff:
+> ===================================================================
+> diff -u -d -r1.4 -r1.5
+> --- loginfo    24 Aug 2005 09:53:32 -0000    1.4
+> +++ loginfo    24 Aug 2005 09:54:14 -0000    1.5
+> @@ -30,6 +30,6 @@
+>  #
+> https://developer.berlios.de/docman/display_doc.php?docid=40&group_id=2
+>  # for detail doc.
+>  #
+> -CVSROOT        /usr/local/bin/syncmail -u %{sVv} emsker at users.berlios.de
+> -develop01/    /usr/local/bin/syncmail -u %{sVv}
+> tvbrowser-looks-cvs at lists.berlios.de
+> +CVSROOT         /usr/local/bin/syncmail -u %{sVv}
+> emsker at users.berlios.de
+> +develop01/      /usr/local/bin/syncmail -u %{sVv}
+> tvbrowser-looks-cvs at lists.berlios.de
+>
+
+
+

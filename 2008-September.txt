@@ -1,0 +1,218 @@
+From admin at berlios.de  Mon Sep 15 13:12:47 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 15 Sep 2008 03:12:47 -0800 (AKDT)
+Subject: [Lazybones-devel] [Feature #4307] VPS
+Message-ID: <200809151112.m8FBClZC024846@unicorn.berlios.de>
+
+Feature Request #4307, was updated on 2008-Sep-15 03:12
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4307&group_id=4483
+
+Category: LazyBones
+Status: Open
+Priority: 5
+Summary: VPS
+
+By: murzl
+Date: 2008-Sep-15 03:12
+
+Message:
+Logged In: YES 
+user_id=47874
+Browser: Opera/9.52 (X11; FreeBSD 7.0-STABLE i386; U; en)
+
+Kann nicht das VPS-K?stchen per default angekreuzt sein?
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4307&group_id=4483
+
+
+From admin at berlios.de  Mon Sep 15 20:20:27 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 15 Sep 2008 20:20:27 +0200 (CEST)
+Subject: [Lazybones-devel] [Feature #4307] VPS
+Message-ID: <200809151820.m8FIKRtL025217@unicorn.berlios.de>
+
+Feature Request #4307, was updated on 2008-Sep-15 13:12
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4307&group_id=4483
+
+Category: LazyBones
+Status: Open
+Priority: 5
+Summary: VPS
+
+By: hampelratte
+Date: 2008-Sep-15 20:20
+
+Message:
+Logged In: YES 
+user_id=18663
+Browser: Mozilla/5.0 (X11; U; Linux i686; de; rv:1.9.0.1) Gecko/2008081516 Gentoo Firefox/3.0.1
+
+Ich kenne mich mit VPS unter VDR nicht so aus. Welche
+Auswirkungen hat das denn, wenn ich es setze? Gibt es auch
+Nachteile?
+Wenn es nur Vorteile gibt, spricht nichts dagegen. Ansonsten
+kann ich das auch konfigurierbar machen.
+
+----------------------------------------------------------------------
+
+By: murzl
+Date: 2008-Sep-15 13:12
+
+Message:
+Logged In: YES 
+user_id=47874
+Browser: Opera/9.52 (X11; FreeBSD 7.0-STABLE i386; U; en)
+
+Kann nicht das VPS-K?stchen per default angekreuzt sein?
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4307&group_id=4483
+
+
+From admin at berlios.de  Mon Sep 15 21:04:42 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 15 Sep 2008 11:04:42 -0800 (AKDT)
+Subject: [Lazybones-devel] [Feature #4307] VPS
+Message-ID: <200809151904.m8FJ4gd0021130@unicorn.berlios.de>
+
+Feature Request #4307, was updated on 2008-Sep-15 03:12
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4307&group_id=4483
+
+Category: LazyBones
+Status: Open
+Priority: 5
+Summary: VPS
+
+By: murzl
+Date: 2008-Sep-15 11:04
+
+Message:
+Logged In: YES 
+user_id=47874
+Browser: Opera/9.52 (X11; FreeBSD 7.0-STABLE i386; U; en)
+
+Ich setze jeder Aufnahme extra VPS (das nervt), dann nimmt meine 
+Siemens-Box passend auf (auch bei Versp?tung) ohne Vor- und Nachlauf. 
+Ich weiss nicht, ob das mit anderen Empf?ngern Probleme macht, dann 
+w?re eine Konfigurierbarkeit nicht schlecht.
+
+
+----------------------------------------------------------------------
+
+By: hampelratte
+Date: 2008-Sep-15 10:20
+
+Message:
+Logged In: YES 
+user_id=18663
+Browser: Mozilla/5.0 (X11; U; Linux i686; de; rv:1.9.0.1) Gecko/2008081516 Gentoo Firefox/3.0.1
+
+Ich kenne mich mit VPS unter VDR nicht so aus. Welche
+Auswirkungen hat das denn, wenn ich es setze? Gibt es auch
+Nachteile?
+Wenn es nur Vorteile gibt, spricht nichts dagegen. Ansonsten
+kann ich das auch konfigurierbar machen.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4307&group_id=4483
+
+
+From admin at berlios.de  Mon Sep 15 22:19:13 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 15 Sep 2008 22:19:13 +0200 (CEST)
+Subject: [Lazybones-devel] [Feature #4307] VPS
+Message-ID: <200809152019.m8FKJDCq002858@unicorn.berlios.de>
+
+Feature Request #4307, was updated on 2008-Sep-15 13:12
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4307&group_id=4483
+
+Category: LazyBones
+Status: Closed
+Priority: 5
+Summary: VPS
+
+By: hampelratte
+Date: 2008-Sep-15 22:19
+
+Message:
+Logged In: YES 
+user_id=18663
+Browser: Mozilla/5.0 (X11; U; Linux i686; de; rv:1.9.0.1) Gecko/2008081516 Gentoo Firefox/3.0.1
+
+Ich habs so eingebaut. Du kannst jetzt in den Einstellungen
+unter Timer VPS standardm??ig aktivieren. Die neue Version
+0.4.2 hab ich gerade hochgeladen.
+
+----------------------------------------------------------------------
+
+By: murzl
+Date: 2008-Sep-15 21:04
+
+Message:
+Logged In: YES 
+user_id=47874
+Browser: Opera/9.52 (X11; FreeBSD 7.0-STABLE i386; U; en)
+
+Ich setze jeder Aufnahme extra VPS (das nervt), dann nimmt meine 
+Siemens-Box passend auf (auch bei Versp?tung) ohne Vor- und Nachlauf. 
+Ich weiss nicht, ob das mit anderen Empf?ngern Probleme macht, dann 
+w?re eine Konfigurierbarkeit nicht schlecht.
+
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4307&group_id=4483
+
+
+From admin at berlios.de  Mon Sep 15 22:39:53 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 15 Sep 2008 12:39:53 -0800 (AKDT)
+Subject: [Lazybones-devel] [Feature #4307] VPS
+Message-ID: <200809152039.m8FKdrcx013806@unicorn.berlios.de>
+
+Feature Request #4307, was updated on 2008-Sep-15 03:12
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4307&group_id=4483
+
+Category: LazyBones
+Status: Closed
+Priority: 5
+Summary: VPS
+
+By: murzl
+Date: 2008-Sep-15 12:39
+
+Message:
+Logged In: YES 
+user_id=47874
+Browser: Mozilla/5.0 (X11; U; FreeBSD i386; de-DE; rv:1.8.1.14) Gecko/20080615 Firefox/2.0.0.14
+
+supercool, danke!
+
+----------------------------------------------------------------------
+
+By: hampelratte
+Date: 2008-Sep-15 12:19
+
+Message:
+Logged In: YES 
+user_id=18663
+Browser: Mozilla/5.0 (X11; U; Linux i686; de; rv:1.9.0.1) Gecko/2008081516 Gentoo Firefox/3.0.1
+
+Ich habs so eingebaut. Du kannst jetzt in den Einstellungen
+unter Timer VPS standardm??ig aktivieren. Die neue Version
+0.4.2 hab ich gerade hochgeladen.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4307&group_id=4483
+
+

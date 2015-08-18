@@ -1,0 +1,172 @@
+From admin at berlios.de  Sun Apr 20 16:58:27 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Sun, 20 Apr 2008 16:58:27 +0200 (CEST)
+Subject: [Lazybones-devel] [Bug #13647] Manual creation of timers fail,
+	if no epg is avail. on vdr
+Message-ID: <200804201458.m3KEwRVv024322@unicorn.berlios.de>
+
+Bug #13647, was updated on 2008-Apr-20 16:58
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: hampelratte
+Assigned to : hampelratte
+Summary: Manual creation of timers fail, if no epg is avail. on vdr
+
+Details: If no EPG is available on VDR, the manual (enter everything manual) creation of timers fails with the message, that LB can't find the program on vdr
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=13647&group_id=4483
+
+
+From admin at berlios.de  Tue Apr 22 16:50:40 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 22 Apr 2008 16:50:40 +0200 (CEST)
+Subject: [Lazybones-devel] [Feature #3920] Add vdradmin as streaming server
+	option
+Message-ID: <200804221450.m3MEoeee002689@unicorn.berlios.de>
+
+Feature Request #3920, was updated on 2007-Dec-23 15:30
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3920&group_id=4483
+
+Category: LazyBones
+Status: Closed
+Priority: 5
+Summary: Add vdradmin as streaming server option
+
+By: hampelratte
+Date: 2007-Dec-23 15:30
+
+Message:
+Logged In: YES 
+user_id=18663
+Browser: Mozilla/5.0 (X11; U; Linux i686; de-DE; rv:1.8.1.11) Gecko/20071205 Firefox/2.0.0.11
+
+Vdradmin (und XXV vll auch) kann auch Aufnahmen
+streamen. Lazy Bones sollte eine Option bereitstellen,
+mit der man den Stream-URL angeben kann.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3920&group_id=4483
+
+
+From admin at berlios.de  Wed Apr 23 23:14:40 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 23 Apr 2008 23:14:40 +0200 (CEST)
+Subject: [Lazybones-devel] [Feature #4121] Extend ChannelParser to support
+	IPTV
+Message-ID: <200804232114.m3NLEeLa019705@unicorn.berlios.de>
+
+Feature Request #4121, was updated on 2008-Apr-23 23:14
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4121&group_id=4483
+
+Category: svdrp4j
+Status: Open
+Priority: 5
+Summary: Extend ChannelParser to support IPTV
+
+By: hampelratte
+Date: 2008-Apr-23 23:14
+
+Message:
+Logged In: YES 
+user_id=18663
+Browser: Mozilla/5.0 (X11; U; Linux i686; de; rv:1.8.1.14) Gecko/20080418 Firefox/2.0.0.14
+
+Extend ChannelParser to support IPTV and others. At the
+moment the parser is not very robust and crashes, if
+there are unknown entries in the channels.conf
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4121&group_id=4483
+
+
+From admin at berlios.de  Wed Apr 23 23:14:58 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 23 Apr 2008 23:14:58 +0200 (CEST)
+Subject: [Lazybones-devel] [Feature #4121] Extend ChannelParser to support
+	IPTV
+Message-ID: <200804232114.m3NLEwZM019796@unicorn.berlios.de>
+
+Feature Request #4121, was updated on 2008-Apr-23 23:14
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4121&group_id=4483
+
+Category: svdrp4j
+Status: Open
+Priority: 5
+Summary: Extend ChannelParser to support IPTV
+
+By: hampelratte
+Date: 2008-Apr-23 23:14
+
+Message:
+Logged In: YES 
+user_id=18663
+Browser: Mozilla/5.0 (X11; U; Linux i686; de; rv:1.8.1.14) Gecko/20080418 Firefox/2.0.0.14
+
+Extend ChannelParser to support IPTV and others. At the
+moment the parser is not very robust and crashes, if
+there are unknown entries in the channels.conf
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4121&group_id=4483
+
+
+From admin at berlios.de  Thu Apr 24 19:30:26 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Thu, 24 Apr 2008 19:30:26 +0200 (CEST)
+Subject: [Lazybones-devel] [Feature #4121] Extend ChannelParser to support
+	IPTV
+Message-ID: <200804241730.m3OHUQNA021378@unicorn.berlios.de>
+
+Feature Request #4121, was updated on 2008-Apr-23 23:14
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4121&group_id=4483
+
+Category: svdrp4j
+Status: Open
+Priority: 5
+Summary: Extend ChannelParser to support IPTV
+
+By: hampelratte
+Date: 2008-Apr-24 19:30
+
+Message:
+Logged In: YES 
+user_id=18663
+Browser: Mozilla/5.0 (X11; U; Linux i686; de; rv:1.8.1.14) Gecko/20080418 Firefox/2.0.0.14
+
+iptv support is not implemented, but I have created a
+skeleton for that. the crash, which happened for unknown
+line formats is fixed
+
+----------------------------------------------------------------------
+
+By: hampelratte
+Date: 2008-Apr-23 23:14
+
+Message:
+Logged In: YES 
+user_id=18663
+Browser: Mozilla/5.0 (X11; U; Linux i686; de; rv:1.8.1.14) Gecko/20080418 Firefox/2.0.0.14
+
+Extend ChannelParser to support IPTV and others. At the
+moment the parser is not very robust and crashes, if
+there are unknown entries in the channels.conf
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4121&group_id=4483
+
+

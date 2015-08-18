@@ -1,0 +1,91 @@
+From admin at berlios.de  Wed Jun 11 18:43:05 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 11 Jun 2008 18:43:05 +0200 (CEST)
+Subject: [Lazybones-devel] [Feature #4181] VDR Timer in Aufnahmesteuerung
+Message-ID: <200806111643.m5BGh50w001978@unicorn.berlios.de>
+
+Feature Request #4181, was updated on 2008-Jun-11 18:43
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4181&group_id=4483
+
+Category: LazyBones
+Status: Open
+Priority: 5
+Summary: VDR Timer in Aufnahmesteuerung
+
+By: drmichael
+Date: 2008-Jun-11 18:43
+
+Message:
+Logged In: YES 
+user_id=46342
+Browser: Mozilla/5.0 (Windows; U; Windows NT 6.0; de; rv:1.8.1.14) Gecko/20080404 Firefox/2.0.0.14
+
+
+Hi,
+
+sch?n w?re es ja schon, wenn die Timer des VDR auch im
+Capture Plugin erscheinen w?rden. Dann h?tte man alle
+Timer an einer Stelle.
+
+DrMichael
+
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4181&group_id=4483
+
+
+From admin at berlios.de  Wed Jun 11 19:00:31 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 11 Jun 2008 19:00:31 +0200 (CEST)
+Subject: [Lazybones-devel] [Feature #4181] VDR Timer in Aufnahmesteuerung
+Message-ID: <200806111700.m5BH0VUe013378@unicorn.berlios.de>
+
+Feature Request #4181, was updated on 2008-Jun-11 18:43
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4181&group_id=4483
+
+Category: LazyBones
+Status: Open
+Priority: 5
+Summary: VDR Timer in Aufnahmesteuerung
+
+By: hampelratte
+Date: 2008-Jun-11 19:00
+
+Message:
+Logged In: YES 
+user_id=18663
+Browser: Mozilla/5.0 (X11; U; Linux i686; de; rv:1.8.1.14) Gecko/20080531 Firefox/2.0.0.14
+
+Meinst Du zus?tzlich zu Lazy Bones oder stattdessen? Ich
+habe mich damals gegen das Capture-Plugin entscheiden, weil
+Lazy Bones ja noch mehr Funktionen bietet, die mit dem
+Capture-Plugin nicht m?glich sind.
+
+----------------------------------------------------------------------
+
+By: drmichael
+Date: 2008-Jun-11 18:43
+
+Message:
+Logged In: YES 
+user_id=46342
+Browser: Mozilla/5.0 (Windows; U; Windows NT 6.0; de; rv:1.8.1.14) Gecko/20080404 Firefox/2.0.0.14
+
+
+Hi,
+
+sch?n w?re es ja schon, wenn die Timer des VDR auch im
+Capture Plugin erscheinen w?rden. Dann h?tte man alle
+Timer an einer Stelle.
+
+DrMichael
+
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4181&group_id=4483
+
+

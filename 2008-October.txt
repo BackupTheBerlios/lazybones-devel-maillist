@@ -1,0 +1,180 @@
+From admin at berlios.de  Sat Oct 11 22:36:47 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Sat, 11 Oct 2008 22:36:47 +0200 (CEST)
+Subject: [Lazybones-devel] [Bug #14667] Geschnitte Episode wird nicht als
+	geschnitten erkannt
+Message-ID: <200810112036.m9BKalwV010660@unicorn.berlios.de>
+
+Bug #14667, was updated on 2008-Oct-11 22:36
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 1
+Submitted by: hampelratte
+Assigned to : none
+Summary: Geschnitte Episode wird nicht als geschnitten erkannt
+
+Details: Geschnittene Episoden z.B. Serie~%Episode wird nicht als geschnitten erkannt.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=14667&group_id=4483
+
+
+From admin at berlios.de  Sun Oct 12 20:34:09 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Sun, 12 Oct 2008 20:34:09 +0200 (CEST)
+Subject: [Lazybones-devel] [Bug #14670] lazybones slows down tvbrowser
+Message-ID: <200810121834.m9CIY9eT020607@unicorn.berlios.de>
+
+Bug #14670, was updated on 2008-Oct-12 20:34
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: ferkulat
+Assigned to : none
+Summary: lazybones slows down tvbrowser
+
+Details: as in Summary if tvbrowser (here 2.7.1) runs the plugin the cpu is busy (100%) and make it that  slow, that its useless.
+ my config:
+
+PC with TVBrowser: 
+AMD Duron 1600, 512 MB
+archlinux 
+jre-6u7
+tvbrowser-2.7.1
+
+VDR-PC
+Pentium II 200MHz, 128 MB
+running :
+
+archlinux
+vdr-1.6.0
+vradmin-am-3.4.6 
+
+vdradmin is sometimes slow, but vdradmin runs with nice level 20, so it doesnt disturb the vdr itself
+lazybones gave me the hope to bypass this, but i have no luck with it
+
+
+greets
+
+ferkulat
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=14670&group_id=4483
+
+
+From admin at berlios.de  Tue Oct 21 21:58:50 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 21 Oct 2008 21:58:50 +0200 (CEST)
+Subject: [Lazybones-devel] [Bug #14670] lazybones slows down tvbrowser
+Message-ID: <200810211958.m9LJwoUo022933@unicorn.berlios.de>
+
+Bug #14670, was updated on 2008-Oct-12 20:34
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: ferkulat
+Assigned to : none
+Summary: lazybones slows down tvbrowser
+
+Details: as in Summary if tvbrowser (here 2.7.1) runs the plugin the cpu is busy (100%) and make it that  slow, that its useless.
+ my config:
+
+PC with TVBrowser: 
+AMD Duron 1600, 512 MB
+archlinux 
+jre-6u7
+tvbrowser-2.7.1
+
+VDR-PC
+Pentium II 200MHz, 128 MB
+running :
+
+archlinux
+vdr-1.6.0
+vradmin-am-3.4.6 
+
+vdradmin is sometimes slow, but vdradmin runs with nice level 20, so it doesnt disturb the vdr itself
+lazybones gave me the hope to bypass this, but i have no luck with it
+
+
+greets
+
+ferkulat
+
+Follow-Ups:
+
+Date: 2008-Oct-21 21:58
+By: hampelratte
+
+Comment:
+I can't imagine why this happens. Could you send me a list of your timers?
+Could send me the output of:
+
+telnet vdr 2001
+lstt
+quit
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=14670&group_id=4483
+
+
+From admin at berlios.de  Mon Oct 27 19:07:10 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 27 Oct 2008 19:07:10 +0100 (CET)
+Subject: [Feature #3267] Titelzuordnung -> RegEx-Unterstützung
+Message-ID: <200810271807.m9RI7A0q009684@unicorn.berlios.de>
+
+Feature Request #3267, was updated on 2007-Mar-23 19:13
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3267&group_id=4483
+
+Category: LazyBones
+Status: Deleted
+Priority: 3
+Summary: Titelzuordnung -> RegEx-Unterst?tzung
+
+By: hampelratte
+Date: 2008-Oct-27 19:07
+
+Message:
+Logged In: YES 
+user_id=18663
+Browser: Mozilla/5.0 (X11; U; Linux i686; de; rv:1.9.0.3) Gecko/2008092814 Gentoo Firefox/3.0.3
+
+Mit der neuen Timer-Erkennung sollten Timer zuverl?ssiger
+zugeordnet werden, so dass diese Funktion nicht mehr so
+wichtig ist.
+
+----------------------------------------------------------------------
+
+By: hampelratte
+Date: 2007-Mar-23 19:13
+
+Message:
+Logged In: YES 
+user_id=18663
+Browser: Mozilla/5.0 (X11; U; Linux i686; de-DE; rv:1.8.1.2) Gecko/20070320 Firefox/2.0.0.2
+
+Die Titelzuordnung sollte regul?re Ausdr?cke unterst?tzen.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=3267&group_id=4483
+
+

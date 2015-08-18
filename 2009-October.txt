@@ -1,0 +1,92 @@
+From admin at berlios.de  Sat Oct 10 12:05:30 2009
+From: admin at berlios.de (admin at berlios.de)
+Date: Sat, 10 Oct 2009 12:05:30 +0200 (CEST)
+Subject: [Lazybones-devel] [Bug #14670] lazybones slows down tvbrowser
+Message-ID: <200910101005.n9AA5UIo019524@unicorn.berlios.de>
+
+Bug #14670, was updated on 2008-Oct-12 20:34
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Closed
+Resolution: Wont Fix
+Bug Group: None
+Priority: 5
+Submitted by: ferkulat
+Assigned to : none
+Summary: lazybones slows down tvbrowser
+
+Details: as in Summary if tvbrowser (here 2.7.1) runs the plugin the cpu is busy (100%) and make it that  slow, that its useless.
+ my config:
+
+PC with TVBrowser: 
+AMD Duron 1600, 512 MB
+archlinux 
+jre-6u7
+tvbrowser-2.7.1
+
+VDR-PC
+Pentium II 200MHz, 128 MB
+running :
+
+archlinux
+vdr-1.6.0
+vradmin-am-3.4.6 
+
+vdradmin is sometimes slow, but vdradmin runs with nice level 20, so it doesnt disturb the vdr itself
+lazybones gave me the hope to bypass this, but i have no luck with it
+
+
+greets
+
+ferkulat
+
+Follow-Ups:
+
+Date: 2008-Oct-21 21:58
+By: hampelratte
+
+Comment:
+I can't imagine why this happens. Could you send me a list of your timers?
+Could send me the output of:
+
+telnet vdr 2001
+lstt
+quit
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=14670&group_id=4483
+
+
+From admin at berlios.de  Wed Oct 14 23:11:26 2009
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 14 Oct 2009 23:11:26 +0200 (CEST)
+Subject: [Lazybones-devel] [Bug #16343] Doppelpack wird teilweise falsch
+	erkannt
+Message-ID: <200910142111.n9ELBQSp028681@unicorn.berlios.de>
+
+Bug #16343, was updated on 2009-Oct-14 23:11
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 3
+Submitted by: hampelratte
+Assigned to : hampelratte
+Summary: Doppelpack wird teilweise falsch erkannt
+
+Details: Beispielfall: Sendung A ist jeweils sehr kurz und liegt innerhalb der Puffer.
+
+20:00 - 20:03 Sendung A
+20:03 - 21:00 Sendung B
+21:00 - 21:03 Sendung A
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=16343&group_id=4483
+
+

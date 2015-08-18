@@ -1,0 +1,243 @@
+From admin at berlios.de  Wed May  7 12:18:38 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 7 May 2008 12:18:38 +0200 (CEST)
+Subject: [Lazybones-devel] [Bug #13762] Fix all modal dialogs
+Message-ID: <200805071018.m47AIcW5006375@unicorn.berlios.de>
+
+Bug #13762, was updated on 2008-May-07 12:18
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: hampelratte
+Assigned to : hampelratte
+Summary: Fix all modal dialogs
+
+Details: Fix all modal dialogs (including JOptionPanes). They shouldn't block other dialogs or get blocked by other dialogs.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=13762&group_id=4483
+
+
+From admin at berlios.de  Wed May  7 18:18:15 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 7 May 2008 18:18:15 +0200 (CEST)
+Subject: [Lazybones-devel] [Feature #4143] Support several VDRs
+Message-ID: <200805071618.m47GIFCq010979@unicorn.berlios.de>
+
+Feature Request #4143, was updated on 2008-May-07 18:18
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4143&group_id=4483
+
+Category: LazyBones
+Status: Open
+Priority: 5
+Summary: Support several VDRs
+
+By: hampelratte
+Date: 2008-May-07 18:18
+
+Message:
+Logged In: YES 
+user_id=18663
+Browser: Mozilla/5.0 (X11; U; Linux i686; de; rv:1.8.1.14) Gecko/20080418 Firefox/2.0.0.14
+
+Some users want to control more than one VDR with Lazy
+Bones. Lazy Bones could support something like VDR
+profiles, so that the user could easily switch between
+the different VDRs
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4143&group_id=4483
+
+
+From admin at berlios.de  Wed May  7 18:18:33 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 7 May 2008 18:18:33 +0200 (CEST)
+Subject: [Lazybones-devel] [Feature #4143] Support several VDRs
+Message-ID: <200805071618.m47GIX1Y011147@unicorn.berlios.de>
+
+Feature Request #4143, was updated on 2008-May-07 18:18
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4143&group_id=4483
+
+Category: LazyBones
+Status: Open
+Priority: 1
+Summary: Support several VDRs
+
+By: hampelratte
+Date: 2008-May-07 18:18
+
+Message:
+Logged In: YES 
+user_id=18663
+Browser: Mozilla/5.0 (X11; U; Linux i686; de; rv:1.8.1.14) Gecko/20080418 Firefox/2.0.0.14
+
+Some users want to control more than one VDR with Lazy
+Bones. Lazy Bones could support something like VDR
+profiles, so that the user could easily switch between
+the different VDRs
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4143&group_id=4483
+
+
+From admin at berlios.de  Mon May 19 13:42:13 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 19 May 2008 13:42:13 +0200 (CEST)
+Subject: [Lazybones-devel] [Task #4030] Sicherstellen,
+	dass die Logmessages richtig gefiltert werden
+Message-ID: <200805191142.m4JBgD2h012008@unicorn.berlios.de>
+
+Task #4030 has been updated. 
+
+Project: Lazy Bones
+Subproject: Lazy Bones
+Summary: Sicherstellen, dass die Logmessages richtig gefiltert werden
+Priority: 5
+Percent Complete: 0%
+Status: Open
+Authority  : hampelratte
+Assigned to: hampelratte
+
+Description: Connection-Errors und Epg-Errors sollten gefiltert werden, wenn es in den Einstellungen so festgelegt ist.
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/pm/task.php?func=detailtask&project_task_id=4030&group_id=4483&group_project_id=1814
+
+
+From admin at berlios.de  Mon May 19 13:44:00 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 19 May 2008 13:44:00 +0200 (CEST)
+Subject: [Task #4031] Modalität der Dialoge überprüfen und vom Rest entkoppeln
+Message-ID: <200805191144.m4JBi0oE015733@unicorn.berlios.de>
+
+Task #4031 has been updated. 
+
+Project: Lazy Bones
+Subproject: Lazy Bones
+Summary: Modalit?t der Dialoge ?berpr?fen und vom Rest entkoppeln
+Priority: 5
+Percent Complete: 0%
+Status: Open
+Authority  : hampelratte
+Assigned to: hampelratte
+
+Description: Modalit?t der Dialoge ?berpr?fen und vom Rest entkoppeln
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/pm/task.php?func=detailtask&project_task_id=4031&group_id=4483&group_project_id=1814
+
+
+From admin at berlios.de  Mon May 19 15:31:48 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 19 May 2008 15:31:48 +0200 (CEST)
+Subject: [Lazybones-devel] [Task #4030] Sicherstellen,
+	dass die Logmessages richtig gefiltert werden
+Message-ID: <200805191331.m4JDVm5J029166@unicorn.berlios.de>
+
+Task #4030 has been updated. 
+
+Project: Lazy Bones
+Subproject: Lazy Bones
+Summary: Sicherstellen, dass die Logmessages richtig gefiltert werden
+Priority: 5
+Percent Complete: 100%
+Status: Closed
+Authority  : hampelratte
+Assigned to: hampelratte
+
+Description: Connection-Errors und Epg-Errors sollten gefiltert werden, wenn es in den Einstellungen so festgelegt ist.
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/pm/task.php?func=detailtask&project_task_id=4030&group_id=4483&group_project_id=1814
+
+
+From admin at berlios.de  Mon May 19 15:32:00 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 19 May 2008 15:32:00 +0200 (CEST)
+Subject: [Task #4031] Modalität der Dialoge überprüfen und vom Rest entkoppeln
+Message-ID: <200805191332.m4JDW0Ow029514@unicorn.berlios.de>
+
+Task #4031 has been updated. 
+
+Project: Lazy Bones
+Subproject: Lazy Bones
+Summary: Modalit?t der Dialoge ?berpr?fen und vom Rest entkoppeln
+Priority: 5
+Percent Complete: 100%
+Status: Closed
+Authority  : hampelratte
+Assigned to: hampelratte
+
+Description: Modalit?t der Dialoge ?berpr?fen und vom Rest entkoppeln
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/pm/task.php?func=detailtask&project_task_id=4031&group_id=4483&group_project_id=1814
+
+
+From admin at berlios.de  Mon May 19 15:32:32 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 19 May 2008 15:32:32 +0200 (CEST)
+Subject: [Lazybones-devel] [Bug #13762] Fix all modal dialogs
+Message-ID: <200805191332.m4JDWW5t000564@unicorn.berlios.de>
+
+Bug #13762, was updated on 2008-May-07 12:18
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Closed
+Resolution: Fixed
+Bug Group: None
+Priority: 5
+Submitted by: hampelratte
+Assigned to : hampelratte
+Summary: Fix all modal dialogs
+
+Details: Fix all modal dialogs (including JOptionPanes). They shouldn't block other dialogs or get blocked by other dialogs.
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=13762&group_id=4483
+
+
+From admin at berlios.de  Mon May 19 19:34:17 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 19 May 2008 19:34:17 +0200 (CEST)
+Subject: [Lazybones-devel] [Task #4032] Einordnung in Kategorien fixen
+Message-ID: <200805191734.m4JHYHDW012507@unicorn.berlios.de>
+
+Task #4032 has been updated. 
+
+Project: Lazy Bones
+Subproject: VDRDataService
+Summary: Einordnung in Kategorien fixen
+Priority: 5
+Percent Complete: 0%
+Status: Open
+Authority  : hampelratte
+Assigned to: hampelratte
+
+Description: Wenn man das Einstellungsverzeichnis komplett l?scht, werden alle Sender in die Kategorie unbestimmt eingeordnet.
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/pm/task.php?func=detailtask&project_task_id=4032&group_id=4483&group_project_id=1815
+
+

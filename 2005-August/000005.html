@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Lazybones-devel] [VOTE] Unified statt context diff
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/lazybones-devel/2005-August/index.html" >
+   <LINK REL="made" HREF="mailto:lazybones-devel%40lists.berlios.de?Subject=Re%3A%20%5BLazybones-devel%5D%20%5BVOTE%5D%20Unified%20statt%20context%20diff&In-Reply-To=%3C430C5596.2080100%40gmx.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000004.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Lazybones-devel] [VOTE] Unified statt context diff</H1>
+    <B>Henrik Niehaus</B> 
+    <A HREF="mailto:lazybones-devel%40lists.berlios.de?Subject=Re%3A%20%5BLazybones-devel%5D%20%5BVOTE%5D%20Unified%20statt%20context%20diff&In-Reply-To=%3C430C5596.2080100%40gmx.de%3E"
+       TITLE="[Lazybones-devel] [VOTE] Unified statt context diff">henrik.niehaus at gmx.de
+       </A><BR>
+    <I>Wed Aug 24 13:10:14 CEST 2005</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000004.html">[Lazybones-devel] [VOTE] Unified statt context diff
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#5">[ date ]</a>
+              <a href="thread.html#5">[ thread ]</a>
+              <a href="subject.html#5">[ subject ]</a>
+              <a href="author.html#5">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>einverstanden. hab ich kein problem mit. ich stelle es dann um.
+
+Martin Skopp schrieb:
+
+&gt;<i> Moin,
+</I>&gt;<i>
+</I>&gt;<i> ich schlage vor, auf den cvs mailinglisten den unified statt des
+</I>&gt;<i> context diff zu benutzen. (option -u f&#252;r syncmail)
+</I>&gt;<i> emsker
+</I>&gt;<i>
+</I>&gt;<i> context diff:
+</I>&gt;<i> ===================================================================
+</I>&gt;<i> diff -C2 -d -r1.3 -r1.4
+</I>&gt;<i> *** loginfo    19 Aug 2005 15:22:05 -0000    1.3
+</I>&gt;<i> --- loginfo    24 Aug 2005 09:53:32 -0000    1.4
+</I>&gt;<i> ***************
+</I>&gt;<i> *** 31,35 ****
+</I>&gt;<i>   # for detail doc.
+</I>&gt;<i>   #
+</I>&gt;<i> ! CVSROOT        /usr/local/bin/syncmail %{sVv} <A HREF="https://lists.berlios.de/mailman/listinfo/lazybones-devel">emsker at users.berlios.de</A>
+</I>&gt;<i> ! develop01/    /usr/local/bin/syncmail %{sVv}
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/lazybones-devel">tvbrowser-looks-cvs at lists.berlios.de</A>
+</I>&gt;<i>
+</I>&gt;<i> --- 31,35 ----
+</I>&gt;<i>   # for detail doc.
+</I>&gt;<i>   #
+</I>&gt;<i> ! CVSROOT        /usr/local/bin/syncmail -u %{sVv}
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/lazybones-devel">emsker at users.berlios.de</A>
+</I>&gt;<i> ! develop01/    /usr/local/bin/syncmail -u %{sVv}
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/lazybones-devel">tvbrowser-looks-cvs at lists.berlios.de</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> unified diff:
+</I>&gt;<i> ===================================================================
+</I>&gt;<i> diff -u -d -r1.4 -r1.5
+</I>&gt;<i> --- loginfo    24 Aug 2005 09:53:32 -0000    1.4
+</I>&gt;<i> +++ loginfo    24 Aug 2005 09:54:14 -0000    1.5
+</I>&gt;<i> @@ -30,6 +30,6 @@
+</I>&gt;<i>  #
+</I>&gt;<i> <A HREF="https://developer.berlios.de/docman/display_doc.php?docid=40&amp;group_id=2">https://developer.berlios.de/docman/display_doc.php?docid=40&amp;group_id=2</A>
+</I>&gt;<i>  # for detail doc.
+</I>&gt;<i>  #
+</I>&gt;<i> -CVSROOT        /usr/local/bin/syncmail -u %{sVv} <A HREF="https://lists.berlios.de/mailman/listinfo/lazybones-devel">emsker at users.berlios.de</A>
+</I>&gt;<i> -develop01/    /usr/local/bin/syncmail -u %{sVv}
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/lazybones-devel">tvbrowser-looks-cvs at lists.berlios.de</A>
+</I>&gt;<i> +CVSROOT         /usr/local/bin/syncmail -u %{sVv}
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/lazybones-devel">emsker at users.berlios.de</A>
+</I>&gt;<i> +develop01/      /usr/local/bin/syncmail -u %{sVv}
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/lazybones-devel">tvbrowser-looks-cvs at lists.berlios.de</A>
+</I>&gt;<i>
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000004.html">[Lazybones-devel] [VOTE] Unified statt context diff
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#5">[ date ]</a>
+              <a href="thread.html#5">[ thread ]</a>
+              <a href="subject.html#5">[ subject ]</a>
+              <a href="author.html#5">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/lazybones-devel">More information about the Lazybones-devel
+mailing list</a><br>
+</body></html>

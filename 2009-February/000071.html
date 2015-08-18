@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Lazybones-devel] [Bug #15292] Datum bei Programmierung von	0-Uhr-Sendungen
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/lazybones-devel/2009-February/index.html" >
+   <LINK REL="made" HREF="mailto:lazybones-devel%40lists.berlios.de?Subject=Re%3A%20%5BLazybones-devel%5D%20%5BBug%20%2315292%5D%20Datum%20bei%20Programmierung%20von%0A%090-Uhr-Sendungen&In-Reply-To=%3C200902211221.n1LCL5Zi028697%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000070.html">
+   <LINK REL="Next"  HREF="000072.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Lazybones-devel] [Bug #15292] Datum bei Programmierung von	0-Uhr-Sendungen</H1>
+    <B>admin at berlios.de</B> 
+    <A HREF="mailto:lazybones-devel%40lists.berlios.de?Subject=Re%3A%20%5BLazybones-devel%5D%20%5BBug%20%2315292%5D%20Datum%20bei%20Programmierung%20von%0A%090-Uhr-Sendungen&In-Reply-To=%3C200902211221.n1LCL5Zi028697%40unicorn.berlios.de%3E"
+       TITLE="[Lazybones-devel] [Bug #15292] Datum bei Programmierung von	0-Uhr-Sendungen">admin at berlios.de
+       </A><BR>
+    <I>Sat Feb 21 13:21:05 CET 2009</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000070.html">[Lazybones-devel] [Bug #15292] Datum bei Programmierung von	0-Uhr-Sendungen
+</A></li>
+        <LI>Next message: <A HREF="000072.html">[Lazybones-devel] [Bug #15292] Datum bei Programmierung von	0-Uhr-Sendungen
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#71">[ date ]</a>
+              <a href="thread.html#71">[ thread ]</a>
+              <a href="subject.html#71">[ subject ]</a>
+              <a href="author.html#71">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bug #15292, was updated on 2009-Feb-20 00:43
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Closed
+Resolution: None
+Bug Group: None
+Priority: 7
+Submitted by: murzl
+Assigned to : hampelratte
+Summary: Datum bei Programmierung von 0-Uhr-Sendungen 
+
+Details: Bei Programmierung von Sendungen, die um 0h beginnen, wird das Datum der vorigen Tags eingesetzt
+
+Follow-Ups:
+
+Date: 2009-Feb-21 13:21
+By: hampelratte
+
+Comment:
+Das kommt davon, wenn man nicht gr&#252;ndlich testet. Ich habs nochmal &#252;berarbeitet und Version 0.5.3.1 hochgeladen.
+-------------------------------------------------------
+
+Date: 2009-Feb-21 09:57
+By: murzl
+
+Comment:
+mache ich den Kalender auf (wie fr&#252;her) und klicke dort auf den n&#228;chsten Tag, dann geht es (obwohl dann auch nichts anderes im &quot;Tag&quot;-Feld steht)
+-------------------------------------------------------
+
+Date: 2009-Feb-21 09:44
+By: murzl
+
+Comment:
+Seltsam, in der Maske wird jetzt richtig umgeschaltet, aber nach &quot;OK&quot; landet die Sendung wieder mit dem vorigen Tag im VDR, jedenfalls zeigt der &quot;Timer&quot; im Lazybones-Fenster es so an. Au&#223;erdem kommt die Aufforderung, die Sendung zuzuordnen.
+
+-------------------------------------------------------
+
+Date: 2009-Feb-20 17:53
+By: hampelratte
+
+Comment:
+Ich habe jetzt den Dialog f&#252;r die Timeroptionen angepasst. Es wird jetzt beim Aktivieren/Deaktivieren von VPS und auch beim Ver&#228;ndern der Startzeit der Tag des Timers angepasst, wenn das erforderlich ist. Ich denke, damit sollte das Problem gel&#246;st sein.
+-------------------------------------------------------
+
+Date: 2009-Feb-20 12:59
+By: hampelratte
+
+Comment:
+Alles klar. Sowas hatte ich vermutet. Werds in den n&#228;chsten Tagen fixen.
+-------------------------------------------------------
+
+Date: 2009-Feb-20 12:55
+By: murzl
+
+Comment:
+Also es tritt bei VPS auf, ich habe VPS immer angekreuzt.
+Fr&#252;her war es so, dass erst 23:55 programmiert wurde, wegen Vorlauf, dann beim Ankreuzen von VPS auf 0:00 gestellt wurde, aber das Datum nicht umgestellt. Ich denke, hier liegt der Hund begraben: n&#228;chsten Tag einstellen, wenn bei VPS die Zeit auf 0:00 springt.
+
+Beispielsendung: gestern (heute!) 0:00 ARD &quot;Inas Nacht&quot;
+
+-------------------------------------------------------
+
+Date: 2009-Feb-20 12:44
+By: hampelratte
+
+Comment:
+Ich habe schon ein &#228;hnliches Problem festgestellt. Mit diesen Tageswechseln hatte ich schon &#246;fter Probleme. Das liegt daran, dass im TV-Browser Sendungen eine ID haben, die aber immer nur f&#252;r einen Tag g&#252;ltig ist. D.h. um die richtige Sendung zu finden muss man auch immer das Datum wissen und dann gibts Probleme mit dem Aufnahmepuffer usw.
+
+Kannst Du noch etwas ins Detail gehen? Wie sind deine Puffer eingestellt? Und welche Sendung hast Du wie versucht zu programmieren?
+-------------------------------------------------------
+
+For detailed info, follow this link:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=15292&amp;group_id=4483">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=15292&amp;group_id=4483</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000070.html">[Lazybones-devel] [Bug #15292] Datum bei Programmierung von	0-Uhr-Sendungen
+</A></li>
+	<LI>Next message: <A HREF="000072.html">[Lazybones-devel] [Bug #15292] Datum bei Programmierung von	0-Uhr-Sendungen
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#71">[ date ]</a>
+              <a href="thread.html#71">[ thread ]</a>
+              <a href="subject.html#71">[ subject ]</a>
+              <a href="author.html#71">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/lazybones-devel">More information about the Lazybones-devel
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Lazybones-devel] [Bug #14192] Fehler beim Laden des Plugins
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/lazybones-devel/2008-July/index.html" >
+   <LINK REL="made" HREF="mailto:lazybones-devel%40lists.berlios.de?Subject=Re%3A%20%5BLazybones-devel%5D%20%5BBug%20%2314192%5D%20Fehler%20beim%20Laden%20des%20Plugins&In-Reply-To=%3C200807131627.m6DGRIwT011741%40unicorn.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000023.html">
+   <LINK REL="Next"  HREF="000025.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Lazybones-devel] [Bug #14192] Fehler beim Laden des Plugins</H1>
+    <B>admin at berlios.de</B> 
+    <A HREF="mailto:lazybones-devel%40lists.berlios.de?Subject=Re%3A%20%5BLazybones-devel%5D%20%5BBug%20%2314192%5D%20Fehler%20beim%20Laden%20des%20Plugins&In-Reply-To=%3C200807131627.m6DGRIwT011741%40unicorn.berlios.de%3E"
+       TITLE="[Lazybones-devel] [Bug #14192] Fehler beim Laden des Plugins">admin at berlios.de
+       </A><BR>
+    <I>Sun Jul 13 18:27:18 CEST 2008</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000023.html">[Lazybones-devel] [Bug #14192] Fehler beim Laden des Plugins
+</A></li>
+        <LI>Next message: <A HREF="000025.html">[Lazybones-devel] [Bug #14192] Fehler beim Laden des Plugins
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#24">[ date ]</a>
+              <a href="thread.html#24">[ thread ]</a>
+              <a href="subject.html#24">[ subject ]</a>
+              <a href="author.html#24">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Bug #14192, was updated on 2008-Jul-13 17:21
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: reelmicha
+Assigned to : none
+Summary: Fehler beim Laden des Plugins
+
+Details: Hallo, 
+
+seit einigen Tagen bekomme ich folgende Fehlermeldung beim Starten des TV-Browsers: 
+
+Das Plugin &quot;Lazy Bones&quot; hat einen Fehler verursacht. Soll es deaktiviert werden?
+
+----- Start of stacktrace -----
+java.lang.NullPointerException
+  at lazybones.ConflictFinder.increaseTransponderUse(ConflictFinder.java:174)
+  at lazybones.ConflictFinder.findConflicts(ConflictFinder.java:102)
+  at lazybones.ConflictFinder.&lt;init&gt;(ConflictFinder.java:62)
+  at lazybones.ConflictFinder.getInstance(ConflictFinder.java:67)
+  at lazybones.TimerManager.synchronize(TimerManager.java:429)
+  at lazybones.LazyBones.synchronize(LazyBones.java:486)
+  at lazybones.LazyBones.handleTvBrowserStartFinished(LazyBones.java:335)
+  at tvbrowser.core.plugin.JavaPluginProxy.doHandleTvBrowserStartFinished(JavaPluginProxy.java:464)
+  at tvbrowser.core.plugin.AbstractPluginProxy.handleTvBrowserStartFinished(AbstractPluginProxy.java:607)
+  at tvbrowser.core.plugin.PluginProxyManager.fireTvBrowserStartFinished(PluginProxyManager.java:1036)
+  at tvbrowser.core.plugin.PluginProxyManager.fireTvBrowserStartFinished(PluginProxyManager.java:1014)
+  at tvbrowser.TVBrowser$1$1$1.run(TVBrowser.java:387)
+----- End of stacktrace -----
+
+
+Follow-Ups:
+
+Date: 2008-Jul-13 18:27
+By: hampelratte
+
+Comment:
+Das ist ein merkw&#252;rdiger Fehler. Er tritt auf, weil zu dem Timer kein passender VDR-Sender gefunden wurde. Hat sich in den letzten Tagen etwas an Deiner channels.conf ge&#228;ndert?
+
+Zum Nachvollziehen k&#246;nntest Du mal per Telnet auf den VDR gehen und mir die Ausgaben schicken / hier posten:
+
+telnet &lt;vdr-ip&gt; 2001
+lstc
+lstt
+quit
+
+Oder, falls Du schon die Version mit dem neuen Logging benutzt, kannst Du mir auch die Datei lazybones.log aus dem Konfigurationsverzeichnis vom TV-Browser, das sich in Deinem home-Verzeichnis befindet, schicken.
+-------------------------------------------------------
+
+For detailed info, follow this link:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=14192&amp;group_id=4483">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=14192&amp;group_id=4483</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000023.html">[Lazybones-devel] [Bug #14192] Fehler beim Laden des Plugins
+</A></li>
+	<LI>Next message: <A HREF="000025.html">[Lazybones-devel] [Bug #14192] Fehler beim Laden des Plugins
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#24">[ date ]</a>
+              <a href="thread.html#24">[ thread ]</a>
+              <a href="subject.html#24">[ subject ]</a>
+              <a href="author.html#24">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/lazybones-devel">More information about the Lazybones-devel
+mailing list</a><br>
+</body></html>

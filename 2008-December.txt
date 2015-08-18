@@ -1,0 +1,75 @@
+From admin at berlios.de  Mon Dec  1 16:20:56 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 1 Dec 2008 16:20:56 +0100 (CET)
+Subject: [Lazybones-devel] [Task #4272] Lizenzdatei aktualisieren
+Message-ID: <200812011520.mB1FKu8F028063@unicorn.berlios.de>
+
+Task #4272 has been updated. 
+
+Project: Lazy Bones
+Subproject: Lazy Bones
+Summary: Lizenzdatei aktualisieren
+Priority: 5
+Percent Complete: 0%
+Status: Open
+Authority  : hampelratte
+Assigned to: none
+
+Description: Lizenzdatei aktualisieren
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/pm/task.php?func=detailtask&project_task_id=4272&group_id=4483&group_project_id=1814
+
+
+From admin at berlios.de  Mon Dec  1 16:22:08 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 1 Dec 2008 16:22:08 +0100 (CET)
+Subject: [Task #4103] Antialising für TimelineElement aktvieren
+Message-ID: <200812011522.mB1FM80Y028688@unicorn.berlios.de>
+
+Task #4103 has been updated. 
+
+Project: Lazy Bones
+Subproject: Lazy Bones
+Summary: Antialising f?r TimelineElement aktvieren
+Priority: 1
+Percent Complete: 0%
+Status: Closed
+Authority  : hampelratte
+Assigned to: hampelratte
+
+Description: Wenn das irgendwie geht....
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/pm/task.php?func=detailtask&project_task_id=4103&group_id=4483&group_project_id=1814
+
+
+From admin at berlios.de  Mon Dec  1 16:47:47 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Mon, 1 Dec 2008 16:47:47 +0100 (CET)
+Subject: [Lazybones-devel] [Task #4272] Lizenzdatei aktualisieren
+Message-ID: <200812011547.mB1FllwU012487@unicorn.berlios.de>
+
+Task #4272 has been updated. 
+
+Project: Lazy Bones
+Subproject: Lazy Bones
+Summary: Lizenzdatei aktualisieren
+Priority: 5
+Percent Complete: 0%
+Status: Closed
+Authority  : hampelratte
+Assigned to: hampelratte
+
+Description: Lizenzdatei aktualisieren
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/pm/task.php?func=detailtask&project_task_id=4272&group_id=4483&group_project_id=1814
+
+

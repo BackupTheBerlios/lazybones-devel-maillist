@@ -1,0 +1,75 @@
+From admin at berlios.de  Wed Apr  8 12:43:03 2009
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 8 Apr 2009 12:43:03 +0200 (CEST)
+Subject: [Bug #15488] Änderung des Tages beim Timer-Editieren
+Message-ID: <200904081043.n38Ah3in012685@unicorn.berlios.de>
+
+Bug #15488, was updated on 2009-Apr-08 12:42
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: larsv
+Assigned to : none
+Summary: ?nderung des Tages beim Timer-Editieren
+
+Details: ?ndert man die End-Zeit eines Timers ?ber 00:00 hinaus, sollte der Tag des Timers nicht ge?ndert werden.
+
+Beispiel:
+Eine Sendung am Abend von 22:45 - 23:45.
+Neuen Timer anlegen, Voreinstellung f?r die Zeiten des Timers sind: 22:40 - 23:55.
+?ndere ich nun die Endzeit (da bei der ARD immer chronisch ?berzogen wird) von 23:55 z.B. auf 00:05, so wird die Angabe im Tag-Feld ums eins erh?ht.
+Der Timer wird zwar trotzdem korrekt angelegt (am Abend des gleichen Tags und nicht am n?chsten Tag), aber die falsche Angabe im Tag-Feld irritiert zumindest.
+
+Der Fehler d?rfte in den Zeilen 524 und 529 der TimerOptionsPanel.java liegen...
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=15488&group_id=4483
+
+
+From admin at berlios.de  Wed Apr  8 18:40:57 2009
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 8 Apr 2009 18:40:57 +0200 (CEST)
+Subject: [Bug #15488] Änderung des Tages beim Timer-Editieren
+Message-ID: <200904081640.n38Gev9Z016160@unicorn.berlios.de>
+
+Bug #15488, was updated on 2009-Apr-08 12:42
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Closed
+Resolution: Fixed
+Bug Group: None
+Priority: 5
+Submitted by: larsv
+Assigned to : hampelratte
+Summary: ?nderung des Tages beim Timer-Editieren
+
+Details: ?ndert man die End-Zeit eines Timers ?ber 00:00 hinaus, sollte der Tag des Timers nicht ge?ndert werden.
+
+Beispiel:
+Eine Sendung am Abend von 22:45 - 23:45.
+Neuen Timer anlegen, Voreinstellung f?r die Zeiten des Timers sind: 22:40 - 23:55.
+?ndere ich nun die Endzeit (da bei der ARD immer chronisch ?berzogen wird) von 23:55 z.B. auf 00:05, so wird die Angabe im Tag-Feld ums eins erh?ht.
+Der Timer wird zwar trotzdem korrekt angelegt (am Abend des gleichen Tags und nicht am n?chsten Tag), aber die falsche Angabe im Tag-Feld irritiert zumindest.
+
+Der Fehler d?rfte in den Zeilen 524 und 529 der TimerOptionsPanel.java liegen...
+
+Follow-Ups:
+
+Date: 2009-Apr-08 18:40
+By: hampelratte
+
+Comment:
+Du hast recht. Genau die Zeilen m?ssen wohl raus. Ist wohl ein Copy & Paste-Fehler.
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=15488&group_id=4483
+
+

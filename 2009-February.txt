@@ -1,0 +1,795 @@
+From admin at berlios.de  Wed Feb  4 13:55:01 2009
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 4 Feb 2009 13:55:01 +0100 (CET)
+Subject: [Feature #4471] Unterstützung von Episodentitel
+Message-ID: <200902041255.n14Ct1wX028138@unicorn.berlios.de>
+
+Feature Request #4471, was updated on 2009-Feb-04 13:55
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4471&group_id=4483
+
+Category: LazyBones
+Status: Open
+Priority: 5
+Summary: Unterst?tzung von Episodentitel
+
+By: larsv
+Date: 2009-Feb-04 13:55
+
+Message:
+Logged In: YES 
+user_id=50182
+Browser: Mozilla/5.0 (compatible; Konqueror/4.2; Linux) KHTML/4.2.0 (like Gecko)
+
+Manchmal m?chte ich beim Anlegen eines neuen Timers
+direkt den Episodentitel hinzuf?gen, also statt z.B.:
+Mit Schirm, Charme und Melone
+m?chte ich als Titel:
+Mit Schirm, Charme und Melone~84. Club der Hirne
+
+Dann wird beim Vergleich zwischen Programmtitel und Timer-
+lautet nur "84. Club der Hirne", w?hrend der Pfad des Timers
+"Mit Schirm, Charme und Melone" ist.
+Folglich pr?sentiert mir LazyBones die Anzeige zum
+Zuordnung von VDR-Programm und Timer, was auf Dauer
+ziemlich nervt.
+
+Folgender Patch bezieht den Pfad in den Titel-Vergleich mit
+ein, falls ein Pfad im Timer angegeben wurde:
+
+
+Index: src/lazybones/TimerManager.java
+===========================================
+RCS file:
+/cvsroot/lazybones/lazybones/src/lazybones/TimerManager.j
+retrieving revision 1.35
+diff -u -r1.35 TimerManager.java
+--- src/lazybones/TimerManager.java     21 Oct 2008
+19:41:35 -0000      1.35
++++ src/lazybones/TimerManager.java     4 Feb 2009
+12:53:00 -0000
+@@ -711,8 +711,14 @@
+             mta.enqueue();
+         } else {
+             if (timer.getTitle() != null) {
+-                int percentage = Utilities.percentageOfEquality(
++                int percentage;
++                if (timer.getPath() != null && timer.getPath() != "")
+{
++                    percentage = Utilities.percentageOfEquality(
++                        prog.getTitle(), timer.getPath() +
+timer.getTitle());
++                } else {
++                    percentage = Utilities.percentageOfEquality(
+                         prog.getTitle(), timer.getTitle());
++                }
+                 if (timer.getFile().indexOf("EPISODE") >= 0
+                         || timer.getFile().indexOf("TITLE") >= 0
+                         || timer.isRepeating()
+
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4471&group_id=4483
+
+
+From admin at berlios.de  Wed Feb  4 15:37:21 2009
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 4 Feb 2009 15:37:21 +0100 (CET)
+Subject: [Feature #4471] Unterstützung von Episodentitel
+Message-ID: <200902041437.n14EbL9j004572@unicorn.berlios.de>
+
+Feature Request #4471, was updated on 2009-Feb-04 13:55
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4471&group_id=4483
+
+Category: LazyBones
+Status: Closed
+Priority: 5
+Summary: Unterst?tzung von Episodentitel
+
+By: hampelratte
+Date: 2009-Feb-04 15:37
+
+Message:
+Logged In: YES 
+user_id=18663
+Browser: Mozilla/5.0 (X11; U; Linux i686; de; rv:1.9.0.5) Gecko/2008122913 Gentoo Firefox/3.0.5
+
+Hab ich so eingebaut. Danke f?r den Patch.
+
+----------------------------------------------------------------------
+
+By: larsv
+Date: 2009-Feb-04 13:55
+
+Message:
+Logged In: YES 
+user_id=50182
+Browser: Mozilla/5.0 (compatible; Konqueror/4.2; Linux) KHTML/4.2.0 (like Gecko)
+
+Manchmal m?chte ich beim Anlegen eines neuen Timers
+direkt den Episodentitel hinzuf?gen, also statt z.B.:
+Mit Schirm, Charme und Melone
+m?chte ich als Titel:
+Mit Schirm, Charme und Melone~84. Club der Hirne
+
+Dann wird beim Vergleich zwischen Programmtitel und Timer-
+lautet nur "84. Club der Hirne", w?hrend der Pfad des Timers
+"Mit Schirm, Charme und Melone" ist.
+Folglich pr?sentiert mir LazyBones die Anzeige zum
+Zuordnung von VDR-Programm und Timer, was auf Dauer
+ziemlich nervt.
+
+Folgender Patch bezieht den Pfad in den Titel-Vergleich mit
+ein, falls ein Pfad im Timer angegeben wurde:
+
+
+Index: src/lazybones/TimerManager.java
+===========================================
+RCS file:
+/cvsroot/lazybones/lazybones/src/lazybones/TimerManager.j
+retrieving revision 1.35
+diff -u -r1.35 TimerManager.java
+--- src/lazybones/TimerManager.java     21 Oct 2008
+19:41:35 -0000      1.35
++++ src/lazybones/TimerManager.java     4 Feb 2009
+12:53:00 -0000
+@@ -711,8 +711,14 @@
+             mta.enqueue();
+         } else {
+             if (timer.getTitle() != null) {
+-                int percentage = Utilities.percentageOfEquality(
++                int percentage;
++                if (timer.getPath() != null && timer.getPath() != "")
+{
++                    percentage = Utilities.percentageOfEquality(
++                        prog.getTitle(), timer.getPath() +
+timer.getTitle());
++                } else {
++                    percentage = Utilities.percentageOfEquality(
+                         prog.getTitle(), timer.getTitle());
++                }
+                 if (timer.getFile().indexOf("EPISODE") >= 0
+                         || timer.getFile().indexOf("TITLE") >= 0
+                         || timer.isRepeating()
+
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4471&group_id=4483
+
+
+From admin at berlios.de  Wed Feb  4 19:29:03 2009
+From: admin at berlios.de (admin at berlios.de)
+Date: Wed, 4 Feb 2009 19:29:03 +0100 (CET)
+Subject: [Feature #4471] Unterstützung von Episodentitel
+Message-ID: <200902041829.n14IT374018671@unicorn.berlios.de>
+
+Feature Request #4471, was updated on 2009-Feb-04 13:55
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4471&group_id=4483
+
+Category: LazyBones
+Status: Closed
+Priority: 5
+Summary: Unterst?tzung von Episodentitel
+
+By: larsv
+Date: 2009-Feb-04 19:29
+
+Message:
+Logged In: YES 
+user_id=50182
+Browser: Mozilla/5.0 (compatible; Konqueror/4.2; Linux) KHTML/4.2.0 (like Gecko)
+
+Gern. Danke f?rs rasche Einbauen.
+
+Und an dieser Stelle auch mal ein gro?es Danke f?r Lazybones als
+solches!
+
+----------------------------------------------------------------------
+
+By: hampelratte
+Date: 2009-Feb-04 15:37
+
+Message:
+Logged In: YES 
+user_id=18663
+Browser: Mozilla/5.0 (X11; U; Linux i686; de; rv:1.9.0.5) Gecko/2008122913 Gentoo Firefox/3.0.5
+
+Hab ich so eingebaut. Danke f?r den Patch.
+
+----------------------------------------------------------------------
+You can respond by visiting: 
+http://developer.berlios.de/feature/?func=detailfeature&feature_id=4471&group_id=4483
+
+
+From admin at berlios.de  Fri Feb 20 00:43:29 2009
+From: admin at berlios.de (admin at berlios.de)
+Date: Thu, 19 Feb 2009 14:43:29 -0900 (AKST)
+Subject: [Lazybones-devel] [Bug #15292] Datum bei Programmierung von
+	0-Uhr-Sendungen
+Message-ID: <200902192343.n1JNhT9H023982@unicorn.berlios.de>
+
+Bug #15292, was updated on 2009-Feb-19 14:43
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: murzl
+Assigned to : none
+Summary: Datum bei Programmierung von 0-Uhr-Sendungen 
+
+Details: Bei Programmierung von Sendungen, die um 0h beginnen, wird das Datum der vorigen Tags eingesetzt
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=15292&group_id=4483
+
+
+From admin at berlios.de  Fri Feb 20 12:44:22 2009
+From: admin at berlios.de (admin at berlios.de)
+Date: Fri, 20 Feb 2009 12:44:22 +0100 (CET)
+Subject: [Lazybones-devel] [Bug #15292] Datum bei Programmierung von
+	0-Uhr-Sendungen
+Message-ID: <200902201144.n1KBiMpR001555@unicorn.berlios.de>
+
+Bug #15292, was updated on 2009-Feb-20 00:43
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: murzl
+Assigned to : none
+Summary: Datum bei Programmierung von 0-Uhr-Sendungen 
+
+Details: Bei Programmierung von Sendungen, die um 0h beginnen, wird das Datum der vorigen Tags eingesetzt
+
+Follow-Ups:
+
+Date: 2009-Feb-20 12:44
+By: hampelratte
+
+Comment:
+Ich habe schon ein ?hnliches Problem festgestellt. Mit diesen Tageswechseln hatte ich schon ?fter Probleme. Das liegt daran, dass im TV-Browser Sendungen eine ID haben, die aber immer nur f?r einen Tag g?ltig ist. D.h. um die richtige Sendung zu finden muss man auch immer das Datum wissen und dann gibts Probleme mit dem Aufnahmepuffer usw.
+
+Kannst Du noch etwas ins Detail gehen? Wie sind deine Puffer eingestellt? Und welche Sendung hast Du wie versucht zu programmieren?
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=15292&group_id=4483
+
+
+From admin at berlios.de  Fri Feb 20 12:45:05 2009
+From: admin at berlios.de (admin at berlios.de)
+Date: Fri, 20 Feb 2009 12:45:05 +0100 (CET)
+Subject: [Lazybones-devel] [Bug #15292] Datum bei Programmierung von
+	0-Uhr-Sendungen
+Message-ID: <200902201145.n1KBj5Ba002138@unicorn.berlios.de>
+
+Bug #15292, was updated on 2009-Feb-20 00:43
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 7
+Submitted by: murzl
+Assigned to : hampelratte
+Summary: Datum bei Programmierung von 0-Uhr-Sendungen 
+
+Details: Bei Programmierung von Sendungen, die um 0h beginnen, wird das Datum der vorigen Tags eingesetzt
+
+Follow-Ups:
+
+Date: 2009-Feb-20 12:44
+By: hampelratte
+
+Comment:
+Ich habe schon ein ?hnliches Problem festgestellt. Mit diesen Tageswechseln hatte ich schon ?fter Probleme. Das liegt daran, dass im TV-Browser Sendungen eine ID haben, die aber immer nur f?r einen Tag g?ltig ist. D.h. um die richtige Sendung zu finden muss man auch immer das Datum wissen und dann gibts Probleme mit dem Aufnahmepuffer usw.
+
+Kannst Du noch etwas ins Detail gehen? Wie sind deine Puffer eingestellt? Und welche Sendung hast Du wie versucht zu programmieren?
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=15292&group_id=4483
+
+
+From admin at berlios.de  Fri Feb 20 12:55:25 2009
+From: admin at berlios.de (admin at berlios.de)
+Date: Fri, 20 Feb 2009 02:55:25 -0900 (AKST)
+Subject: [Lazybones-devel] [Bug #15292] Datum bei Programmierung von
+	0-Uhr-Sendungen
+Message-ID: <200902201155.n1KBtPU7009358@unicorn.berlios.de>
+
+Bug #15292, was updated on 2009-Feb-19 14:43
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 7
+Submitted by: murzl
+Assigned to : hampelratte
+Summary: Datum bei Programmierung von 0-Uhr-Sendungen 
+
+Details: Bei Programmierung von Sendungen, die um 0h beginnen, wird das Datum der vorigen Tags eingesetzt
+
+Follow-Ups:
+
+Date: 2009-Feb-20 02:55
+By: murzl
+
+Comment:
+Also es tritt bei VPS auf, ich habe VPS immer angekreuzt.
+Fr?her war es so, dass erst 23:55 programmiert wurde, wegen Vorlauf, dann beim Ankreuzen von VPS auf 0:00 gestellt wurde, aber das Datum nicht umgestellt. Ich denke, hier liegt der Hund begraben: n?chsten Tag einstellen, wenn bei VPS die Zeit auf 0:00 springt.
+
+Beispielsendung: gestern (heute!) 0:00 ARD "Inas Nacht"
+
+-------------------------------------------------------
+
+Date: 2009-Feb-20 02:44
+By: hampelratte
+
+Comment:
+Ich habe schon ein ?hnliches Problem festgestellt. Mit diesen Tageswechseln hatte ich schon ?fter Probleme. Das liegt daran, dass im TV-Browser Sendungen eine ID haben, die aber immer nur f?r einen Tag g?ltig ist. D.h. um die richtige Sendung zu finden muss man auch immer das Datum wissen und dann gibts Probleme mit dem Aufnahmepuffer usw.
+
+Kannst Du noch etwas ins Detail gehen? Wie sind deine Puffer eingestellt? Und welche Sendung hast Du wie versucht zu programmieren?
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=15292&group_id=4483
+
+
+From admin at berlios.de  Fri Feb 20 12:59:37 2009
+From: admin at berlios.de (admin at berlios.de)
+Date: Fri, 20 Feb 2009 12:59:37 +0100 (CET)
+Subject: [Lazybones-devel] [Bug #15292] Datum bei Programmierung von
+	0-Uhr-Sendungen
+Message-ID: <200902201159.n1KBxb3E013849@unicorn.berlios.de>
+
+Bug #15292, was updated on 2009-Feb-20 00:43
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 7
+Submitted by: murzl
+Assigned to : hampelratte
+Summary: Datum bei Programmierung von 0-Uhr-Sendungen 
+
+Details: Bei Programmierung von Sendungen, die um 0h beginnen, wird das Datum der vorigen Tags eingesetzt
+
+Follow-Ups:
+
+Date: 2009-Feb-20 12:59
+By: hampelratte
+
+Comment:
+Alles klar. Sowas hatte ich vermutet. Werds in den n?chsten Tagen fixen.
+-------------------------------------------------------
+
+Date: 2009-Feb-20 12:55
+By: murzl
+
+Comment:
+Also es tritt bei VPS auf, ich habe VPS immer angekreuzt.
+Fr?her war es so, dass erst 23:55 programmiert wurde, wegen Vorlauf, dann beim Ankreuzen von VPS auf 0:00 gestellt wurde, aber das Datum nicht umgestellt. Ich denke, hier liegt der Hund begraben: n?chsten Tag einstellen, wenn bei VPS die Zeit auf 0:00 springt.
+
+Beispielsendung: gestern (heute!) 0:00 ARD "Inas Nacht"
+
+-------------------------------------------------------
+
+Date: 2009-Feb-20 12:44
+By: hampelratte
+
+Comment:
+Ich habe schon ein ?hnliches Problem festgestellt. Mit diesen Tageswechseln hatte ich schon ?fter Probleme. Das liegt daran, dass im TV-Browser Sendungen eine ID haben, die aber immer nur f?r einen Tag g?ltig ist. D.h. um die richtige Sendung zu finden muss man auch immer das Datum wissen und dann gibts Probleme mit dem Aufnahmepuffer usw.
+
+Kannst Du noch etwas ins Detail gehen? Wie sind deine Puffer eingestellt? Und welche Sendung hast Du wie versucht zu programmieren?
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=15292&group_id=4483
+
+
+From admin at berlios.de  Fri Feb 20 17:53:30 2009
+From: admin at berlios.de (admin at berlios.de)
+Date: Fri, 20 Feb 2009 17:53:30 +0100 (CET)
+Subject: [Lazybones-devel] [Bug #15292] Datum bei Programmierung von
+	0-Uhr-Sendungen
+Message-ID: <200902201653.n1KGrU81020768@unicorn.berlios.de>
+
+Bug #15292, was updated on 2009-Feb-20 00:43
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Closed
+Resolution: None
+Bug Group: None
+Priority: 7
+Submitted by: murzl
+Assigned to : hampelratte
+Summary: Datum bei Programmierung von 0-Uhr-Sendungen 
+
+Details: Bei Programmierung von Sendungen, die um 0h beginnen, wird das Datum der vorigen Tags eingesetzt
+
+Follow-Ups:
+
+Date: 2009-Feb-20 17:53
+By: hampelratte
+
+Comment:
+Ich habe jetzt den Dialog f?r die Timeroptionen angepasst. Es wird jetzt beim Aktivieren/Deaktivieren von VPS und auch beim Ver?ndern der Startzeit der Tag des Timers angepasst, wenn das erforderlich ist. Ich denke, damit sollte das Problem gel?st sein.
+-------------------------------------------------------
+
+Date: 2009-Feb-20 12:59
+By: hampelratte
+
+Comment:
+Alles klar. Sowas hatte ich vermutet. Werds in den n?chsten Tagen fixen.
+-------------------------------------------------------
+
+Date: 2009-Feb-20 12:55
+By: murzl
+
+Comment:
+Also es tritt bei VPS auf, ich habe VPS immer angekreuzt.
+Fr?her war es so, dass erst 23:55 programmiert wurde, wegen Vorlauf, dann beim Ankreuzen von VPS auf 0:00 gestellt wurde, aber das Datum nicht umgestellt. Ich denke, hier liegt der Hund begraben: n?chsten Tag einstellen, wenn bei VPS die Zeit auf 0:00 springt.
+
+Beispielsendung: gestern (heute!) 0:00 ARD "Inas Nacht"
+
+-------------------------------------------------------
+
+Date: 2009-Feb-20 12:44
+By: hampelratte
+
+Comment:
+Ich habe schon ein ?hnliches Problem festgestellt. Mit diesen Tageswechseln hatte ich schon ?fter Probleme. Das liegt daran, dass im TV-Browser Sendungen eine ID haben, die aber immer nur f?r einen Tag g?ltig ist. D.h. um die richtige Sendung zu finden muss man auch immer das Datum wissen und dann gibts Probleme mit dem Aufnahmepuffer usw.
+
+Kannst Du noch etwas ins Detail gehen? Wie sind deine Puffer eingestellt? Und welche Sendung hast Du wie versucht zu programmieren?
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=15292&group_id=4483
+
+
+From admin at berlios.de  Sat Feb 21 09:44:38 2009
+From: admin at berlios.de (admin at berlios.de)
+Date: Fri, 20 Feb 2009 23:44:38 -0900 (AKST)
+Subject: [Lazybones-devel] [Bug #15292] Datum bei Programmierung von
+	0-Uhr-Sendungen
+Message-ID: <200902210844.n1L8icwM014209@unicorn.berlios.de>
+
+Bug #15292, was updated on 2009-Feb-19 14:43
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Closed
+Resolution: None
+Bug Group: None
+Priority: 7
+Submitted by: murzl
+Assigned to : hampelratte
+Summary: Datum bei Programmierung von 0-Uhr-Sendungen 
+
+Details: Bei Programmierung von Sendungen, die um 0h beginnen, wird das Datum der vorigen Tags eingesetzt
+
+Follow-Ups:
+
+Date: 2009-Feb-20 23:44
+By: murzl
+
+Comment:
+Seltsam, in der Maske wird jetzt richtig umgeschaltet, aber nach "OK" landet die Sendung wieder mit dem vorigen Tag im VDR, jedenfalls zeigt der "Timer" im Lazybones-Fenster es so an. Au?erdem kommt die Aufforderung, die Sendung zuzuordnen.
+
+-------------------------------------------------------
+
+Date: 2009-Feb-20 07:53
+By: hampelratte
+
+Comment:
+Ich habe jetzt den Dialog f?r die Timeroptionen angepasst. Es wird jetzt beim Aktivieren/Deaktivieren von VPS und auch beim Ver?ndern der Startzeit der Tag des Timers angepasst, wenn das erforderlich ist. Ich denke, damit sollte das Problem gel?st sein.
+-------------------------------------------------------
+
+Date: 2009-Feb-20 02:59
+By: hampelratte
+
+Comment:
+Alles klar. Sowas hatte ich vermutet. Werds in den n?chsten Tagen fixen.
+-------------------------------------------------------
+
+Date: 2009-Feb-20 02:55
+By: murzl
+
+Comment:
+Also es tritt bei VPS auf, ich habe VPS immer angekreuzt.
+Fr?her war es so, dass erst 23:55 programmiert wurde, wegen Vorlauf, dann beim Ankreuzen von VPS auf 0:00 gestellt wurde, aber das Datum nicht umgestellt. Ich denke, hier liegt der Hund begraben: n?chsten Tag einstellen, wenn bei VPS die Zeit auf 0:00 springt.
+
+Beispielsendung: gestern (heute!) 0:00 ARD "Inas Nacht"
+
+-------------------------------------------------------
+
+Date: 2009-Feb-20 02:44
+By: hampelratte
+
+Comment:
+Ich habe schon ein ?hnliches Problem festgestellt. Mit diesen Tageswechseln hatte ich schon ?fter Probleme. Das liegt daran, dass im TV-Browser Sendungen eine ID haben, die aber immer nur f?r einen Tag g?ltig ist. D.h. um die richtige Sendung zu finden muss man auch immer das Datum wissen und dann gibts Probleme mit dem Aufnahmepuffer usw.
+
+Kannst Du noch etwas ins Detail gehen? Wie sind deine Puffer eingestellt? Und welche Sendung hast Du wie versucht zu programmieren?
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=15292&group_id=4483
+
+
+From admin at berlios.de  Sat Feb 21 09:57:52 2009
+From: admin at berlios.de (admin at berlios.de)
+Date: Fri, 20 Feb 2009 23:57:52 -0900 (AKST)
+Subject: [Lazybones-devel] [Bug #15292] Datum bei Programmierung von
+	0-Uhr-Sendungen
+Message-ID: <200902210857.n1L8vqof022311@unicorn.berlios.de>
+
+Bug #15292, was updated on 2009-Feb-19 14:43
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Closed
+Resolution: None
+Bug Group: None
+Priority: 7
+Submitted by: murzl
+Assigned to : hampelratte
+Summary: Datum bei Programmierung von 0-Uhr-Sendungen 
+
+Details: Bei Programmierung von Sendungen, die um 0h beginnen, wird das Datum der vorigen Tags eingesetzt
+
+Follow-Ups:
+
+Date: 2009-Feb-20 23:57
+By: murzl
+
+Comment:
+mache ich den Kalender auf (wie fr?her) und klicke dort auf den n?chsten Tag, dann geht es (obwohl dann auch nichts anderes im "Tag"-Feld steht)
+-------------------------------------------------------
+
+Date: 2009-Feb-20 23:44
+By: murzl
+
+Comment:
+Seltsam, in der Maske wird jetzt richtig umgeschaltet, aber nach "OK" landet die Sendung wieder mit dem vorigen Tag im VDR, jedenfalls zeigt der "Timer" im Lazybones-Fenster es so an. Au?erdem kommt die Aufforderung, die Sendung zuzuordnen.
+
+-------------------------------------------------------
+
+Date: 2009-Feb-20 07:53
+By: hampelratte
+
+Comment:
+Ich habe jetzt den Dialog f?r die Timeroptionen angepasst. Es wird jetzt beim Aktivieren/Deaktivieren von VPS und auch beim Ver?ndern der Startzeit der Tag des Timers angepasst, wenn das erforderlich ist. Ich denke, damit sollte das Problem gel?st sein.
+-------------------------------------------------------
+
+Date: 2009-Feb-20 02:59
+By: hampelratte
+
+Comment:
+Alles klar. Sowas hatte ich vermutet. Werds in den n?chsten Tagen fixen.
+-------------------------------------------------------
+
+Date: 2009-Feb-20 02:55
+By: murzl
+
+Comment:
+Also es tritt bei VPS auf, ich habe VPS immer angekreuzt.
+Fr?her war es so, dass erst 23:55 programmiert wurde, wegen Vorlauf, dann beim Ankreuzen von VPS auf 0:00 gestellt wurde, aber das Datum nicht umgestellt. Ich denke, hier liegt der Hund begraben: n?chsten Tag einstellen, wenn bei VPS die Zeit auf 0:00 springt.
+
+Beispielsendung: gestern (heute!) 0:00 ARD "Inas Nacht"
+
+-------------------------------------------------------
+
+Date: 2009-Feb-20 02:44
+By: hampelratte
+
+Comment:
+Ich habe schon ein ?hnliches Problem festgestellt. Mit diesen Tageswechseln hatte ich schon ?fter Probleme. Das liegt daran, dass im TV-Browser Sendungen eine ID haben, die aber immer nur f?r einen Tag g?ltig ist. D.h. um die richtige Sendung zu finden muss man auch immer das Datum wissen und dann gibts Probleme mit dem Aufnahmepuffer usw.
+
+Kannst Du noch etwas ins Detail gehen? Wie sind deine Puffer eingestellt? Und welche Sendung hast Du wie versucht zu programmieren?
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=15292&group_id=4483
+
+
+From admin at berlios.de  Sat Feb 21 13:21:05 2009
+From: admin at berlios.de (admin at berlios.de)
+Date: Sat, 21 Feb 2009 13:21:05 +0100 (CET)
+Subject: [Lazybones-devel] [Bug #15292] Datum bei Programmierung von
+	0-Uhr-Sendungen
+Message-ID: <200902211221.n1LCL5Zi028697@unicorn.berlios.de>
+
+Bug #15292, was updated on 2009-Feb-20 00:43
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Closed
+Resolution: None
+Bug Group: None
+Priority: 7
+Submitted by: murzl
+Assigned to : hampelratte
+Summary: Datum bei Programmierung von 0-Uhr-Sendungen 
+
+Details: Bei Programmierung von Sendungen, die um 0h beginnen, wird das Datum der vorigen Tags eingesetzt
+
+Follow-Ups:
+
+Date: 2009-Feb-21 13:21
+By: hampelratte
+
+Comment:
+Das kommt davon, wenn man nicht gr?ndlich testet. Ich habs nochmal ?berarbeitet und Version 0.5.3.1 hochgeladen.
+-------------------------------------------------------
+
+Date: 2009-Feb-21 09:57
+By: murzl
+
+Comment:
+mache ich den Kalender auf (wie fr?her) und klicke dort auf den n?chsten Tag, dann geht es (obwohl dann auch nichts anderes im "Tag"-Feld steht)
+-------------------------------------------------------
+
+Date: 2009-Feb-21 09:44
+By: murzl
+
+Comment:
+Seltsam, in der Maske wird jetzt richtig umgeschaltet, aber nach "OK" landet die Sendung wieder mit dem vorigen Tag im VDR, jedenfalls zeigt der "Timer" im Lazybones-Fenster es so an. Au?erdem kommt die Aufforderung, die Sendung zuzuordnen.
+
+-------------------------------------------------------
+
+Date: 2009-Feb-20 17:53
+By: hampelratte
+
+Comment:
+Ich habe jetzt den Dialog f?r die Timeroptionen angepasst. Es wird jetzt beim Aktivieren/Deaktivieren von VPS und auch beim Ver?ndern der Startzeit der Tag des Timers angepasst, wenn das erforderlich ist. Ich denke, damit sollte das Problem gel?st sein.
+-------------------------------------------------------
+
+Date: 2009-Feb-20 12:59
+By: hampelratte
+
+Comment:
+Alles klar. Sowas hatte ich vermutet. Werds in den n?chsten Tagen fixen.
+-------------------------------------------------------
+
+Date: 2009-Feb-20 12:55
+By: murzl
+
+Comment:
+Also es tritt bei VPS auf, ich habe VPS immer angekreuzt.
+Fr?her war es so, dass erst 23:55 programmiert wurde, wegen Vorlauf, dann beim Ankreuzen von VPS auf 0:00 gestellt wurde, aber das Datum nicht umgestellt. Ich denke, hier liegt der Hund begraben: n?chsten Tag einstellen, wenn bei VPS die Zeit auf 0:00 springt.
+
+Beispielsendung: gestern (heute!) 0:00 ARD "Inas Nacht"
+
+-------------------------------------------------------
+
+Date: 2009-Feb-20 12:44
+By: hampelratte
+
+Comment:
+Ich habe schon ein ?hnliches Problem festgestellt. Mit diesen Tageswechseln hatte ich schon ?fter Probleme. Das liegt daran, dass im TV-Browser Sendungen eine ID haben, die aber immer nur f?r einen Tag g?ltig ist. D.h. um die richtige Sendung zu finden muss man auch immer das Datum wissen und dann gibts Probleme mit dem Aufnahmepuffer usw.
+
+Kannst Du noch etwas ins Detail gehen? Wie sind deine Puffer eingestellt? Und welche Sendung hast Du wie versucht zu programmieren?
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=15292&group_id=4483
+
+
+From admin at berlios.de  Sat Feb 21 14:28:28 2009
+From: admin at berlios.de (admin at berlios.de)
+Date: Sat, 21 Feb 2009 04:28:28 -0900 (AKST)
+Subject: [Lazybones-devel] [Bug #15292] Datum bei Programmierung von
+	0-Uhr-Sendungen
+Message-ID: <200902211328.n1LDSSuT001573@unicorn.berlios.de>
+
+Bug #15292, was updated on 2009-Feb-19 14:43
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Closed
+Resolution: None
+Bug Group: None
+Priority: 7
+Submitted by: murzl
+Assigned to : hampelratte
+Summary: Datum bei Programmierung von 0-Uhr-Sendungen 
+
+Details: Bei Programmierung von Sendungen, die um 0h beginnen, wird das Datum der vorigen Tags eingesetzt
+
+Follow-Ups:
+
+Date: 2009-Feb-21 04:28
+By: murzl
+
+Comment:
+Jetzt geht es, vielen Dank
+
+-------------------------------------------------------
+
+Date: 2009-Feb-21 03:21
+By: hampelratte
+
+Comment:
+Das kommt davon, wenn man nicht gr?ndlich testet. Ich habs nochmal ?berarbeitet und Version 0.5.3.1 hochgeladen.
+-------------------------------------------------------
+
+Date: 2009-Feb-20 23:57
+By: murzl
+
+Comment:
+mache ich den Kalender auf (wie fr?her) und klicke dort auf den n?chsten Tag, dann geht es (obwohl dann auch nichts anderes im "Tag"-Feld steht)
+-------------------------------------------------------
+
+Date: 2009-Feb-20 23:44
+By: murzl
+
+Comment:
+Seltsam, in der Maske wird jetzt richtig umgeschaltet, aber nach "OK" landet die Sendung wieder mit dem vorigen Tag im VDR, jedenfalls zeigt der "Timer" im Lazybones-Fenster es so an. Au?erdem kommt die Aufforderung, die Sendung zuzuordnen.
+
+-------------------------------------------------------
+
+Date: 2009-Feb-20 07:53
+By: hampelratte
+
+Comment:
+Ich habe jetzt den Dialog f?r die Timeroptionen angepasst. Es wird jetzt beim Aktivieren/Deaktivieren von VPS und auch beim Ver?ndern der Startzeit der Tag des Timers angepasst, wenn das erforderlich ist. Ich denke, damit sollte das Problem gel?st sein.
+-------------------------------------------------------
+
+Date: 2009-Feb-20 02:59
+By: hampelratte
+
+Comment:
+Alles klar. Sowas hatte ich vermutet. Werds in den n?chsten Tagen fixen.
+-------------------------------------------------------
+
+Date: 2009-Feb-20 02:55
+By: murzl
+
+Comment:
+Also es tritt bei VPS auf, ich habe VPS immer angekreuzt.
+Fr?her war es so, dass erst 23:55 programmiert wurde, wegen Vorlauf, dann beim Ankreuzen von VPS auf 0:00 gestellt wurde, aber das Datum nicht umgestellt. Ich denke, hier liegt der Hund begraben: n?chsten Tag einstellen, wenn bei VPS die Zeit auf 0:00 springt.
+
+Beispielsendung: gestern (heute!) 0:00 ARD "Inas Nacht"
+
+-------------------------------------------------------
+
+Date: 2009-Feb-20 02:44
+By: hampelratte
+
+Comment:
+Ich habe schon ein ?hnliches Problem festgestellt. Mit diesen Tageswechseln hatte ich schon ?fter Probleme. Das liegt daran, dass im TV-Browser Sendungen eine ID haben, die aber immer nur f?r einen Tag g?ltig ist. D.h. um die richtige Sendung zu finden muss man auch immer das Datum wissen und dann gibts Probleme mit dem Aufnahmepuffer usw.
+
+Kannst Du noch etwas ins Detail gehen? Wie sind deine Puffer eingestellt? Und welche Sendung hast Du wie versucht zu programmieren?
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=15292&group_id=4483
+
+

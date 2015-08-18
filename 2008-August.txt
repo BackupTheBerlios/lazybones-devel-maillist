@@ -1,0 +1,202 @@
+From admin at berlios.de  Fri Aug  8 10:04:45 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Fri, 8 Aug 2008 10:04:45 +0200 (CEST)
+Subject: [Lazybones-devel] [Task #4032] Einordnung in Kategorien fixen
+Message-ID: <200808080804.m7884j8C000581@unicorn.berlios.de>
+
+Task #4032 has been updated. 
+
+Project: Lazy Bones
+Subproject: VDRDataService
+Summary: Einordnung in Kategorien fixen
+Priority: 5
+Percent Complete: 0%
+Status: Open
+Authority  : hampelratte
+Assigned to: hampelratte
+
+Description: Wenn man das Einstellungsverzeichnis komplett l?scht, werden alle Sender in die Kategorie unbestimmt eingeordnet.
+
+Follow-Ups:
+
+-------------------------------------------------------
+Date: 2008-Aug-08 10:04
+By: hampelratte
+
+Comment:
+Ist irgendwie komisch. Scheint ein Bug im TVB zu sein. Manchmal klappt es und manchmal nicht. Was ausschlaggebend ist, wei? ich nicht.
+
+-------------------------------------------------------
+For more info, visit:
+
+http://developer.berlios.de/pm/task.php?func=detailtask&project_task_id=4032&group_id=4483&group_project_id=1815
+
+
+From admin at berlios.de  Tue Aug 19 08:29:38 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 19 Aug 2008 08:29:38 +0200 (CEST)
+Subject: [Lazybones-devel] [Bug #14254] Choose Days in a timer cause timer
+	to record the hole day
+Message-ID: <200808190629.m7J6TcUc016832@unicorn.berlios.de>
+
+Bug #14254, was updated on 2008-Jul-22 09:24
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Open
+Resolution: None
+Bug Group: None
+Priority: 5
+Submitted by: deutschem
+Assigned to : none
+Summary: Choose Days in a timer cause timer to record the hole day
+
+Details: if i select days (Monday thursday etc.) in a timer, then (i dont know when) the timer switch the settings to record the hole day, week.
+ok, again, if i start a timer and select monday and friday then everything works fine. but then, after a while if i check my timers then i see the record with days will record the hole day and so on. 
+
+Follow-Ups:
+
+Date: 2008-Aug-19 08:29
+By: deutschem
+
+Comment:
+anbei der lstt
+
+220 wellness-desktop SVDRP VideoDiskRecorder 1.6.0; Tue Aug 19 08:27:22 2008
+250-1 1:3:2008-08-19:2155:2240:50:50:Fahr mal hin:Sie ist mit Sicherheit die s&#65533;&#65533;este Stra&#65533;e der Welt. Die neue "Route du Chocolat". Sie f&#65533;hrt vom els&#65533;ssischen Retzwiller bis nach Bad Bergzabern in der S&#65533;dpfalz. An insgesamt 40 Rastpl&#65533;tzen, also Konditoreien und Chocolaterien, k&#65533;nnen Reisende in Sachen Schokolade schwelgen. Edle Schokoladen und Rumtr&#65533;ffel naschen, Pfefferpralinen kosten und den Chocolatiers bei der Zubereitung &#65533;ber die Schulter schauen. Die Idee zur "Route du Chocolat" hatten els&#65533;ssische Patissiers und Chocolatiers. Schlie&#65533;lich stammen 40 Prozent aller in Frankreich hergestellten Schokoladenprodukte aus dem Elsass. Seit dem Kinofilm "Chocolat" ist die Schokolade neu entdeckt worden. Weg vom billigen Massenprodukt mit den Standardsorten wie Vollmilch oder Trauben-Nuss. Heute denken sich Schokoladenhersteller immer neue, manchmal sogar kuriose Sorten aus. Besonders im Trend ist !
+ derzeit Schokolade mit Pfeffer oder Chiligeschmack. Der Phantasie der Chocolatiers sind keine Grenzen gesetzt. Die Zuschauer erfahren in der Sendung wie die Schokolade nach Frankreich kam, lernen dass es Schokolade lange Zeit nur zum Trinken gab und nehmen teil an einer Verkostung von Wein und Schokolade. Sie erleben in der Schule der Chocolatiers eine Abschlusspr&#65533;fung und im Luxushotel "Le Clos de D&#65533;lices" eine Massage mit fl&#65533;ssiger Schokolade.||(c) by DasErste/TV-Browser
+250-2 1:6:MTWTF--:0556:0614:50:50:MUSIK BOXX:Habt ihr Lust auf Singen und Tanzen? Dann ist die MUSIK BOXX genau das Richtige f&#65533;r euch. In der MUSIK BOXX zeigen wir von Montag bis Freitag die neuesten und besten Musik Clips von euren Lieblingsliedermachern, wie Volker Rosin, Rumpelstil, Jenny Thoms, Gr&#65533;nschnabel, Hexe Knickebein, Daniel Kallauch, Rolf Zuckowski und vielen mehr. Die Auswahl ist riesengro&#65533;!!! In der MUSIK BOXX gibt es Lieder &#65533;ber Tiere, Freundschaft, Geister, Indianer aber auch tolle Bewegungs-Lieder. Schaut mal rein, bestimmt ist auch euer Lieblingslied dabei!
+250 3 1:9:2008-08-19:1140:1240:50:50:Unkraut:* Frankenwald: Naturjuwel im Dornr&#65533;schenschlaf|* Rarit&#65533;ten: Bayerns letzte Urw&#65533;lder|* Visionen: Bioenergie f&#65533;r ein ganzes Dorf|* Invasion: Tschechische Borkenk&#65533;fer im Bayerischen Wald|* Luft&#65533;berwachung: Auf der Suche nach Waldbr&#65533;nden
+
+Zum Beispiel der MUSIK BOXX timer.
+
+-------------------------------------------------------
+
+Date: 2008-Jul-23 12:06
+By: hampelratte
+
+Comment:
+Ok, that's another case. I thought, the timer would have been changed on the VDR, too.
+
+So there seems to be a problem with the parsing of the periodical timer. The best would be, if you could send me more details on the timer, which caused the effect, so that I can reproduce the error.
+Perhaps you could connect to VDR through telnet and list the timers:
+
+telnet <ip> 2001
+lstt
+quit
+-------------------------------------------------------
+
+Date: 2008-Jul-23 08:38
+By: deutschem
+
+Comment:
+hm, when i manually look on vdr, all timer are correct. Lazy will not change the timer on vdr, but displays it in the plugin.
+
+so, if you are sure that cannot be happen, please close, this bug.
+
+by the way: thank you very much for this plugin !
+-------------------------------------------------------
+
+Date: 2008-Jul-22 17:42
+By: hampelratte
+
+Comment:
+Are you sure, that this is related to Lazy Bones? Lazy Bones won't change the timer settings unless you edit the timer manually. Maybe something went wrong, when you changed the settings of a periodical timer. Did you change the settings?
+Otherwise I can't think of a situation where this could happen.
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=14254&group_id=4483
+
+
+From admin at berlios.de  Tue Aug 19 16:09:47 2008
+From: admin at berlios.de (admin at berlios.de)
+Date: Tue, 19 Aug 2008 16:09:47 +0200 (CEST)
+Subject: [Lazybones-devel] [Bug #14254] Choose Days in a timer cause timer
+	to record the hole day
+Message-ID: <200808191409.m7JE9lrh008724@unicorn.berlios.de>
+
+Bug #14254, was updated on 2008-Jul-22 09:24
+Here is a current snapshot of the bug.
+
+Project: Lazy Bones
+Category: LazyBones
+Status: Closed
+Resolution: Fixed
+Bug Group: None
+Priority: 5
+Submitted by: deutschem
+Assigned to : none
+Summary: Choose Days in a timer cause timer to record the hole day
+
+Details: if i select days (Monday thursday etc.) in a timer, then (i dont know when) the timer switch the settings to record the hole day, week.
+ok, again, if i start a timer and select monday and friday then everything works fine. but then, after a while if i check my timers then i see the record with days will record the hole day and so on. 
+
+Follow-Ups:
+
+Date: 2008-Aug-19 16:09
+By: hampelratte
+
+Comment:
+Damit konnte ich den Fehler ausfindig machen. Er hat beim kopieren an einer Stelle immer 24 Stunden auf die Endzeit des Timers addiert. Warum er das gemacht hat, verstehe ich bis jetzt nicht, aber ich ?bergebe die Zeiten jetzt anders und es scheint zu funktionieren.
+
+Wenn Du Lust hast, kannst Du mal diese Version testen:
+http://hampelratte.org/zeugs/LazyBones.jar
+
+Ansonsten werde ich das erstmal so ?bernehmen und den Bug hier schlie?en.
+-------------------------------------------------------
+
+Date: 2008-Aug-19 08:29
+By: deutschem
+
+Comment:
+anbei der lstt
+
+220 wellness-desktop SVDRP VideoDiskRecorder 1.6.0; Tue Aug 19 08:27:22 2008
+250-1 1:3:2008-08-19:2155:2240:50:50:Fahr mal hin:Sie ist mit Sicherheit die s&#65533;&#65533;este Stra&#65533;e der Welt. Die neue "Route du Chocolat". Sie f&#65533;hrt vom els&#65533;ssischen Retzwiller bis nach Bad Bergzabern in der S&#65533;dpfalz. An insgesamt 40 Rastpl&#65533;tzen, also Konditoreien und Chocolaterien, k&#65533;nnen Reisende in Sachen Schokolade schwelgen. Edle Schokoladen und Rumtr&#65533;ffel naschen, Pfefferpralinen kosten und den Chocolatiers bei der Zubereitung &#65533;ber die Schulter schauen. Die Idee zur "Route du Chocolat" hatten els&#65533;ssische Patissiers und Chocolatiers. Schlie&#65533;lich stammen 40 Prozent aller in Frankreich hergestellten Schokoladenprodukte aus dem Elsass. Seit dem Kinofilm "Chocolat" ist die Schokolade neu entdeckt worden. Weg vom billigen Massenprodukt mit den Standardsorten wie Vollmilch oder Trauben-Nuss. Heute denken sich Schokoladenhersteller immer neue, manchmal sogar kuriose Sorten aus. Besonders im Trend ist !
+ derzeit Schokolade mit Pfeffer oder Chiligeschmack. Der Phantasie der Chocolatiers sind keine Grenzen gesetzt. Die Zuschauer erfahren in der Sendung wie die Schokolade nach Frankreich kam, lernen dass es Schokolade lange Zeit nur zum Trinken gab und nehmen teil an einer Verkostung von Wein und Schokolade. Sie erleben in der Schule der Chocolatiers eine Abschlusspr&#65533;fung und im Luxushotel "Le Clos de D&#65533;lices" eine Massage mit fl&#65533;ssiger Schokolade.||(c) by DasErste/TV-Browser
+250-2 1:6:MTWTF--:0556:0614:50:50:MUSIK BOXX:Habt ihr Lust auf Singen und Tanzen? Dann ist die MUSIK BOXX genau das Richtige f&#65533;r euch. In der MUSIK BOXX zeigen wir von Montag bis Freitag die neuesten und besten Musik Clips von euren Lieblingsliedermachern, wie Volker Rosin, Rumpelstil, Jenny Thoms, Gr&#65533;nschnabel, Hexe Knickebein, Daniel Kallauch, Rolf Zuckowski und vielen mehr. Die Auswahl ist riesengro&#65533;!!! In der MUSIK BOXX gibt es Lieder &#65533;ber Tiere, Freundschaft, Geister, Indianer aber auch tolle Bewegungs-Lieder. Schaut mal rein, bestimmt ist auch euer Lieblingslied dabei!
+250 3 1:9:2008-08-19:1140:1240:50:50:Unkraut:* Frankenwald: Naturjuwel im Dornr&#65533;schenschlaf|* Rarit&#65533;ten: Bayerns letzte Urw&#65533;lder|* Visionen: Bioenergie f&#65533;r ein ganzes Dorf|* Invasion: Tschechische Borkenk&#65533;fer im Bayerischen Wald|* Luft&#65533;berwachung: Auf der Suche nach Waldbr&#65533;nden
+
+Zum Beispiel der MUSIK BOXX timer.
+
+-------------------------------------------------------
+
+Date: 2008-Jul-23 12:06
+By: hampelratte
+
+Comment:
+Ok, that's another case. I thought, the timer would have been changed on the VDR, too.
+
+So there seems to be a problem with the parsing of the periodical timer. The best would be, if you could send me more details on the timer, which caused the effect, so that I can reproduce the error.
+Perhaps you could connect to VDR through telnet and list the timers:
+
+telnet <ip> 2001
+lstt
+quit
+-------------------------------------------------------
+
+Date: 2008-Jul-23 08:38
+By: deutschem
+
+Comment:
+hm, when i manually look on vdr, all timer are correct. Lazy will not change the timer on vdr, but displays it in the plugin.
+
+so, if you are sure that cannot be happen, please close, this bug.
+
+by the way: thank you very much for this plugin !
+-------------------------------------------------------
+
+Date: 2008-Jul-22 17:42
+By: hampelratte
+
+Comment:
+Are you sure, that this is related to Lazy Bones? Lazy Bones won't change the timer settings unless you edit the timer manually. Maybe something went wrong, when you changed the settings of a periodical timer. Did you change the settings?
+Otherwise I can't think of a situation where this could happen.
+-------------------------------------------------------
+
+For detailed info, follow this link:
+http://developer.berlios.de/bugs/?func=detailbug&bug_id=14254&group_id=4483
+
+
